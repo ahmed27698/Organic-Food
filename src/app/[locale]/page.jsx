@@ -34,7 +34,7 @@ export default async function Home() {
                         15/A, Nest Tower, NYC
                     </p>
                     <p className="flex gap-3 items-center">
-                        <CiMail className="text-green-600 text-xl" />
+                        <CiMail className="text-red-600 text-xl" />
                         info@gmail.com
                     </p>
                 </div>
