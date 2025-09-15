@@ -86,7 +86,7 @@ export default async function Home() {
                 <Image
                     width={360}
                     height={200}
-                    src="https://broccolisite.netlify.app/assets/section4-CEx2_n7H.webp"
+                    src="/hotdeals.jpg"
                     alt="image"
                 />
                 <div className="flex flex-col gap-10">
