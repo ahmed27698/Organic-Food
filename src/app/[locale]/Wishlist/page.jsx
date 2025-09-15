@@ -4,8 +4,9 @@ import { BsTwitterX ,BsInstagram  } from "react-icons/bs";
 import { FaLocationArrow , FaFacebookF , FaTiktok } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 
-import { WhishList, NavBarPages } from '../clientPage'
+import { WhishList } from '../clientPage'
 import Link from "next/link";
+import NavBarPages from "../components/NavbarPages";
 
 
 export default function page() {

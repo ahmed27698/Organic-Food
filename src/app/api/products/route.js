@@ -24,8 +24,10 @@ export async function POST(req) {
       const stream = cloudinary.uploader.upload_stream(
         {
           folder: "products",
-          use_filename: true,
-          unique_filename: false,
+          use_filename: false,
+          unique_filename: true,
+          overwrite: false,
+          public_id: `${title.replace(/\s+/g, "_")}_${Date.now()}`,
         },
         (error, result) => {
           if (error) reject(error);

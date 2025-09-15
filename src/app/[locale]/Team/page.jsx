@@ -5,8 +5,9 @@ import { FaLocationArrow , FaFacebookF , FaTiktok } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 
 import {experts} from '../../../lib/experts'
-import { NavBarPages ,ProgressExperts} from '../clientPage'
+import { ProgressExperts} from '../clientPage'
 import Link from "next/link";
+import NavBarPages from "../components/NavbarPages";
 
 
 export default function page() {

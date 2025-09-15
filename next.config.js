@@ -5,7 +5,7 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images:{
-    domains:['broccolisite.netlify.app']
+    domains:['broccolisite.netlify.app','res.cloudinary.com']
 }
 };
  

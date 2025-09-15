@@ -1,13 +1,11 @@
 import {
     ProductSlider,
-    NavBar,
-    ProductsTabs,
     CountDown,
     Count_Up,
-    FeaturedProducts,
     Blogs,
 } from "./clientPage";
-import AddingAdminProducts from "../components/AddingAdminProducts";
+import NavBar from "./components/NavBar";
+import AddingPageProducts from "./components/AddingPageProducts";
 import { CiMail } from "react-icons/ci";
 import { BsTwitterX, BsInstagram } from "react-icons/bs";
 import { FaLocationArrow, FaFacebookF, FaTiktok } from "react-icons/fa";
@@ -15,21 +13,20 @@ import { IoLocationOutline } from "react-icons/io5";
 import { FiPhoneCall } from "react-icons/fi";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import LanguageSwitcher from "../components/LanguageSwitcher";
-
+import LanguageSwitcher from "./components/LanguageSwitcher";
+import { prisma } from "../../lib/prisma";
+import { getTranslations } from "next-intl/server";
+import FeaturedProducts from "./components/FeaturedProducts";
 export default async function Home() {
-    const response = await fetch("http://localhost:3000/api/prices");
-    const pricesData = await response.json();
+    const offers = await prisma.offer.findMany({
+        orderBy: {
+            createdAt: "desc",
+        },
+    });
     const t = await getTranslations("Home");
-             
     return (
         <main>
-            <div>
-                <h1>{t("title")}</h1>
-                <Link href="/About">{t("about")}</Link>
-            </div>
             <header className='flex relative justify-between bg-[#F7F5EB] lg:px-20 md:px-10 px-4 after:content-[""] py-5 after:bg-gray-200 after:h-0.5 after:w-screen after:absolute after:bottom-0 after:right-0 '>
                 <div className="md:flex gap-10 hidden md:items-center">
                     <p className="flex gap-3 items-center">
@@ -67,25 +64,24 @@ export default async function Home() {
                 <div className="flex items-stretch overflow-hidden">
                     <img
                         className="hover:scale-110 duration-2000"
-                        src="https://broccolisite.netlify.app/assets/sectionTwo_1-CZr5JFCI.webp"
+                        src="https://broccolisite.netlify.app/assets/banner1-CZr5JFCI.webp"
                         alt="image"
                     />
                 </div>
                 <div className="flex flex-col overflow-hidden gap-5">
                     <img
                         className="hover:scale-105 duration-2000"
-                        src="https://broccolisite.netlify.app/assets/sectionTwo_2-61bValKl.webp"
+                        src="https://broccolisite.netlify.app/assets/banner2-61bValKl.webp"
                         alt="image"
                     />
                     <img
                         className="hover:scale-105 duration-2000"
-                        src="https://broccolisite.netlify.app/assets/sectionTwo_3-YnnszplM.webp"
+                        src="https://broccolisite.netlify.app/assets/banner3-YnnszplM.webp"
                         alt="image"
                     />
                 </div>
             </section>
-            <ProductsTabs />
-            <AddingAdminProducts />
+            <AddingPageProducts />
             <section className="flex md:flex-row flex-col mx-3 px-5 lg:mx-20 lg:px-10 py-20 bg-[#F7F5EB]">
                 <Image
                     width={360}
@@ -94,9 +90,9 @@ export default async function Home() {
                     alt="image"
                 />
                 <div className="flex flex-col gap-10">
-                    <p className="text-green-600">Todays Hot Deals</p>
+                    <p className="text-green-600">{t("hotDeals")}</p>
                     <p className="lg:text-5xl md:text-4xl text-3xl font-bold">
-                        Original Stock Honey Combo Package
+                        {t("product")}
                     </p>
                     <CountDown />
                 </div>
@@ -106,7 +102,7 @@ export default async function Home() {
             </section>
             <section>
                 <h2 className="font-bold text-3xl text-center">
-                    Featured Products
+                    {t("featuredProducts")}
                 </h2>
                 <FeaturedProducts />
             </section>
@@ -114,59 +110,60 @@ export default async function Home() {
                 className="flex justify-around my-10 py-10 items-center"
                 id="worldSection"
             >
-                <img
-                    loading="lazy"
+                <Image
+                    width={360}
+                    height={200}
                     className="w-3/12 md:block hidden"
                     src="https://broccolisite.netlify.app/assets/imgsec7_1-DssVxtu4.webp"
                     alt="image"
                 />
                 <div className="flex flex-col gap-5 items-center ">
                     <p className="text-green-600 font-bold">
-                        // any question you have //
+                        {t("questions")}
                     </p>
                     <p className="text-white font-bold text-4xl">
                         897-876-987-90
                     </p>
                     <div className="flex gap-3">
                         <button className="text-white bg-green-600 md:py-4 py-1 md:px-8 px-2 rounded-lg ">
-                            Make A Call
+                            {t("makeCall")}
                         </button>
                         <button className="text-white bg-transparent border-1 border-white md:py-4 py-1 md:px-8 px-2 rounded-lg ">
-                            Contact Us
+                            {t("contactUs")}
                         </button>
                     </div>
                 </div>
-                <img
-                    loading="lazy"
+                <Image
+                    width={360}
+                    height={200}
                     className="w-3/12 md:block hidden"
                     src="https://broccolisite.netlify.app/assets/imgsec7_2-BJLCDp_o.webp"
                     alt="image"
                 />
             </section>
             <section className="lg:px-10 md:px-7 px-4 my-10 text-center">
-                <p className="text-green-600">// Our Price</p>
+                <p className="text-green-600">{t("bestSelling")}</p>
                 <p className="font-extrabold text-2xl">
-                    Pricing Plan<span className="text-green-600">.</span>
+                    {t("offers")}<span className="text-green-600">.</span>
                 </p>
                 <div className="flex justify-center flex-col md:flex-row mt-10 gap-8">
-                    {pricesData.map((item) => (
+                    {offers.map((offer) => (
                         <div
-                            key={item.price}
+                            key={offer.id}
                             className="flex flex-col group gap-5 items-center hover:scale-110 duration-500 md:w-3/12 py-8 w-full shadow-2xl"
                         >
-                            <p className="font-bold text-xl ">Gardening</p>
-                            <p className="group-hover:text-green-600 bg-[#F7F5EB] w-full h-16 flex justify-center items-center font-bold text-xl">
-                                <sup>$</sup>
-                                {item.price}/M
-                            </p>
-                            <p>Lorem, ipsum.</p>
-                            <p>Alias, tempora?</p>
-                            <p>Id, repellendus!</p>
-                            <p>Quae, possimus!</p>
-                            <p>Eos, molestias?</p>
-                            <p>Architecto, natus?</p>
+                            <p className="font-bold text-xl ">{offer.title}</p>
+                            <div className="group-hover:text-green-600 bg-[#F7F5EB] w-full h-16 flex justify-around items-center font-bold text-xl">
+                                <p>
+                                    <del>{offer.originalPrice}$</del>
+                                </p>
+                                <p>{offer.discountedPrice}$</p>
+                            </div>
+
+                            <p className="px-10">{offer.description}</p>
+
                             <button className="px-10 py-3 bg-green-600 text-white">
-                                purchase
+                                {t("purchase")}
                             </button>
                         </div>
                     ))}
@@ -174,43 +171,54 @@ export default async function Home() {
             </section>
             <section>
                 <h2 className="font-bold text-4xl text-black text-center py-8">
-                    Our Trusted Partners
+                    {t("partners")}
                 </h2>
                 <Marquee speed={100} gradient={true}>
-                    <img
+                    <Image
+                        width={150}
+                        height={50}
                         className="mx-10"
                         alt="image"
                         src="data:image/webp;base64,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"
                     />
-                    <img
+                    <Image
+                        width={150}
+                        height={50}
                         className="mx-10"
                         alt="image"
                         src="data:image/webp;base64,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"
                     />
-                    <img
+                    <Image
+                        width={150}
+                        height={50}
                         className="mx-10"
                         alt="image"
                         src="data:image/webp;base64,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"
                     />
-                    <img
+                    <Image
+                        width={150}
+                        height={50}
                         className="mx-10"
                         alt="image"
                         src="data:image/webp;base64,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"
                     />
-                    <img
+                    <Image
+                        width={150}
+                        height={50}
                         className="mx-10"
                         alt="image"
                         src="data:image/webp;base64,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"
                     />
-                    <img
+                    <Image
+                        width={150}
+                        height={50}
                         className="mx-10"
                         alt="image"
                         src="data:image/webp;base64,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"
                     />
                 </Marquee>
             </section>
-            <Blogs />
-
+            <Blogs/>
             <footer className="lg:mt-30 relative">
                 <div className="flex flex-wrap lg:px-10 md:px-7 px-4 lg:absolute lg:-top-20">
                     <div className="flex items-center bg-white gap-5 w-full sm:w-6/12 lg:w-3/12 p-7 shadow-[0_0_1px_gray]">
@@ -220,10 +228,9 @@ export default async function Home() {
                             alt="image"
                         />
                         <div>
-                            <p className="font-bold">Curated Products</p>
+                            <p className="font-bold">{t("card1Title")}</p>
                             <p>
-                                Provide free home delivery for all product over
-                                $100
+                                {t("card1Desc")}
                             </p>
                         </div>
                     </div>
@@ -234,10 +241,9 @@ export default async function Home() {
                             alt="image"
                         />
                         <div>
-                            <p className="font-bold">Handmade</p>
+                            <p className="font-bold">{t("card2Title")}</p>
                             <p>
-                                We ensure the product quality that is our main
-                                goal
+                                {t("card2Desc")}
                             </p>
                         </div>
                     </div>
@@ -248,10 +254,9 @@ export default async function Home() {
                             alt="image"
                         />
                         <div>
-                            <p className="font-bold">Natural Food</p>
+                            <p className="font-bold">{t("card3Title")}</p>
                             <p>
-                                Return product within 3 days for any product you
-                                buy
+                                {t("card3Desc")}
                             </p>
                         </div>
                     </div>
@@ -262,10 +267,9 @@ export default async function Home() {
                             alt="image"
                         />
                         <div>
-                            <p className="font-bold">Free home delivery</p>
+                            <p className="font-bold">{t("card4Title")}</p>
                             <p>
-                                We ensure the product quality that you can trust
-                                easily
+                                {t("card4Desc")}
                             </p>
                         </div>
                     </div>
@@ -278,9 +282,7 @@ export default async function Home() {
                             alt=""
                         />
                         <p>
-                            Lorem Ipsum is simply dummy text of the and
-                            typesetting industry. Lorem Ipsum is dummy text of
-                            the printing.
+                            {t("footerText")}
                         </p>
                         <div className="flex gap-4 items-center">
                             <IoLocationOutline />
@@ -302,91 +304,90 @@ export default async function Home() {
                         </div>
                     </div>
                     <div className="flex flex-col gap-5 md:w-2/12">
-                        <p className="font-bold">Company</p>
+                        <p className="font-bold">{t("company")}</p>
                         <Link href="/About" className="hover:text-green-600">
-                            About
+                            {t("about")}
                         </Link>
                         <Link href="/News" className="hover:text-green-600">
-                            Blog
+                            {t("blog")}
                         </Link>
                         <Link href="/Shop" className="hover:text-green-600">
-                            AllProducts
+                            {t("allProducts")}
                         </Link>
                         <Link
                             href="/Google_Map"
                             className="hover:text-green-600"
                         >
-                            Location Map
+                            {t("locationMap")}
                         </Link>
                         <Link href="/FAQ" className="hover:text-green-600">
-                            FAQ
+                            {t("faq")}
                         </Link>
                         <Link href="/Contact" className="hover:text-green-600">
-                            Contact us
+                            {t("contactUs")}
                         </Link>
                     </div>
                     <div className="flex flex-col gap-5 md:w-2/12">
-                        <p className="font-bold">Services</p>
+                        <p className="font-bold">{t("services")}</p>
                         <Link
                             href="/Order_Tracking"
                             className="hover:text-green-600"
                         >
-                            Order tracking
+                            {t("orderTracking")}
                         </Link>
                         <Link href="/" className="hover:text-green-600">
-                            Wish List
+                            {t("wishlist")}
                         </Link>
                         <Link href="/" className="hover:text-green-600">
-                            Login
+                            {t("login")}
                         </Link>
                         <Link href="/" className="hover:text-green-600">
-                            My Account
+                            {t("myAccount")}
                         </Link>
                         <Link href="/About" className="hover:text-green-600">
-                            Terms & Conditions
+                            {t("termsConditions")}
                         </Link>
                         <Link href="/Shop" className="hover:text-green-600">
-                            Promotional Offers
+                            {t("promotionalOffers")}
                         </Link>
                     </div>
                     <div className="flex flex-col gap-5 md:w-2/12">
-                        <p className="font-bold">Customer Care</p>
+                        <p className="font-bold">{t("customerCare")}</p>
                         <Link href="/" className="hover:text-green-600">
-                            Wishlist
+                            {t("wishlist")}
                         </Link>
                         <Link href="/" className="hover:text-green-600">
-                            Login
+                            {t("login")}
                         </Link>
                         <Link href="/" className="hover:text-green-600">
-                            My Account
+                            {t("myAccount")}
                         </Link>
                         <Link href="/" className="hover:text-green-600">
-                            Order tracking
+                            {t("orderTracking")}
                         </Link>
                         <Link href="/FAQ" className="hover:text-green-600">
-                            FAQ
+                            {t("faq")}
                         </Link>
                         <Link href="/Contact" className="hover:text-green-600">
-                            Contact us
+                            {t("contactUs")}
                         </Link>
                     </div>
                     <div className="flex flex-col gap-5 md:w-2/12">
-                        <p className="font-bold">Newsletter</p>
+                        <p className="font-bold">{t("newsletter")}</p>
                         <p>
-                            Subscribe to our weekly Newsletter and receive
-                            updates via email.
+                            {t("subscribe")}
                         </p>
                         <div className="flex">
                             <input
                                 type="text"
-                                placeholder="Email*"
+                                placeholder={`${t("email")}*`}
                                 className="border-2 border-gray-50 outline-0 p-4 focus:border-green-600"
                             />
                             <button className="p-4 text-white bg-green-600">
                                 <FaLocationArrow />
                             </button>
                         </div>
-                        <p className="font-bold">We Accept</p>
+                        <p className="font-bold">{t("weAccept")}</p>
                         <img
                             src="data:image/webp;base64,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"
                             alt="visa image"
@@ -395,22 +396,21 @@ export default async function Home() {
                 </div>
                 <div className="flex md:flex-row flex-col justify-around bg-black p-8">
                     <p className="text-white">
-                        All Rights Reserved @ Company 2025
+                        {t("rights")}
                     </p>
                     <div className="flex gap-4 md:flex-row flex-col">
                         <a href="#" className="hover:text-green-500 text-white">
-                            Terms & Conditions
+                            {t("termsConditions")}
                         </a>
                         <a href="#" className="hover:text-green-500 text-white">
-                            Claim
+                            {t("claim")}
                         </a>
                         <a href="#" className="hover:text-green-500 text-white">
-                            Privacy & Policy
+                            {t("privacyPolicy")}
                         </a>
                     </div>
                 </div>
             </footer>
-            <Link href={"/tag"}>تجربه</Link>
         </main>
     );
 }

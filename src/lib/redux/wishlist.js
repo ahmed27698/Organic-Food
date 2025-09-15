@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { toast } from "sonner";
 const initialState = {
     wishListItems: [],
 };
@@ -10,7 +10,10 @@ const wishListPage = createSlice({
     reducers: {
         addWhish: (state, action) => {
             const item = action.payload;
-            const existingItem = state.wishListItems.find((i) => i.id === item.id);
+            const existingItem = state.wishListItems.find(
+                (i) => i.id === item.id
+            );
+            toast("Product added to Whishlist");
 
             if (existingItem) {
                 existingItem.quantity += 1;
@@ -24,5 +27,5 @@ const wishListPage = createSlice({
     },
 });
 
-export const { addWhish,clearWhishes} = wishListPage.actions;
+export const { addWhish, clearWhishes } = wishListPage.actions;
 export default wishListPage.reducer;

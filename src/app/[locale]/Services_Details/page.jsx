@@ -4,7 +4,7 @@ import { BsTwitterX ,BsInstagram  } from "react-icons/bs";
 import { FaLocationArrow , FaFacebookF , FaTiktok } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 
-import { NavBarPages } from '../clientPage'
+import NavBarPages from "../components/NavbarPages";
 import Link from "next/link";
 
 export default function page() {

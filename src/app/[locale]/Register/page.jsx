@@ -1,10 +1,11 @@
-import {NavBarPages, RegisterPage} from '../clientPage'
+import { RegisterPage} from '../clientPage'
 import { FiPhoneCall } from "react-icons/fi";
 import { CiMail } from "react-icons/ci";
 import { BsTwitterX ,BsInstagram  } from "react-icons/bs";
 import { FaLocationArrow,FaFacebookF,FaTiktok  } from "react-icons/fa";
 import { IoLocationOutline } from 'react-icons/io5';
 import Link from 'next/link';
+import NavBarPages from "../components/NavbarPages";
 
 export default function page() {
     return (

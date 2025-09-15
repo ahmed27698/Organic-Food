@@ -13,7 +13,6 @@ export default async function RootLayout({ children, params }) {
     notFound();
   }
 
-  // تحميل الرسائل من مجلد messages
   const messages = (await import(`../../../messages/${locale}.json`)).default;
 
   return (

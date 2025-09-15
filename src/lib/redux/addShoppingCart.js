@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { toast } from "sonner"
 const initialState = {
     cartItems: [],
 };
@@ -11,6 +11,7 @@ const cartSlice = createSlice({
         addToCart: (state, action) => {
             const item = action.payload;
             const existingItem = state.cartItems.find((i) => i.id === item.id);
+            toast("Product added to Cart");
 
             if (existingItem) {
                 existingItem.quantity += 1;
@@ -18,10 +19,10 @@ const cartSlice = createSlice({
                 state.cartItems.push({ ...item, quantity: 1 });
             }
         },
-        increaseQuantity:(state,action)=>{
+        increaseQuantity: (state, action) => {
             const id = action.payload;
-            const item = state.cartItems.find((i) => i.id === id)
-            item.quantity +=1;
+            const item = state.cartItems.find((i) => i.id === id);
+            item.quantity += 1;
         },
         removeFromCart: (state, action) => {
             const id = action.payload;
@@ -44,5 +45,11 @@ const cartSlice = createSlice({
     },
 });
 
-export const { addToCart, removeFromCart, decreaseQuantity, clearCart ,increaseQuantity} = cartSlice.actions;
+export const {
+    addToCart,
+    removeFromCart,
+    decreaseQuantity,
+    clearCart,
+    increaseQuantity,
+} = cartSlice.actions;
 export default cartSlice.reducer;

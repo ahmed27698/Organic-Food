@@ -3,7 +3,7 @@ const products = [
     supText:'100% genuine Products',
     mainText:"Tasty & HealthyOrganic Food",
     buttonOne:'Explore Products',
-    image:'https://broccolisite.netlify.app/assets/sectionOne_1-BxzRm0Ci.webp'
+    image:'https://broccolisite.netlify.app/assets/hero1-BxzRm0Ci.webp'
     },
 
     {id:2,
@@ -12,7 +12,7 @@ const products = [
     supParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.",
     buttonOne:'Explore Products',
     buttonTwo:'Learn More',
-    image:'https://broccolisite.netlify.app/assets/sectionOne_2-CA1RPugf.webp'
+    image:'https://broccolisite.netlify.app/assets/hero1-BxzRm0Ci.webp'
     
     }
 ]

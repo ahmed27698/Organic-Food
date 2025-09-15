@@ -24,15 +24,25 @@ model User {
 }
 
 model Product {
-  id          String  @id @default(auto()) @map("_id") @db.ObjectId
-  title       String @unique
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String   @unique
   price       Float
   rate        Float
   category    String
   image       String
   description String
   stock       Int
-  isFeatured  Boolean @default(false)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  isFeatured  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Offer {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  title           String
+  description     String
+  originalPrice   Float
+  discountedPrice Float
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 }

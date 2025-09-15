@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 export default function AdminProductForm() {
+  const t = useTranslations("addingproducts");
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [rate, setRate] = useState("");
@@ -45,9 +47,7 @@ export default function AdminProductForm() {
       });
 
       if (res.ok) {
-        const data = await res.json();
-        toast("Product saved successfully!");
-        // Reset form
+        toast(t("productSaved"));
         setTitle("");
         setPrice("");
         setRate("");
@@ -58,10 +58,10 @@ export default function AdminProductForm() {
         setImage(null);
       } else {
         const errData = await res.json();
-        toast(`Failed to save product: ${errData.error || "Unknown error"}`);
+        toast(`${t("productSaveFailed")} ${errData.error || "Unknown error"}`);
       }
     } catch (err) {
-      toast("Something went wrong.");
+      toast(t("somethingWentWrong"));
       console.error(err);
     }
 
@@ -74,9 +74,9 @@ export default function AdminProductForm() {
       className="p-4 space-y-1 flex gap-5 flex-wrap"
       encType="multipart/form-data"
     >
-      <div className="w-8/12">
+      <div className="w-4/12">
         <label htmlFor="title" className="block mb-1 font-semibold">
-          Product Name
+          {t("productName")}
         </label>
         <input
           type="text"
@@ -91,7 +91,7 @@ export default function AdminProductForm() {
 
       <div className="lg:w-3/12">
         <label htmlFor="price" className="block mb-1 font-semibold">
-          Price
+          {t("price")}
         </label>
         <input
           type="number"
@@ -108,7 +108,7 @@ export default function AdminProductForm() {
 
       <div className="lg:w-3/12">
         <label htmlFor="rate" className="block mb-1 font-semibold">
-          Rate
+          {t("rate")}
         </label>
         <input
           type="number"
@@ -125,7 +125,7 @@ export default function AdminProductForm() {
 
       <div className="lg:w-3/12">
         <label htmlFor="stock" className="block mb-1 font-semibold">
-          Stock
+          {t("stock")}
         </label>
         <input
           type="number"
@@ -141,7 +141,7 @@ export default function AdminProductForm() {
 
       <div className="lg:w-5/12">
         <label htmlFor="category" className="block mb-1 font-semibold">
-          Category
+          {t("category")}
         </label>
         <input
           type="text"
@@ -156,7 +156,7 @@ export default function AdminProductForm() {
 
       <div className="lg:w-full">
         <label htmlFor="description" className="block mb-1 font-semibold">
-          Description
+          {t("description")}
         </label>
         <textarea
           id="description"
@@ -169,7 +169,7 @@ export default function AdminProductForm() {
 
       <div className="lg:w-7/12">
         <label htmlFor="image" className="block mb-1 font-semibold">
-          Choose Image
+          {t("chooseImage")}
         </label>
         <input
           type="file"
@@ -190,7 +190,7 @@ export default function AdminProductForm() {
           onChange={(e) => setIsFeatured(e.target.checked)}
         />
         <label htmlFor="isFeatured" className="font-semibold">
-          Featured
+          {t("featured")}
         </label>
       </div>
 
@@ -199,7 +199,7 @@ export default function AdminProductForm() {
         disabled={uploading}
         className="bg-green-600 text-white m-auto px-4 py-2 rounded hover:bg-green-700 disabled:opacity-50"
       >
-        {uploading ? "...Please Wait" : "Save"}
+        {uploading ? t("pleaseWait") : t("save")}
       </button>
     </form>
   );

@@ -3,8 +3,9 @@ import { CiMail } from "react-icons/ci";
 import { BsTwitterX ,BsInstagram  } from "react-icons/bs";
 import { FaLocationArrow , FaFacebookF , FaTiktok } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
+import NavBarPages from "../components/NavbarPages";
 
-import { Blogs, Count_Up, NavBarPages , FAQ} from '../clientPage'
+import { Blogs, Count_Up , FAQ} from '../clientPage'
 import Link from "next/link";
 
 export default function page() {

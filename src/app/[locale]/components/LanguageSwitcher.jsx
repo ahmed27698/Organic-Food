@@ -1,6 +1,6 @@
 'use client'; 
 import { useLocale } from 'next-intl';
-import { useRouter } from '../../i18n/navigation';
+import { useRouter } from '../../../i18n/navigation';
 import { BsArrowDownShort } from "react-icons/bs";
 import {
   DropdownMenu,
@@ -8,7 +8,10 @@ import {
   DropdownMenuContent,
   DropdownMenuItem
 } from '@/components/ui/dropdown-menu';
+import { useState } from 'react';
+
 export default function LanguageSwitcher() {
+  const [isOpen, setIsOpen] = useState(false);
   const locale = useLocale();
   const languageNames = {
     en: 'English',
@@ -21,11 +24,14 @@ export default function LanguageSwitcher() {
 
   const changeLanguage = (locale) => {
     router.push('/', { locale });
+    setIsOpen(false); 
   };
+  
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center justify-center gap-2 border-1 rounded-lg p-2 border-green-600">
-        {languageNames[locale] || 'English'} <BsArrowDownShort/>
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+      <DropdownMenuTrigger className="flex items-center justify-center gap-2 rounded-lg p-2 outline-0">
+        {languageNames[locale] || 'English'} 
+        <BsArrowDownShort className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}/>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem onClick={() => changeLanguage('ar')}>

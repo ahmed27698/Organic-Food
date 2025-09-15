@@ -3,10 +3,8 @@ import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 
 import { FaStar } from "react-icons/fa6";
-import { CiHeart, CiMenuBurger } from "react-icons/ci";
 
 import { IoMdClose, IoMdRemoveCircleOutline } from "react-icons/io";
-import { FaEye, FaShoppingCart, FaUser, FaSearch } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { MdShoppingCart } from "react-icons/md";
 
@@ -16,40 +14,20 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import {
-    Sheet,
-    SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-} from "@/components/ui/sheet";
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion";
-
 import CountUp from "react-countup";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
-import { addWhish, clearWhishes } from "../../lib/redux/wishlist";
+import { clearWhishes } from "../../lib/redux/wishlist";
 import {
-    addToCart,
     removeFromCart,
     decreaseQuantity,
     clearCart,
     increaseQuantity,
 } from "../../lib/redux/addShoppingCart";
 import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export function ProductSlider() {
     const [products, setProducts] = useState([]);
@@ -132,302 +110,6 @@ export function ProductSlider() {
     );
 }
 
-export function NavBar() {
-    const [navData, setNavData] = useState({});
-    const [dropdownIndex, setDropdownIndex] = useState(null);
-
-    useEffect(() => {
-        async function fetchNavData() {
-            const res = await fetch("/api/navbar");
-            const data = await res.json();
-            setNavData(data);
-        }
-        fetchNavData();
-    }, []);
-
-    const dropdownLinks = [
-        navData.aboutLinks,
-        navData.shopLinks,
-        navData.newsLinks,
-        navData.pagesLinks,
-    ];
-
-    const toggleDd = () => {
-        document.querySelector("#userDropDown").classList.toggle("hidden");
-    };
-
-    if (!navData || Object.keys(navData).length === 0) {
-        return (
-            <nav className="lg:px-20 md:px-10 px-4 pb-5 py-5  flex  items-center justify-between bg-[#F7F5EB] animate-pulse">
-                <div className="h-10 w-32 bg-gray-300 rounded" />
-                <div className="lg:flex hidden gap-6">
-                    {[...Array(6)].map((_, i) => (
-                        <div key={i} className="h-6 w-20 bg-gray-300 rounded" />
-                    ))}
-                </div>
-                <div className="flex gap-5">
-                    <div className="h-10 w-10 bg-gray-300 rounded-full" />
-                    <div className="h-10 w-10 bg-gray-300 rounded-full" />
-                    <div className="h-10 w-10 bg-gray-300 rounded-full" />
-                </div>
-            </nav>
-        );
-    }
-
-    return (
-        <nav className="lg:px-20 md:px-10 px-4 pb-5 flex md:flex-row flex-col items-center justify-between bg-[#F7F5EB]">
-            <img src={navData.logo} alt="logo image" />
-            <div className="lg:flex hidden">
-                {navData.mainLinks?.map((link, index) => (
-                    <div
-                        key={index}
-                        onMouseEnter={() => setDropdownIndex(index)}
-                        onMouseLeave={() => setDropdownIndex(null)}
-                        className="inline-block relative"
-                    >
-                        <button className="p-5 font-medium hover:text-green-600">
-                            <Link href={`/${link.link}`}>{link.label}</Link>
-                        </button>
-
-                        {dropdownIndex === index &&
-                            dropdownLinks[index - 1] && (
-                                <ul className="absolute hidden border-green-600 border-t-4 top-15 left-0 z-10 bg-white shadow-xl px-10 w-52 py-3 md:flex flex-col gap-3">
-                                    {dropdownLinks[index - 1]?.map(
-                                        (ddLink, i) => (
-                                            <Link
-                                                href={`./${ddLink.link}`}
-                                                className="hover:text-green-600 duration-200 cursor-pointer font-medium"
-                                                key={ddLink.label}
-                                            >
-                                                {ddLink.label}
-                                            </Link>
-                                        )
-                                    )}
-                                </ul>
-                            )}
-                    </div>
-                ))}
-            </div>
-            <div className="flex gap-5">
-                <button className="h-10 w-10 bg-white shadow-lg hover:bg-green-600 hover:text-white text-xl text-black flex justify-center items-center">
-                    <FaSearch />
-                </button>
-
-                <div className="relative inline-block">
-                    <DropdownMenu>
-                        <DropdownMenuTrigger className="h-10 w-10 shadow-lg bg-white hover:bg-green-600 hover:text-white text-xl text-black flex justify-center items-center">
-                            <FaUser />
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent>
-                            <DropdownMenuItem className="flex justify-center items-center">
-                                <Link
-                                    href="/Sign_In"
-                                    className="block py-1 hover:text-green-600 font-bold"
-                                >
-                                    Sign In
-                                </Link>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem className="flex justify-center items-center">
-                                <Link
-                                    href="/Register"
-                                    className="block py-1 hover:text-green-600 font-bold"
-                                >
-                                    Register
-                                </Link>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem className="flex justify-center items-center">
-                                <Link
-                                    href="/Wishlist"
-                                    className="block py-1 hover:text-green-600 font-bold"
-                                >
-                                    WishList
-                                </Link>
-                            </DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-                </div>
-                <ShoppingOffcanvas />
-                <Sheet>
-                    <SheetTrigger className="h-10 w-10 md:hidden bg-white shadow-lg hover:bg-green-600 hover:text-white text-xl text-black flex justify-center items-center">
-                        <CiMenuBurger />
-                    </SheetTrigger>
-                    <SheetContent className="md:hidden w-full">
-                        <SheetHeader>
-                            <SheetTitle>Menu</SheetTitle>
-                            <div className="flex flex-col">
-                                {navData.mainLinks?.map((link, index) => {
-                                    const hasSubLinks =
-                                        dropdownLinks[index - 1]?.length > 0;
-
-                                    return (
-                                        <div
-                                            key={index}
-                                            className="border-b border-gray-200"
-                                        >
-                                            {hasSubLinks ? (
-                                                <Accordion
-                                                    type="single"
-                                                    collapsible
-                                                >
-                                                    <AccordionItem
-                                                        value={`item-${index}`}
-                                                        className="border-0"
-                                                    >
-                                                        <AccordionTrigger className="hover:text-green-600 p-4 font-medium flex items-center justify-between">
-                                                            <Link href={`/${link.link}`}>
-                                                                {link.label}
-                                                            </Link>
-                                                        </AccordionTrigger>
-                                                        <AccordionContent>
-                                                            <ul className="flex flex-col gap-2 pl-4 pb-2">
-                                                                {dropdownLinks[
-                                                                    index - 1
-                                                                ]?.map(
-                                                                    (
-                                                                        ddLink,
-                                                                        i
-                                                                    ) => (
-                                                                        <Link
-                                                                            key={
-                                                                                i
-                                                                            }
-                                                                            href={`./${ddLink.link}`}
-                                                                            className="hover:text-green-600 duration-200 cursor-pointer font-medium py-2"
-                                                                        >
-                                                                            {
-                                                                                ddLink.label
-                                                                            }
-                                                                        </Link>
-                                                                    )
-                                                                )}
-                                                            </ul>
-                                                        </AccordionContent>
-                                                    </AccordionItem>
-                                                </Accordion>
-                                            ) : (
-                                                <Link
-                                                    href={`/${link.link}`}
-                                                    className="hover:text-green-600 p-4 font-medium flex items-center"
-                                                >
-                                                    {link.label}
-                                                </Link>
-                                            )}
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </SheetHeader>
-                    </SheetContent>
-                </Sheet>
-            </div>
-        </nav>
-    );
-}
-
-export function NavBarPages(props) {
-    const [navData, setNavData] = useState({});
-    const [dropdownIndex, setDropdownIndex] = useState(null);
-
-    useEffect(() => {
-        async function fetchNavData() {
-            const res = await fetch("/api/navbarPages");
-            const data = await res.json();
-            setNavData(data);
-        }
-        fetchNavData();
-    }, []);
-
-    const dropdownLinks = [
-        navData.aboutLinks,
-        navData.shopLinks,
-        navData.newsLinks,
-        navData.pagesLinks,
-    ];
-    const toggleDd = () => {
-        document.querySelector("#userDropDown").classList.toggle("hidden");
-    };
-
-    return (
-        <nav className="lg:px-20 md:px-10 px-4 py-5 fixed left-0 w-screen z-9 flex md:flex-row flex-col items-center justify-between bg-[#081B1E]">
-            <Link href={props.navLink}>
-                <img
-                    src="data:image/webp;base64,UklGRiIEAABXRUJQVlA4WAoAAAAQAAAAmQAAKQAAQUxQSOgCAAABkGJr25xI3xKyhCwhS4iLbHZQOYcFNBLXsVGFxNUY3cTX0FM0yDh+i+KXce855Pu//6UYejIR4UCSpLaZQwmQPAoEf0H+n0Y2uWheAKBmSfbb60AP+HmMDTBjcDBi17fFBdACQB9hAWCfUETi5fzpMEakkjJZhKQ5C9zZ0xCrDVTkeu8OKxq8nH12N6AvTEpo1iKS3AL4ZtPWY3QKf3GnOUC/lVKyNWxM01aZFZdAdKuztuLBIwgk9Ide90A7Ml/vRpFualC0bgB837AiEdkYdbQRbYB7D72p/D0AHEGh8cvgay96hNEFLAejoRacSEyWInKVKixOStDUYbYSGzTFDlasFY1p4gtKJCrLMbH60AmCSO9Zps0wsgyBItppdKPgYJusKZG4LIXf3iQiklR+k4fM4quovYnzL7W+XCFT/V1MRVTL3dVStNqEESFkGQDs7z6NO2UZcp8dAYaljJgOvdW3Ov3ECiVVGJ9GS4gwsiRjxm0qkvuAbzKyYVdDa1CbjVG3cvVKZGl96FN154QII8sR7HwRybzNymbnxtBeLyEiYjdhQ+fFHKHqQ0wJEUaWwVvtIQvTWlFSpzX6YyRY245Toq+2RXhZgm+AkXlICjfiJYIt8ULwEnHs4nQmvCyHM3YyqYyDikNrO4LOZn7kipcluAdW1m4qbiQbax/Fx2S3cVqTj8kugXer1rsat6sSPmPp4miFwWze3j5N3CEaQoSRZUgBzGBEngCY3KMUkmIgsu0usSf60UZ15IQIIxsnmEIsDO5lBSRuIgeYeaEeFTGP0PBjz0FPi84JEUaWogKQb4xiqfAtTSVCNJxE+IDx2hEi1HhNkXhgmxndaZqP1Y5jKGKc7Rwn2NwZKc+dHIkrJMY5zwuTsbQMUynlEWBw3VyEQKTm59LrmhChZElUlkr6hIVcl1A1Pif3+t/HlYnkG4CvifrFVK5NVA7YTyT/hq9yfaL8BrzfSDpL5RpFPqsOe/+oQgBWUDggFAEAABAKAJ0BKpoAKgA+kUKaSCWkoqEmeA34sBIJYwLgA+gAtGzIDbMbjDeIN5IAg9/rVTl/WhT4NGfKfS8KNbPmiwSb3xfl/LBobJWI1smdeTb7L1XpMcBepHrAAP71B//+Q5fokpdiPQgtaT/Pe/qG2R+vBVAEx97Kj3KlD1u8/4mZn03ztrSocR39GrGFQmT/3Ckob//71uI8C5Yn/70MQar/+ox16ajcI8Ho72yg6CEa9cIGyPmZsScpd2jktmbTRjIHwikbMAxibTtF986edVcAZmXBwHNoB0/wHj56bjmUdvgqWO29EEDDLMXwvThd+8gvHHmZ/8BrDY/a+4rZwaLrx6IM+T4EcTOfZjFt//x54AAAAA=="
-                    alt="logo image"
-                />
-            </Link>
-            <div className="lg:flex hidden">
-                {navData.mainLinks?.map((link, index) => (
-                    <div
-                        key={index}
-                        onMouseEnter={() => setDropdownIndex(index)}
-                        onMouseLeave={() => setDropdownIndex(null)}
-                        className="inline-block relative"
-                    >
-                        <button className="p-5 font-medium text-white hover:text-green-600">
-                            <Link href={`/${link.link}`}>{link.label}</Link>
-                        </button>
-
-                        {dropdownIndex === index &&
-                            dropdownLinks[index - 1] && (
-                                <ul className="absolute hidden border-green-600 border-t-4 top-15 left-0 z-10 bg-white shadow-xl px-10 w-52 py-3 md:flex flex-col gap-3">
-                                    {dropdownLinks[index - 1]?.map((link) => (
-                                        <Link
-                                            href={`./${link.link}`}
-                                            className="hover:text-green-600 duration-200 cursor-pointer font-medium"
-                                            key={link.label}
-                                        >
-                                            {link.label}
-                                        </Link>
-                                    ))}
-                                </ul>
-                            )}
-                    </div>
-                ))}
-            </div>
-            <div className="flex gap-5">
-                <button className="h-10 w-10 bg-white shadow-lg hover:bg-green-600 hover:text-white text-xl text-black flex justify-center items-center">
-                    <FaSearch />
-                </button>
-
-                <div className="relative inline-block ">
-                    <DropdownMenu>
-                        <DropdownMenuTrigger className="h-10 w-10 shadow-lg bg-white hover:bg-green-600 hover:text-white text-xl text-black flex justify-center items-center">
-                            <FaUser />
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent className="z-10 ">
-                            <DropdownMenuItem className="flex justify-center items-center">
-                                <Link
-                                    href="/Sign_In"
-                                    className="block py-1 hover:text-green-600 font-bold"
-                                >
-                                    Sign In
-                                </Link>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem className="flex justify-center items-center">
-                                <Link
-                                    href="/Register"
-                                    className="block py-1 hover:text-green-600 font-bold"
-                                >
-                                    Register
-                                </Link>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem className="flex justify-center items-center">
-                                <Link
-                                    href="/Wishlist"
-                                    className="block py-1 hover:text-green-600 font-bold"
-                                >
-                                    WishList
-                                </Link>
-                            </DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-                </div>
-                <ShoppingOffcanvas />
-            </div>
-        </nav>
-    );
-}
-
 export function Cart() {
     const cartItems = useSelector((state) => state.cart.cartItems);
     const dispatch = useDispatch();
@@ -502,7 +184,7 @@ export function WhishList() {
         <div className=" mt-10 ">
             {wishListItems.length === 0 ? (
                 <div className="ml-10 font-bold text-3xl text-green-600">
-                    <p>Cart is Empty</p>
+                    <p>Whishlist is Empty</p>
                 </div>
             ) : (
                 wishListItems.map((item) => (
@@ -510,10 +192,12 @@ export function WhishList() {
                         key={item.id}
                         className="flex items-center w-10/12 gap-4 my-5 py-10 px-5 rounded shadow mx-auto"
                     >
-                        <img
-                            src={item.thumbnail}
+                        <Image
+                            src={item.image}
                             alt="Product"
-                            className="w-2/12 rounded-lg object-cover"
+                            width={150}
+                            height={150}
+                            className=" rounded-lg object-cover"
                         />
                         <div className="flex-1">
                             <h2 className="text-lg font-semibold mb-2">
@@ -588,15 +272,15 @@ export function ShoppingOffcanvas() {
                                     href={`/${item.id}`}
                                     className="w-16 h-16 bg-gray-100 rounded-md flex items-center justify-center"
                                 >
-                                    {item.thumbnail ? (
+                                    {item.image ? (
                                         <img
-                                            src={item.thumbnail}
+                                            src={item.image}
                                             alt={item.title}
                                             className="w-full h-full object-cover rounded-md"
                                         />
                                     ) : (
                                         <span className="text-gray-400 text-xs">
-                                            لا يوجد صورة
+                                            No Image
                                         </span>
                                     )}
                                 </Link>
@@ -605,10 +289,10 @@ export function ShoppingOffcanvas() {
                                         {item.title}
                                     </h2>
                                     <p className="text-sm text-gray-500">
-                                        الكمية: {item.quantity}
+                                        Quantity: {item.quantity}
                                     </p>
                                     <p className="text-sm font-semibold text-gray-700">
-                                        {item.price} جنيه
+                                        {item.price} Egp
                                     </p>
                                 </div>
                             </div>
@@ -619,7 +303,7 @@ export function ShoppingOffcanvas() {
                                         dispatch(decreaseQuantity(item.id))
                                     }
                                     className="p-2 text-gray-600 hover:text-red-500 transition-colors"
-                                    aria-label="تقليل الكمية"
+                                    aria-label="Decrease Quantity"
                                 >
                                     <IoMdRemoveCircleOutline className="w-5 h-5" />
                                 </button>
@@ -629,7 +313,7 @@ export function ShoppingOffcanvas() {
                                         dispatch(removeFromCart(item.id))
                                     }
                                     className="p-2 text-gray-600 hover:text-red-500 transition-colors"
-                                    aria-label="حذف المنتج"
+                                    aria-label="Delete Item"
                                 >
                                     <RiDeleteBin6Line className="w-5 h-5" />
                                 </button>
@@ -658,614 +342,8 @@ export function ShoppingOffcanvas() {
     );
 }
 
-export function ProductsTabs() {
-    const [activeTap, setActiveTap] = useState("Beauty");
-
-    const [beautyData, setBeautyData] = useState([]);
-    const [homeDecorationData, setHomeDecorationData] = useState([]);
-    const [groceriesData, setGroceriesData] = useState([]);
-    const [vegetablesData, setVegetablesData] = useState([]);
-    const [drinksData, setDrinksData] = useState([]);
-
-    const [hoveredProduct, setHoveredProduct] = useState(null);
-    const dispatch = useDispatch();
-    const totalStars = 5;
-
-    const categories = [
-        "Beauty",
-        "Home-Decoration",
-        "Groceries",
-        "Vegetables",
-        "Drink",
-    ];
-    const beautyKeywords = [
-        "Essence Mascara Lash Princess",
-        "Eyeshadow Palette with Mirror",
-        "Powder Canister",
-        "Red Lipstick",
-        "Red Nail Polish",
-        "Calvin Klein CK One",
-        "Chanel Coco Noir Eau De",
-        "Dior J'adore",
-    ];
-    useEffect(() => {
-        const beautyCategory = async function () {
-            let allProducts = [];
-            for (const beautyWord of beautyKeywords) {
-                const response = await fetch(
-                    `https://dummyjson.com/products/search?q=${beautyWord}`
-                );
-                const beautyProductData = await response.json();
-                if (beautyProductData.products) {
-                    allProducts = [
-                        ...allProducts,
-                        ...beautyProductData.products,
-                    ];
-                }
-            }
-
-            setBeautyData(allProducts);
-        };
-        beautyCategory();
-    }, []);
-    const furnitureKeywords = [
-        "Tissue Paper Box",
-        "Pure and refreshing bottled water, essential for staying hydrated throughout the day.",
-        "Decoration Swing",
-        "Family Tree Photo Frame",
-        "House Showpiece Plant",
-        "Plant Pot",
-        "Table Lamp",
-        "Bamboo Spatula",
-    ];
-    useEffect(() => {
-        const homeDecorationCategory = async function () {
-            let allProducts = [];
-            for (const furnitureWord of furnitureKeywords) {
-                const response = await fetch(
-                    `https://dummyjson.com/products/search?q=${furnitureWord}`
-                );
-                const furnitureData = await response.json();
-                if (furnitureData.products) {
-                    allProducts = [...allProducts, ...furnitureData.products];
-                }
-            }
-
-            setHomeDecorationData(allProducts);
-        };
-        homeDecorationCategory();
-    }, []);
-    const groceriesKeywords = [
-        "Beef Steak",
-        "Cat Food",
-        "Chicken Meat",
-        "Cooking Oil",
-        "Cucumber",
-        "Dog Food",
-        "Fresh eggs, a versatile ingredient for baking, cooking, or breakfast.",
-        "Fish Steak",
-    ];
-    useEffect(() => {
-        const groceriesCategory = async function () {
-            let allProducts = [];
-            for (const groceryKeyword of groceriesKeywords) {
-                const response = await fetch(
-                    `https://dummyjson.com/products/search?q=${groceryKeyword}`
-                );
-                const groceriesData = await response.json();
-                if (groceriesData.products) {
-                    allProducts = [...allProducts, ...groceriesData.products];
-                }
-                setGroceriesData(allProducts);
-            }
-        };
-        groceriesCategory();
-    }, []);
-    const vegetablesKeywords = [
-        "Green Bell Pepper",
-        "Green Chili Pepper",
-        "Honey Jar",
-        "Ice Cream",
-        "Refreshing fruit juice, packed with vitamins and great for staying hydrated",
-        "Kiwi",
-        "Lemon",
-        "Milk",
-    ];
-    useEffect(() => {
-        const vegetablesCategory = async function () {
-            let allProducts = [];
-            for (const vegetableKeyword of vegetablesKeywords) {
-                const response = await fetch(
-                    `https://dummyjson.com/products/search?q=${vegetableKeyword}`
-                );
-                const vegetablesData = await response.json();
-                if (vegetablesData.products) {
-                    allProducts = [...allProducts, ...vegetablesData.products];
-                }
-                setVegetablesData(allProducts);
-            }
-        };
-        vegetablesCategory();
-    }, []);
-    const drinksKeywords = [
-        "Mulberry",
-        "Nescafe Coffee",
-        "Potatoes",
-        "Protein Powder",
-        "Red Onions",
-        "rice",
-        "Soft Drinks",
-        "Strawberry",
-    ];
-    useEffect(() => {
-        const drinksCategory = async function () {
-            let allProducts = [];
-            for (const drinkKeyword of drinksKeywords) {
-                const response = await fetch(
-                    `https://dummyjson.com/products/search?q=${drinkKeyword}`
-                );
-                const drinksData = await response.json();
-                if (drinksData.products) {
-                    allProducts = [...allProducts, ...drinksData.products];
-                }
-                setDrinksData(allProducts);
-            }
-        };
-        drinksCategory();
-    }, []);
-    return (
-        <section className="my-16">
-            <div className="lg:px-20 md:px-10 px-4 flex justify-center flex-wrap gap-7 items-center">
-                {categories.map((category) => (
-                    <button
-                        key={category}
-                        onClick={() => {
-                            setActiveTap(category);
-                        }}
-                        className={`md:text-2xl text-lg font-bold py-5 grow ${
-                            activeTap === category
-                                ? "border-green-600 border-b-2 focus:text-green-600"
-                                : "border-b-2 border-transparent"
-                        }`}
-                    >
-                        {category}
-                    </button>
-                ))}
-            </div>
-            <div className="pt-10 lg:px-20 md:px-10 px-4 gap-5 flex md:flex-row flex-col justify-center items-center flex-wrap">
-                {activeTap === "Beauty" &&
-                    beautyData.map((product) => (
-                        <div
-                            key={product.id}
-                            className="relative lg:w-[calc(25%-1rem)] md:w-[calc(50%-1rem)] flex-col w-full shadow flex justify-center items-center"
-                            onMouseEnter={() => setHoveredProduct(product.id)}
-                            onMouseLeave={() => setHoveredProduct(null)}
-                        >
-                            <Link
-                                href={`/${product.id}`}
-                                className="flex justify-center items-center py-5 flex-col"
-                            >
-                                <span
-                                    className={`absolute top-0 right-0 p-3 rounded-br-2xl rounded-tl-2xl flex justify-center items-center ${
-                                        product.stock <= 10
-                                            ? "bg-red-600"
-                                            : product.stock < 20
-                                            ? "bg-amber-600"
-                                            : "bg-green-600"
-                                    }`}
-                                >
-                                    {product.stock <= 10
-                                        ? "Out Of Stock"
-                                        : product.stock < 20
-                                        ? "Low Stock"
-                                        : "In Stock"}
-                                </span>
-
-                                <img src={product.thumbnail} alt="image" />
-                                <p>{product.title}</p>
-                                <div>
-                                    <p>{product.price}</p>
-                                </div>
-                                <div className="flex justify-center">
-                                    {Array.from({ length: totalStars }).map(
-                                        (_, i) => (
-                                            <span
-                                                key={i}
-                                                className={
-                                                    i < product.rating
-                                                        ? "text-yellow-400"
-                                                        : "text-gray-300"
-                                                }
-                                            >
-                                                <FaStar />
-                                            </span>
-                                        )
-                                    )}
-                                </div>
-                            </Link>
-                            <div
-                                className={`absolute z-11111 bottom-0 grow flex justify-center gap-5 ${
-                                    hoveredProduct === product.id
-                                        ? "opacity-100 bottom-6/12 duration-500"
-                                        : "opacity-0 bottom-0"
-                                }`}
-                            >
-                                <button className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full">
-                                    <FaEye />
-                                </button>
-                                <button
-                                    onClick={() => dispatch(addToCart(product))}
-                                    className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full"
-                                >
-                                    <FaShoppingCart />
-                                </button>
-                                <button
-                                    onClick={() => dispatch(addWhish(product))}
-                                    className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full"
-                                >
-                                    <CiHeart />
-                                </button>
-                            </div>
-                        </div>
-                    ))}
-                {activeTap === "Home-Decoration" &&
-                    homeDecorationData.map((product) => (
-                        <div
-                            key={product.id}
-                            className="relative lg:w-[calc(25%-1rem)] md:w-[calc(50%-1rem)] flex-col w-full shadow flex justify-center items-center"
-                            onMouseEnter={() => setHoveredProduct(product.id)}
-                            onMouseLeave={() => setHoveredProduct(null)}
-                        >
-                            <Link
-                                href={`/${product.id}`}
-                                className="flex-col flex justify-center items-center"
-                            >
-                                <span
-                                    className={`absolute top-0 right-0 p-3 rounded-br-2xl rounded-tl-2xl flex justify-center items-center ${
-                                        product.stock <= 10
-                                            ? "bg-red-600"
-                                            : product.stock < 20
-                                            ? "bg-amber-600"
-                                            : "bg-green-600"
-                                    }`}
-                                >
-                                    {product.stock <= 10
-                                        ? "Out Of Stock"
-                                        : product.stock < 20
-                                        ? "Low Stock"
-                                        : "In Stock"}
-                                </span>
-                                <div
-                                    className={`absolute z-11111 bottom-0 grow flex justify-center gap-5 ${
-                                        hoveredProduct === product.id
-                                            ? "opacity-100 bottom-6/12 duration-500"
-                                            : "opacity-0 bottom-0"
-                                    }`}
-                                >
-                                    <button className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full">
-                                        <FaEye />
-                                    </button>
-                                    <button
-                                        onClick={() =>
-                                            dispatch(addToCart(product))
-                                        }
-                                        className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full"
-                                    >
-                                        <FaShoppingCart />
-                                    </button>
-                                    <button
-                                        onClick={() =>
-                                            dispatch(addWhish(product))
-                                        }
-                                        className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full"
-                                    >
-                                        <CiHeart />
-                                    </button>
-                                </div>
-                                <img src={product.thumbnail} alt="image" />
-                                <p>{product.title}</p>
-                                <div>
-                                    <p>{product.price}</p>
-                                </div>
-                                <div className="flex justify-center">
-                                    {Array.from({ length: totalStars }).map(
-                                        (_, i) => (
-                                            <span
-                                                key={i}
-                                                className={
-                                                    i < product.rating
-                                                        ? "text-yellow-400"
-                                                        : "text-gray-300"
-                                                }
-                                            >
-                                                <FaStar />
-                                            </span>
-                                        )
-                                    )}
-                                </div>
-                            </Link>
-                            <div
-                                className={`absolute z-11111 bottom-0 grow flex justify-center gap-5 ${
-                                    hoveredProduct === product.id
-                                        ? "opacity-100 bottom-6/12 duration-500"
-                                        : "opacity-0 bottom-0"
-                                }`}
-                            >
-                                <button className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full">
-                                    <FaEye />
-                                </button>
-                                <button
-                                    onClick={() => dispatch(addToCart(product))}
-                                    className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full"
-                                >
-                                    <FaShoppingCart />
-                                </button>
-                                <button
-                                    onClick={() => dispatch(addWhish(product))}
-                                    className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full"
-                                >
-                                    <CiHeart />
-                                </button>
-                            </div>
-                        </div>
-                    ))}
-                {activeTap === "Groceries" &&
-                    groceriesData.map((product) => (
-                        <div
-                            key={product.id}
-                            className="relative lg:w-[calc(25%-1rem)] md:w-[calc(50%-1rem)] flex-col w-full shadow flex justify-center items-center"
-                            onMouseEnter={() => setHoveredProduct(product.id)}
-                            onMouseLeave={() => setHoveredProduct(null)}
-                        >
-                            <Link
-                                href={`/${product.id}`}
-                                className="flex-col flex justify-center items-center"
-                            >
-                                <span
-                                    className={`absolute top-0 right-0 p-3 rounded-br-2xl rounded-tl-2xl flex justify-center items-center ${
-                                        product.stock <= 10
-                                            ? "bg-red-600"
-                                            : product.stock < 20
-                                            ? "bg-amber-600"
-                                            : "bg-green-600"
-                                    }`}
-                                >
-                                    {product.stock <= 10
-                                        ? "Out Of Stock"
-                                        : product.stock < 20
-                                        ? "Low Stock"
-                                        : "In Stock"}
-                                </span>
-
-                                <img src={product.thumbnail} alt="image" />
-                                <p>{product.title}</p>
-                                <div>
-                                    <p>{product.price}</p>
-                                </div>
-                                <div className="flex justify-center">
-                                    {Array.from({ length: totalStars }).map(
-                                        (_, i) => (
-                                            <span
-                                                key={i}
-                                                className={
-                                                    i < product.rating
-                                                        ? "text-yellow-400"
-                                                        : "text-gray-300"
-                                                }
-                                            >
-                                                <FaStar />
-                                            </span>
-                                        )
-                                    )}
-                                </div>
-                            </Link>
-                            <div
-                                className={`absolute z-11111 bottom-0 grow flex justify-center gap-5 ${
-                                    hoveredProduct === product.id
-                                        ? "opacity-100 bottom-6/12 duration-500"
-                                        : "opacity-0 bottom-0"
-                                }`}
-                            >
-                                <button className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full">
-                                    <FaEye />
-                                </button>
-                                <button
-                                    onClick={() => dispatch(addToCart(product))}
-                                    className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full"
-                                >
-                                    <FaShoppingCart />
-                                </button>
-                                <button
-                                    onClick={() => dispatch(addWhish(product))}
-                                    className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full"
-                                >
-                                    <CiHeart />
-                                </button>
-                            </div>
-                        </div>
-                    ))}
-                {activeTap === "Vegetables" &&
-                    vegetablesData.map((product) => (
-                        <div
-                            key={product.id}
-                            className="relative lg:w-[calc(25%-1rem)] md:w-[calc(50%-1rem)] flex-col w-full shadow flex justify-center items-center"
-                            onMouseEnter={() => setHoveredProduct(product.id)}
-                            onMouseLeave={() => setHoveredProduct(null)}
-                        >
-                            <Link
-                                href={`/${product.id}`}
-                                className="flex-col flex justify-center items-center"
-                            >
-                                <span
-                                    className={`absolute top-0 right-0 p-3 rounded-br-2xl rounded-tl-2xl flex justify-center items-center ${
-                                        product.stock <= 10
-                                            ? "bg-red-600"
-                                            : product.stock < 20
-                                            ? "bg-amber-600"
-                                            : "bg-green-600"
-                                    }`}
-                                >
-                                    {product.stock <= 10
-                                        ? "Out Of Stock"
-                                        : product.stock < 20
-                                        ? "Low Stock"
-                                        : "In Stock"}
-                                </span>
-                                <div
-                                    className={`absolute z-11111 bottom-0 grow flex justify-center gap-5 ${
-                                        hoveredProduct === product.id
-                                            ? "opacity-100 bottom-6/12 duration-500"
-                                            : "opacity-0 bottom-0"
-                                    }`}
-                                >
-                                    <button className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full">
-                                        <FaEye />
-                                    </button>
-                                    <button
-                                        onClick={() =>
-                                            dispatch(addToCart(product))
-                                        }
-                                        className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full"
-                                    >
-                                        <FaShoppingCart />
-                                    </button>
-                                    <button
-                                        onClick={() =>
-                                            dispatch(addWhish(product))
-                                        }
-                                        className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full"
-                                    >
-                                        <CiHeart />
-                                    </button>
-                                </div>
-                                <img src={product.thumbnail} alt="image" />
-                                <p>{product.title}</p>
-                                <div>
-                                    <p>{product.price}</p>
-                                </div>
-                                <div className="flex justify-center">
-                                    {Array.from({ length: totalStars }).map(
-                                        (_, i) => (
-                                            <span
-                                                key={i}
-                                                className={
-                                                    i < product.rating
-                                                        ? "text-yellow-400"
-                                                        : "text-gray-300"
-                                                }
-                                            >
-                                                <FaStar />
-                                            </span>
-                                        )
-                                    )}
-                                </div>
-                            </Link>
-                            <div
-                                className={`absolute z-11111 bottom-0 grow flex justify-center gap-5 ${
-                                    hoveredProduct === product.id
-                                        ? "opacity-100 bottom-6/12 duration-500"
-                                        : "opacity-0 bottom-0"
-                                }`}
-                            >
-                                <button className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full">
-                                    <FaEye />
-                                </button>
-                                <button
-                                    onClick={() => dispatch(addToCart(product))}
-                                    className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full"
-                                >
-                                    <FaShoppingCart />
-                                </button>
-                                <button
-                                    onClick={() => dispatch(addWhish(product))}
-                                    className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full"
-                                >
-                                    <CiHeart />
-                                </button>
-                            </div>
-                        </div>
-                    ))}
-                {activeTap === "Drink" &&
-                    drinksData.map((product) => (
-                        <div
-                            key={product.id}
-                            className="relative lg:w-[calc(25%-1rem)] md:w-[calc(50%-1rem)] flex-col w-full shadow flex justify-center items-center"
-                            onMouseEnter={() => setHoveredProduct(product.id)}
-                            onMouseLeave={() => setHoveredProduct(null)}
-                        >
-                            <Link
-                                href={`/${product.id}`}
-                                className="flex-col flex justify-center items-center"
-                            >
-                                <span
-                                    className={`absolute top-0 right-0 p-3 rounded-br-2xl rounded-tl-2xl flex justify-center items-center ${
-                                        product.stock <= 10
-                                            ? "bg-red-600"
-                                            : product.stock < 20
-                                            ? "bg-amber-600"
-                                            : "bg-green-600"
-                                    }`}
-                                >
-                                    {product.stock <= 10
-                                        ? "Out Of Stock"
-                                        : product.stock < 20
-                                        ? "Low Stock"
-                                        : "In Stock"}
-                                </span>
-
-                                <img src={product.thumbnail} alt="image" />
-                                <p>{product.title}</p>
-                                <div>
-                                    <p>{product.price}</p>
-                                </div>
-                                <div className="flex justify-center">
-                                    {Array.from({ length: totalStars }).map(
-                                        (_, i) => (
-                                            <span
-                                                key={i}
-                                                className={
-                                                    i < product.rating
-                                                        ? "text-yellow-400"
-                                                        : "text-gray-300"
-                                                }
-                                            >
-                                                <FaStar />
-                                            </span>
-                                        )
-                                    )}
-                                </div>
-                            </Link>
-                            <div
-                                className={`absolute z-11111 bottom-0 grow flex justify-center gap-5 ${
-                                    hoveredProduct === product.id
-                                        ? "opacity-100 bottom-6/12 duration-500"
-                                        : "opacity-0 bottom-0"
-                                }`}
-                            >
-                                <button className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full">
-                                    <FaEye />
-                                </button>
-                                <button
-                                    onClick={() => dispatch(addToCart(product))}
-                                    className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full"
-                                >
-                                    <FaShoppingCart />
-                                </button>
-                                <button
-                                    onClick={() => dispatch(addWhish(product))}
-                                    className="bg-white shadow h-12 w-12 flex justify-center items-center hover:text-white hover:bg-green-600 rounded-full"
-                                >
-                                    <CiHeart />
-                                </button>
-                            </div>
-                        </div>
-                    ))}
-            </div>
-        </section>
-    );
-}
-
 export function CountDown() {
+    const t = useTranslations("Home");
     const [days, setDays] = useState(725);
     const [hours, setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
@@ -1303,31 +381,32 @@ export function CountDown() {
                 <span className="h-20 w-20 rounded-full bg-white text-black flex justify-center items-center">
                     {days}
                 </span>
-                <p>Days</p>
+                <p>{t("days")}</p>
             </div>
             <div className="flex flex-col items-center gap-5">
                 <span className="h-20 w-20 rounded-full bg-white text-black flex justify-center items-center">
                     {hours}
                 </span>
-                <p>Hrs</p>
+                <p>{t("hours")}</p>
             </div>
             <div className="flex flex-col items-center gap-5">
                 <span className="h-20 w-20 rounded-full bg-white text-black flex justify-center items-center">
                     {minutes}
                 </span>
-                <p>Min</p>
+                <p>{t("minutes")}</p>
             </div>
             <div className="flex flex-col items-center gap-5">
                 <span className="h-20 w-20 rounded-full bg-white text-black flex justify-center items-center">
                     {seconds}
                 </span>
-                <p>Sec</p>
+                <p>{t("seconds")}</p>
             </div>
         </div>
     );
 }
 
 export function Count_Up() {
+    const t = useTranslations("Home");
     return (
         <div className="bg-transparent flex flex-col md:flex-row justify-around gap-5">
             <div className="flex flex-col items-center gap-7">
@@ -1345,7 +424,9 @@ export function Count_Up() {
                     />
                     +
                 </p>
-                <p className="text-white text-2xl font-bold">Active Clients</p>
+                <p className="text-white text-2xl font-bold">
+                    {t("activeClients")}
+                </p>
             </div>
             <div className="flex flex-col items-center gap-7">
                 <img
@@ -1362,7 +443,9 @@ export function Count_Up() {
                     />
                     +
                 </p>
-                <p className="text-white text-2xl font-bold">Cup Of Coffee</p>
+                <p className="text-white text-2xl font-bold">
+                    {t("cupOfCoffee")}
+                </p>
             </div>
             <div className="flex flex-col items-center gap-7">
                 <img
@@ -1379,7 +462,9 @@ export function Count_Up() {
                     />
                     +
                 </p>
-                <p className="text-white text-2xl font-bold">Get Rewards</p>
+                <p className="text-white text-2xl font-bold">
+                    {t("getRewards")}
+                </p>
             </div>
             <div className="flex flex-col items-center gap-7">
                 <img
@@ -1396,7 +481,9 @@ export function Count_Up() {
                     />
                     +
                 </p>
-                <p className="text-white text-2xl font-bold">Country Cover</p>
+                <p className="text-white text-2xl font-bold">
+                    {t("countryCover")}
+                </p>
             </div>
         </div>
     );
@@ -1474,15 +561,23 @@ export function FeaturedProducts() {
 }
 
 export function Blogs() {
-    const [BlogsData, setBlogsData] = useState([]);
-    useEffect(() => {
-        async function fetchBlogsData() {
-            const res = await fetch("/api/blog");
-            const data = await res.json();
-            setBlogsData(data);
-        }
-        fetchBlogsData();
-    }, []);
+    const t = useTranslations('blogsSlider.blogs');
+    
+    const blogCount = t('blogCount');
+    const blogs = [];
+
+    for (let i = 1; i <= blogCount; i++) {
+        const blogKey = 'blog' + i;
+        blogs.push({
+            id: t(blogKey + '.id'),
+            image: t(blogKey + '.image'),
+            subText: t(blogKey + '.subText'),
+            mainText: t(blogKey + '.mainText'),
+            date: t(blogKey + '.date'),
+            readMore: t(blogKey + '.readMore')
+        });
+    }
+
     return (
         <div className="lg:px-20 md:px-10 px-4">
             <h2 className="font-bold text-4xl text-black text-center py-8">
@@ -1507,12 +602,14 @@ export function Blogs() {
                     },
                 }}
             >
-                {BlogsData.map((blog) => (
+                {blogs.map((blog) => (
                     <SwiperSlide key={blog.id} className="flex flex-col group ">
                         <div className="overflow-hidden">
-                            <img
+                            <Image
                                 src={blog.image}
-                                alt={`image ${blog.id}`}
+                                width={500}
+                                height={500}
+                                alt={`image slide ${blog.id}`}
                                 className="group-hover:scale-110"
                             />
                         </div>
@@ -1522,7 +619,7 @@ export function Blogs() {
                         </p>
                         <div className="flex justify-between">
                             <p>{blog.date}</p>
-                            <p className="text-green-600 ">Read More</p>
+                            <p className="text-green-600 ">{blog.readMore}</p>
                         </div>
                     </SwiperSlide>
                 ))}
@@ -1534,7 +631,7 @@ export function Blogs() {
 export function SignInPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [isLoading, setIsLoading] = useState(false); // حالة التحميل
+    const [isLoading, setIsLoading] = useState(false); 
     const router = useRouter();
 
     const handleLogin = async (e) => {
@@ -1580,7 +677,7 @@ export function SignInPage() {
             }
         } catch (error) {
             console.error(error);
-            alert("حصل خطأ أثناء تسجيل الدخول");
+            alert("Something went wrong");
             setIsLoading(false);
         }
     };

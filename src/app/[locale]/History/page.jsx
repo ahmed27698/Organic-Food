@@ -4,8 +4,9 @@ import { BsTwitterX ,BsInstagram  } from "react-icons/bs";
 import { FaLocationArrow , FaFacebookF , FaTiktok ,FaCarBattery ,FaUserSecret } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import { TbTruckDelivery } from "react-icons/tb";
+import NavBarPages from "../components/NavbarPages";
 
-import { Blogs, NavBarPages ,Tabs } from '../clientPage'
+import { Blogs ,Tabs } from '../clientPage'
 import Link from "next/link";
 
 export default function page() {
