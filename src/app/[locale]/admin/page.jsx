@@ -1,4 +1,4 @@
-import AdminButton from "../components/adminButton";
+import AdminButton from "../components/AdminButton";
 import AddingProductButton from "../components/AddingProductButton";
 import AdminProductUpdata from "../components/AdminProductUpdata";
 import { prisma } from "../../../lib/prisma";
