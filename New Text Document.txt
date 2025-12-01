@@ -1,0 +1,246 @@
+[
+  {
+    "name": "Organic Quinoa",
+    "category": "Grains",
+    "description": "Organic quinoa is a naturally gluten-free whole grain packed with complete plant protein, fiber, and essential minerals. With its nutty flavor and fluffy texture, it’s ideal for salads, bowls, or as a rice substitute. Quinoa supports heart health, aids digestion, and keeps you full for longer.",
+    "price": 8.99,
+    "rating": 4.8,
+    "stock": 120
+  },
+  {
+    "name": "Brown Rice",
+    "category": "Grains",
+    "description": "Brown rice is a wholesome grain that retains its bran and germ, making it rich in fiber, selenium, and magnesium. Its chewy texture and nutty flavor make it perfect for stir-fries, curries, and grain bowls. A healthy alternative to white rice for sustained energy.",
+    "price": 5.49,
+    "rating": 4.6,
+    "stock": 200
+  },
+  {
+    "name": "Rolled Oats",
+    "category": "Grains",
+    "description": "Rolled oats are a nutrient-dense breakfast option, high in beta-glucan fiber which supports cholesterol reduction and heart health. They’re perfect for oatmeal, overnight oats, smoothies, and baking. Their versatility makes them a must-have for a balanced diet.",
+    "price": 4.99,
+    "rating": 4.7,
+    "stock": 180
+  },
+  {
+    "name": "Chia Seeds",
+    "category": "Grains",
+    "description": "Chia seeds are tiny powerhouses of nutrition, packed with omega-3 fatty acids, protein, and antioxidants. When soaked, they form a gel-like texture that’s great for puddings, smoothies, and baking. They aid in digestion, weight management, and heart health.",
+    "price": 7.99,
+    "rating": 4.9,
+    "stock": 90
+  },
+  {
+    "name": "Buckwheat Groats",
+    "category": "Grains",
+    "description": "Despite its name, buckwheat is gluten-free and loaded with protein, fiber, and magnesium. It has a unique earthy flavor and is ideal for porridge, baking, or salads. Buckwheat is also known to help regulate blood sugar and improve gut health.",
+    "price": 6.49,
+    "rating": 4.5,
+    "stock": 150
+  },
+  {
+    "name": "Millet",
+    "category": "Grains",
+    "description": "Millet is a small, gluten-free grain rich in B-vitamins, iron, and fiber. It has a mildly sweet flavor and cooks quickly, making it great for porridge, pilaf, or as a rice replacement. A fantastic choice for supporting digestive and heart health.",
+    "price": 4.79,
+    "rating": 4.6,
+    "stock": 160
+  },
+
+  {
+    "name": "Kale",
+    "category": "Vegetables",
+    "description": "Kale is a leafy green superfood brimming with vitamins A, C, and K, along with powerful antioxidants. Its slightly bitter taste works beautifully in salads, smoothies, or sautés. Known for boosting immunity and supporting bone health.",
+    "price": 3.99,
+    "rating": 4.8,
+    "stock": 100
+  },
+  {
+    "name": "Spinach",
+    "category": "Vegetables",
+    "description": "Spinach is a versatile leafy green high in iron, magnesium, and folate. Its tender texture and mild flavor make it excellent for salads, pasta, omelets, and smoothies. A nutrient-packed choice for maintaining energy and overall vitality.",
+    "price": 2.99,
+    "rating": 4.7,
+    "stock": 130
+  },
+  {
+    "name": "Broccoli",
+    "category": "Vegetables",
+    "description": "Broccoli is a cruciferous vegetable loaded with vitamin C, fiber, and powerful plant compounds that fight inflammation. Its crunchy texture and earthy flavor make it delicious roasted, steamed, or added to stir-fries.",
+    "price": 3.49,
+    "rating": 4.9,
+    "stock": 140
+  },
+  {
+    "name": "Sweet Potato",
+    "category": "Vegetables",
+    "description": "Sweet potatoes are naturally sweet and nutrient-rich, offering a fantastic source of beta-carotene, fiber, and vitamin C. Perfect roasted, mashed, or baked, they provide long-lasting energy and support healthy vision and immunity.",
+    "price": 4.29,
+    "rating": 4.8,
+    "stock": 110
+  },
+  {
+    "name": "Zucchini",
+    "category": "Vegetables",
+    "description": "Zucchini is a low-calorie vegetable rich in vitamin A, potassium, and antioxidants. With its mild taste and tender texture, it’s perfect for grilling, stir-fries, or even spiralizing into healthy noodles.",
+    "price": 3.19,
+    "rating": 4.6,
+    "stock": 125
+  },
+  {
+    "name": "Carrots",
+    "category": "Vegetables",
+    "description": "Carrots are crisp, sweet, and packed with beta-carotene, fiber, and vitamin K. Perfect for snacking, juicing, or adding to salads and soups, they promote good vision and overall immune health.",
+    "price": 2.79,
+    "rating": 4.7,
+    "stock": 180
+  },
+
+  {
+    "name": "Salmon Fillet",
+    "category": "Proteins",
+    "description": "Fresh salmon fillet is an excellent source of omega-3 fatty acids, protein, and B-vitamins. Its tender, flavorful flesh is perfect for grilling, baking, or pan-searing. A heart-healthy protein option for any meal.",
+    "price": 14.99,
+    "rating": 4.9,
+    "stock": 80
+  },
+  {
+    "name": "Chicken Breast",
+    "category": "Proteins",
+    "description": "Chicken breast is a lean, versatile protein packed with essential amino acids and low in fat. Perfect for grilling, baking, or stir-frying, it’s a staple for athletes and health-conscious individuals.",
+    "price": 9.99,
+    "rating": 4.7,
+    "stock": 200
+  },
+  {
+    "name": "Tofu",
+    "category": "Proteins",
+    "description": "Tofu is a plant-based protein made from soybeans, rich in iron, calcium, and all nine essential amino acids. Its neutral flavor allows it to absorb any seasoning, making it perfect for stir-fries, curries, and soups.",
+    "price": 4.99,
+    "rating": 4.6,
+    "stock": 160
+  },
+  {
+    "name": "Lentils",
+    "category": "Proteins",
+    "description": "Lentils are a nutrient-dense legume high in protein, fiber, and folate. With a hearty texture, they’re ideal for soups, stews, and salads. Lentils are excellent for supporting digestion and long-lasting energy.",
+    "price": 3.89,
+    "rating": 4.8,
+    "stock": 180
+  },
+  {
+    "name": "Eggs (Free-Range)",
+    "category": "Proteins",
+    "description": "Free-range eggs are packed with high-quality protein, vitamins D and B12, and healthy fats. Their rich flavor makes them a breakfast favorite, while also being perfect for baking, cooking, and meal prep.",
+    "price": 5.49,
+    "rating": 4.9,
+    "stock": 220
+  },
+  {
+    "name": "Chickpeas",
+    "category": "Proteins",
+    "description": "Chickpeas are a plant-based protein loaded with fiber, iron, and magnesium. Their nutty flavor makes them great for hummus, curries, salads, and snacks. Chickpeas help stabilize blood sugar and support digestive health.",
+    "price": 3.59,
+    "rating": 4.7,
+    "stock": 190
+  },
+
+  {
+    "name": "Almonds",
+    "category": "Snacks",
+    "description": "Almonds are crunchy, nutrient-packed nuts rich in vitamin E, healthy fats, and plant-based protein. Perfect as a snack, in trail mix, or sprinkled over salads, they support heart health and glowing skin.",
+    "price": 7.99,
+    "rating": 4.9,
+    "stock": 150
+  },
+  {
+    "name": "Walnuts",
+    "category": "Snacks",
+    "description": "Walnuts are brain-boosting nuts packed with omega-3 fatty acids, antioxidants, and protein. Their rich flavor makes them ideal for snacking, baking, or adding to oatmeal and salads.",
+    "price": 8.49,
+    "rating": 4.8,
+    "stock": 120
+  },
+  {
+    "name": "Pumpkin Seeds",
+    "category": "Snacks",
+    "description": "Pumpkin seeds are crunchy seeds loaded with magnesium, zinc, and plant protein. Great for snacking, adding to granola, or sprinkling over salads, they support immunity and energy levels.",
+    "price": 5.79,
+    "rating": 4.7,
+    "stock": 140
+  },
+  {
+    "name": "Trail Mix",
+    "category": "Snacks",
+    "description": "Trail mix is a delicious blend of nuts, seeds, and dried fruit, offering a balance of healthy fats, protein, and natural sweetness. Perfect for energy on the go or a quick nutritious snack.",
+    "price": 6.99,
+    "rating": 4.6,
+    "stock": 100
+  },
+  {
+    "name": "Rice Cakes",
+    "category": "Snacks",
+    "description": "Rice cakes are a light, crunchy snack made from whole grains. Low in calories yet satisfying, they make a perfect base for nut butter, avocado, or hummus. A great guilt-free snack.",
+    "price": 3.49,
+    "rating": 4.5,
+    "stock": 160
+  },
+  {
+    "name": "Dark Chocolate (85%)",
+    "category": "Snacks",
+    "description": "Dark chocolate with 85% cocoa is a decadent yet healthy treat packed with antioxidants and minerals. Its rich, intense flavor makes it perfect for mindful indulgence while supporting heart health.",
+    "price": 4.99,
+    "rating": 4.8,
+    "stock": 90
+  },
+
+  {
+    "name": "Almond Milk",
+    "category": "Drinks",
+    "description": "Almond milk is a creamy, dairy-free alternative rich in vitamin E and low in calories. Perfect for smoothies, coffee, or cereal, it’s a plant-based option loved by vegans and lactose-intolerant individuals.",
+    "price": 3.99,
+    "rating": 4.7,
+    "stock": 140
+  },
+  {
+    "name": "Green Tea",
+    "category": "Drinks",
+    "description": "Green tea is a refreshing beverage loaded with antioxidants like catechins, which promote fat burning and brain health. Its delicate flavor makes it a soothing daily ritual for wellness.",
+    "price": 5.49,
+    "rating": 4.9,
+    "stock": 200
+  },
+  {
+    "name": "Kombucha",
+    "category": "Drinks",
+    "description": "Kombucha is a fermented tea drink rich in probiotics, antioxidants, and organic acids. It supports gut health, boosts immunity, and provides a fizzy, refreshing alternative to soda.",
+    "price": 4.29,
+    "rating": 4.6,
+    "stock": 100
+  },
+  {
+    "name": "Coconut Water",
+    "category": "Drinks",
+    "description": "Coconut water is a natural electrolyte-rich drink that hydrates and refreshes. Low in calories and high in potassium, it’s perfect for post-workout recovery or as a healthy alternative to sugary drinks.",
+    "price": 3.49,
+    "rating": 4.8,
+    "stock": 160
+  },
+  {
+    "name": "Protein Smoothie",
+    "category": "Drinks",
+    "description": "A ready-to-drink protein smoothie made with plant-based ingredients, delivering energy and muscle recovery in one bottle. Delicious, filling, and perfect for busy lifestyles.",
+    "price": 5.99,
+    "rating": 4.7,
+    "stock": 110
+  },
+  {
+    "name": "Herbal Tea Mix",
+    "category": "Drinks",
+    "description": "A soothing blend of chamomile, peppermint, and lemongrass, this herbal tea supports relaxation, digestion, and stress relief. Naturally caffeine-free and perfect before bedtime.",
+    "price": 4.79,
+    "rating": 4.8,
+    "stock": 130
+  }
+]

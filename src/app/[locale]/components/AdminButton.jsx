@@ -11,7 +11,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 export default function AdminButton() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center justify-center gap-2 border-1 rounded-lg p-5 border-green-600">Admin<IoMdArrowDropdown/></DropdownMenuTrigger>
+      <DropdownMenuTrigger className="flex items-center justify-center gap-2 cursor-pointer p-5">Admin<IoMdArrowDropdown/></DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel><Link href="../">Log Out</Link></DropdownMenuLabel>
         

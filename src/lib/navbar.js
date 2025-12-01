@@ -24,7 +24,6 @@ export const navBar = {
     { labelKey: 'orderTracking', link: 'Order_Tracking' },
     { labelKey: 'signIn', link: 'Sign_In' },
     { labelKey: 'register', link: 'Register' },
-    { labelKey: 'myAccount', link: 'My_Account' }
   ],
   newsLinks: [
     { labelKey: 'news', link: 'News' },

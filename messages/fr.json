@@ -48,8 +48,81 @@
         "card3Title": "Livraison gratuite à domicile",
         "card3Desc": "Retournez le produit sous 3 jours pour tout produit que vous achetez",
         "card4Title": "Livraison gratuite à domicile",
-        "card4Desc": "Nous garantissons la qualité du produit en laquelle vous pouvez facilement avoir confiance"
+        "card4Desc": "Nous garantissons la qualité du produit en laquelle vous pouvez facilement avoir confiance",
+        "genuineProducts": "Produits 100% authentiques",
+        "slide1Title": "Nourriture Bio Délicieuse et Saine",
+        "slide1Desc": "Profitez d’aliments bio frais et naturels qui sont non seulement sains mais aussi pleins de saveur. Parfait pour un style de vie équilibré et des journées heureuses et nourries.",
+        "slide2Title": "Les Préférés de Notre Jardin",
+        "slide2Desc": "Découvrez les fruits et légumes les plus frais directement de notre jardin. Cueillis à la main et cultivés naturellement pour vous offrir des repas nutritifs et délicieux chaque jour.",
+        "slide3Title": "Saveurs Fraîches, Chaque Jour",
+        "slide3Desc": "Découvrez l'explosion de saveurs naturelles à chaque bouchée. Nos ingrédients bio soigneusement sélectionnés garantissent des repas sains et savoureux qui nourrissent votre corps et ravissent vos sens.",
+        "slide4Title": "De la Ferme à la Table",
+        "slide4Desc": "Profitez du parcours de nos produits frais et bio depuis les fermes locales jusqu’à votre assiette. Sains, délicieux et issus de sources durables pour vos repas quotidiens.",
+        "exploreProducts": "Explorer les Produits",
+        "learnMore": "En Savoir Plus"
     },
+
+    "About": {
+        "welcome": "Bienvenue dans notre entreprise",
+        "title": "À Propos de Nous",
+        "home": "Accueil",
+        "aboutUs": "À Propos de Nous",
+        "KnowMoreAboutShop": "En savoir plus sur la boutique",
+        "TrustedOrganicFoodStore": "Magasin d'aliments biologiques de confiance",
+        "AboutText": "Nous sommes une communauté de vendeurs passionnés qui fournissent des aliments biologiques de haute qualité. Notre marché repose sur la confiance, la durabilité et la connexion des personnes avec des produits sains.",
+        "FounderName": "Jerry Henson",
+        "FounderPosition": "Directeur de la boutique",
+        "MarketplaceText": "Nos vendeurs s'efforcent de fournir les meilleurs produits biologiques, de promouvoir le bien-être et de partager la bonté. Nous sommes un marché démocratique et autonome, fondé sur la confiance, la communauté et des produits de haute qualité.",
+        "WhyChooseUs": "Pourquoi Nous Choisir",
+        "AllKindBrand": "Toutes les Marques",
+        "AllKindBrandText": "Découvrez notre large gamme de marques biologiques fiables, chacune soigneusement sélectionnée pour apporter qualité et fraîcheur à votre table chaque jour.",
+        "CuratedProducts": "Produits Sélectionnés",
+        "CuratedProductsText": "Sélections soigneusement choisies d'aliments et d'ingrédients sains, pensées pour répondre à vos besoins de mode de vie sain avec soin et dévouement.",
+        "PesticideFreeGoods": "Produits Sans Pesticides",
+        "PesticideFreeGoodsText": "Profitez de fruits et légumes cultivés naturellement, sans produits chimiques nocifs, garantissant des repas sûrs, nutritifs et savoureux pour votre famille.",
+        "Features": "Fonctionnalités",
+        "TeamMember": "Membre de l'équipe",
+        "Founder": "Fondateur(trice)",
+        "CEO": "PDG",
+        "OrganicFarmer": "Agriculteur biologique",
+        "WeMakeYourInboxBetter": "Nous améliorons votre boîte de réception",
+        "SignUpNewsletter": "Inscrivez-vous à notre newsletter pour recevoir des conseils de soins, inspiration de style, accès exclusif aux prix des produits avant lancement et plus.",
+        "Email": "Email*",
+        "Subscribe": "S'abonner"
+    },
+
+    "services": {
+        "ReliableServices": "SERVICES FIABLES",
+        "WeAreQualifiedProfessional": "Nous sommes qualifiés et professionnels",
+        "TopQualityService": "Notre équipe offre un service de haute qualité avec une expertise fiable, garantissant que chaque étape soit traitée avec soin et précision.",
+        "CommittedToExcellence": "Engagés envers l'excellence, nous assurons une expérience professionnelle du début à la fin, avec un soutien fiable, des performances constantes et un niveau de dévouement qui rend votre parcours plus fluide et enrichissant.",
+        "OnlineSupport": "Support en ligne 24/7",
+        "ExpertTeam": "Équipe d'experts",
+        "PureEquipment": "Équipement pur",
+        "UnlimitedProduct": "Produit illimité",
+        "OurServices": "Nos services",
+        "OrganicVegetables1": "Légumes Bio",
+        "OrganicVegetablesDesc1": "Des légumes frais et naturellement cultivés, récoltés à leur qualité maximale pour offrir à vos repas un excellent goût et des nutriments essentiels.",
+
+        "OrganicMeat1": "Viande Bio",
+        "OrganicMeatDesc1": "Viande de première qualité provenant de fermes saines, élevée sans produits chimiques pour garantir une saveur riche et une nutrition complète.",
+        "WelcomeToOurCompany": "Bienvenue dans notre entreprise",
+        "WhatWeDo": "Ce que nous faisons",
+        "Home": "Accueil",
+        "Services": "Services",
+        "FirmFreshFruits1": "Fruits Frais et Fermes",
+        "FirmFreshFruitsDesc1": "Des fruits croquants, sucrés et juteux soigneusement récoltés pour vous offrir fraîcheur naturelle et santé durable.",
+
+        "OrganicMeat2": "Viande Bio",
+        "OrganicMeatDesc2": "Des morceaux biologiques de haute qualité choisis pour leur pureté et leur goût, offrant un repas sain, propre et satisfaisant.",
+
+        "OrganicVegetables2": "Légumes Bio",
+        "OrganicVegetablesDesc2": "Des légumes colorés et riches en nutriments, cultivés durablement et récoltés frais pour soutenir votre mode de vie sain quotidiennement.",
+
+        "FirmFreshFruits2": "Fruits Frais et Fermes",
+        "FirmFreshFruitsDesc2": "Des fruits de saison soigneusement sélectionnés avec une texture parfaite et une douceur naturelle, idéals pour collations, desserts ou repas frais."
+    },
+
     "addingproducts": {
         "productName": "Nom du produit",
         "price": "Prix",
@@ -67,6 +140,7 @@
         "somethingWentWrong": "Une erreur s'est produite.",
         "productForTranslate": "Produit à traduire"
     },
+
     "navBar": {
         "home": "Accueil",
         "about": "À propos",
@@ -92,6 +166,7 @@
         "error404": "Erreur 404",
         "menu": "Menu"
     },
+
     "adminoffers": {
         "addOffer": "Ajouter une nouvelle offre",
         "dialogTitle": "Ajouter une nouvelle offre",
@@ -104,7 +179,9 @@
         "success": "Offre créée avec succès !",
         "error": "Erreur lors de la création de l'offre"
     },
+
     "blogsSlider": {
+        "latestBlogs": "Derniers Blogs",
         "blogs": {
             "blogCount": "5",
             "blog1": {
@@ -147,6 +224,200 @@
                 "date": "25 juin 2024",
                 "readMore": "Lire la suite"
             }
+        }
+    },
+
+    "contact": {
+        "WelcomeToOurCompany": "Bienvenue dans notre entreprise",
+        "ContactUs": "Contactez-nous",
+        "Home": "Accueil",
+        "Contact": "Contact",
+        "EmailAddress": "Adresse e-mail",
+        "PhoneNumber": "Numéro de téléphone",
+        "OfficeAddress": "Adresse du bureau"
+    },
+
+    "history": {
+        "OurHistory": "Notre Histoire",
+        "StartedJourney": "Début du Voyage",
+        "StartedJourneyDesc": "En 1900, nous avons commencé notre voyage avec pour vision de fournir des produits biologiques de qualité. Nos fondateurs se sont concentrés sur des pratiques agricoles durables, garantissant fraîcheur et nutrition dans chaque article que nous offrions à nos clients.",
+        "GetRewards": "Recevoir des Récompenses",
+        "GetRewardsDesc": "En 1950, nous avons reçu des prix prestigieux pour notre excellence en agriculture biologique. Ces distinctions ont reconnu notre dévouement aux méthodes de culture naturelles et à la production constante de haute qualité sur toutes les fermes.",
+        "TopWinner": "Grand Gagnant",
+        "TopWinnerDesc": "En 2000, nous avons été reconnus comme le principal fournisseur de produits alimentaires biologiques au monde. Grâce à l'innovation, au contrôle strict de la qualité et aux partenariats mondiaux, nous avons élargi notre portée tout en maintenant notre promesse biologique.",
+        "GetTitle": "Obtenir le Titre",
+        "GetTitleDesc": "En 2010, nous avons obtenu le titre de magasin d'aliments biologiques le plus fiable. La satisfaction des clients, la transparence et la qualité irréprochable des produits ont fait de nous un nom familier pour les amateurs de produits biologiques partout.",
+        "Number1": "Numéro 1",
+        "Number1Desc": "En 2024, nous sommes devenus le choix numéro un pour les aliments biologiques dans le monde entier. Avec une amélioration continue, une distribution mondiale et une confiance inégalée des clients, nous menons le marché biologique mondialement.",
+        "Features": "Fonctionnalités",
+        "WhyChooseUs": "Pourquoi Nous Choisir",
+        "ReasonablePrice": "Prix Raisonnable",
+        "ReasonablePriceDesc": "Nous proposons des produits de haute qualité à des prix abordables, garantissant une excellente valeur sans compromettre la qualité.",
+        "ExpertMechanics": "Équipe d'Experts",
+        "ExpertMechanicsDesc": "Notre équipe qualifiée fournit des services précis et professionnels en utilisant les derniers outils et techniques.",
+        "FastFeatureDelivery": "Livraison Rapide",
+        "FastFeatureDeliveryDesc": "Nous garantissons une livraison rapide des services tout en maintenant précision et efficacité à chaque étape.",
+        "desc1": "Nos premiers efforts se sont concentrés sur la connexion des agriculteurs locaux avec les communautés, la promotion des habitudes alimentaires saines et la création des bases d'une marque biologique fiable qui continue de croître aujourd'hui.",
+        "desc2": "Ces récompenses nous ont encouragés à innover davantage dans les techniques agricoles, à investir dans le contrôle de la qualité et à inspirer d'autres producteurs biologiques à adopter des pratiques respectueuses de l'environnement.",
+        "desc3": "Être reconnu à l'échelle mondiale a motivé notre équipe à améliorer la variété des produits, optimiser les chaînes d'approvisionnement et maintenir les normes les plus élevées pour répondre aux besoins des clients soucieux de leur santé partout.",
+        "desc4": "Obtenir ce titre a renforcé notre engagement envers la transparence, l'approvisionnement éthique et un excellent service client, consolidant notre réputation en tant que source fiable d'aliments biologiques.",
+        "desc5": "Notre position de leader aujourd'hui reflète des années de dévouement, d'innovation et de fidélité des clients, garantissant que chaque produit que nous livrons répond aux normes les plus élevées de qualité et de durabilité.",
+        "WelcomeToOurCompany": "Bienvenue dans notre entreprise",
+        "Home": "Accueil",
+        "History": "Histoire"
+    },
+
+    "error404": {
+        "WelcomeToOurCompany": "Bienvenue dans notre entreprise",
+        "404": "404",
+        "Home": "Accueil",
+        "PageNotFound": "Page non trouvée !",
+        "OopsMessage": "Oups ! La page que vous recherchez n'existe pas. Elle a peut-être été déplacée ou supprimée.",
+        "BackToHome": "Retour à l'accueil"
+    },
+
+    "news": {
+        "WelcomeToOurCompany": "Bienvenue dans notre entreprise",
+        "NewsFeeds": "Flux d'actualités",
+        "Home": "Accueil",
+        "News": "Actualités",
+        "NewsContactHere": "Contactez les actualités ici",
+        "NewsDetails": "Détails des actualités",
+        "NewsDetailsContactHere": "Contact des détails des actualités ici"
+    },
+
+    "cart": {
+        "Cart": "Panier",
+        "Home": "Accueil",
+        "CartIsEmpty": "Le panier est vide"
+    },
+
+    "whishList": {
+        "WhishList": "Liste de souhaits",
+        "Home": "Accueil",
+        "WhishListIsEmpty": "La liste de souhaits est vide"
+    },
+
+    "shop": {
+        "WelcomeToCompany": "Bienvenue dans notre entreprise",
+        "Shop": "Boutique",
+        "Home": "Accueil",
+        "Categories": "Catégories",
+        "PriceFilter": "Filtre de prix",
+        "MinPrice": "Prix min",
+        "MaxPrice": "Prix max",
+        "RatingFilter": "Filtre d’évaluation",
+        "AllRatings": "Toutes les évaluations",
+        "oneStarUp": "1 étoile et plus",
+        "twoStarsUp": "2 étoiles et plus",
+        "threeStarsUp": "3 étoiles et plus",
+        "fourStarsUp": "4 étoiles et plus",
+        "fiveStars": "5 étoiles"
+    },
+
+    "Services_Details": {
+        "Letter": "N",
+        "WelcomeToOurCompany": "Bienvenue dans notre entreprise",
+        "ServiceDetails": "Détails du service",
+        "Home": "Accueil",
+        "CarefullySelectedProducts": "ous fournissons des produits biologiques soigneusement sélectionnés provenant de fermes de confiance. Chaque article passe par des contrôles qualité stricts pour garantir fraîcheur, pureté et goût exceptionnel pour nos clients.",
+        "DeliveryService": "Notre service de livraison est conçu pour apporter vos produits rapidement et en parfait état. Nous nous appuyons sur une logistique avancée, un contrôle précis de la température et un emballage sécurisé pour garantir que chaque commande arrive fraîche, sûre et exactement comme prévu. Du moment de la commande jusqu'à la livraison à votre porte, nous suivons chaque étape pour garantir une expérience de livraison fluide et fiable.",
+        "CustomerSupport": "Notre équipe est toujours prête à vous aider pour les questions sur les produits, l'assistance aux commandes ou les recommandations. Nous nous concentrons sur l'offre d'un support convivial et professionnel pour améliorer votre expérience d'achat.",
+        "EcoFriendlyFarms": "Nous collaborons avec des fermes qui suivent des pratiques écologiques et sans produits chimiques. Grâce à une collaboration à long terme, une surveillance continue et des techniques de culture durables, nous garantissons que chaque produit provient d'un sol riche en nutriments et exempt de produits chimiques nocifs. Notre engagement envers la durabilité contribue à protéger l'environnement, à soutenir les agriculteurs locaux et à vous fournir des aliments sains et cultivés naturellement sur lesquels vous pouvez compter chaque jour."
+    },
+
+    "signIn": {
+        "WelcomeToOurCompany": "Bienvenue dans notre entreprise",
+        "SignIn": "Se connecter",
+        "Home": "Accueil",
+        "Login": "Connexion",
+        "Email": "E-mail",
+        "Password": "Mot de passe",
+        "DontHaveAccount": "Vous n'avez pas de compte ?",
+        "SignUpHere": "Inscrivez-vous ici"
+    },
+    "team": {
+        "WelcomeToOurCompany": "Bienvenue dans notre entreprise",
+        "OurExperts": "Nos Experts",
+        "Home": "Accueil",
+        "Team": "Équipe",
+        "TeamMember": "Membre de l'équipe",
+        "Founder": "Fondateur(trice)",
+        "CEO": "PDG",
+        "OrganicFarmer": "Agriculteur biologique",
+        "QualityController": "Contrôleur de qualité",
+        "SoilSpecialist": "Spécialiste du sol",
+        "NutritionExpert": "Expert en nutrition",
+        "MarketingManager": "Responsable marketing",
+        "SupplyChainManager": "Responsable de la chaîne d'approvisionnement",
+        "Skills": "Compétences",
+        "SkillDesc": "Nous avons une équipe très qualifiée.",
+        "TeamDesc": "Notre équipe combine une vaste expertise en agriculture biologique, pratiques durables et service client, garantissant des produits de la plus haute qualité.",
+        "Gardening": "Jardinage",
+        "Landscaping": "Aménagement paysager",
+        "VegetableGrowing": "Culture de légumes"
+    },
+
+    "teamDetails": {
+        "FounderBio1": "Elle a consacré sa vie à construire une entreprise axée sur le biologique, fondée sur la confiance, la qualité et la durabilité. Son travail met l’accent sur l’agriculture propre, l’approvisionnement éthique et les relations à long terme avec les agriculteurs locaux pour garantir que chaque produit respecte des normes biologiques strictes.",
+        "FounderBio2": "Son leadership a transformé l’entreprise en un nom fiable dans l’alimentation saine, en mettant l’accent sur la transparence et le service client. Grâce au développement continu, elle a créé des systèmes garantissant des produits frais, une agriculture responsable et un service fiable pour toutes les communautés.",
+        "AllKindBrand": "Marque All Kind",
+        "AllKindBrandDesc": "Nous proposons une large collection de produits biologiques provenant de fermes fiables, garantissant des ingrédients propres et une qualité constante.",
+        "CuratedProducts": "Produits Sélectionnés",
+        "CuratedProductsDesc": "Chaque produit est soigneusement sélectionné selon des critères biologiques stricts, offrant aux clients des aliments sûrs, nutritifs et naturellement cultivés.",
+        "PesticideFreeGoods": "Produits Sans Pesticides",
+        "PesticideFreeGoodsDesc": "Nos produits proviennent de fermes qui évitent les produits chimiques nocifs, garantissant des aliments propres, sûrs et naturellement cultivés.",
+        "OurJourneyDesc": "Notre parcours est construit sur l’honnêteté, l’agriculture naturelle et un engagement profond à fournir des aliments sains aux familles. Au fil des années, nous avons élargi nos fermes, amélioré nos processus et adopté l’innovation tout en préservant nos valeurs biologiques. Aujourd’hui, nous travaillons avec des producteurs fiables dans le monde entier pour offrir des produits de haute qualité favorisant la santé et la durabilité. Chaque étape — de la plantation à l’emballage — est effectuée avec soin pour préserver la fraîcheur, les nutriments et la saveur. Notre mission est de rendre la vie biologique accessible, fiable et agréable pour chaque foyer.",
+        "ReadMore": "Lire la suite",
+        "Founder": "Fondateur(trice)",
+        "TeamDetails": "Détails de l'équipe",
+        "Home": "Accueil",
+        "Positions": "Postes",
+        "SeniorTechnician": "Technicien Senior",
+        "Experience": "Expérience",
+        "TenPlusYears": "Plus de 10 ans",
+        "Location": "Emplacement",
+        "Address": "13/A, NYC",
+        "PracticeArea": "Domaine de pratique",
+        "CarRepair": "Réparation de voitures",
+        "Email": "Email",
+        "Fax": "Fax",
+        "Phone": "Téléphone"
+    },
+
+    "register": {
+        "createAccount": "Créer un Compte",
+        "firstName": "Prénom",
+        "lastName": "Nom de famille",
+        "email": "E-mail",
+        "password": "Mot de passe",
+        "register": "S'inscrire",
+        "alreadyHaveAccount": "Vous avez déjà un compte ?",
+        "signIn": "Se Connecter",
+        "signUp": "S'inscrire",
+
+        "faq": {
+            "welcome": "Bienvenue dans notre entreprise",
+            "faqTitle": "Questions fréquentes",
+            "home": "Accueil",
+
+            "question1": "Comment acheter un produit ?",
+            "answer1": "Parcourez une catégorie, choisissez votre produit et ajoutez-le au panier. Procédez au paiement et remplissez vos informations de livraison.",
+
+            "question2": "Comment demander un remboursement ?",
+            "answer2": "Accédez à vos commandes, sélectionnez le produit et envoyez une demande de remboursement. Après approbation, vous recevrez votre argent.",
+
+            "question3": "Je suis nouveau, comment commencer ?",
+            "answer3": "Créez un compte gratuit puis explorez les produits. Ajoutez-les au panier et passez la commande en toute sécurité.",
+
+            "question4": "Retours et remboursements",
+            "answer4": "Une politique simple pour retourner les produits endommagés ou incorrects.",
+
+            "question5": "Mes informations sont-elles sécurisées ?",
+            "answer5": "Oui, vos données sont cryptées et protégées sur des serveurs sécurisés.",
+
+            "question6": "Comment payer avec une carte bancaire ?",
+            "answer6": "Choisissez l’option carte bancaire et saisissez vos informations en toute sécurité."
         }
     }
 }

@@ -29,7 +29,7 @@ export default function LanguageSwitcher() {
   
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-      <DropdownMenuTrigger className="flex items-center justify-center gap-2 rounded-lg p-2 outline-0">
+      <DropdownMenuTrigger className="flex items-center justify-center cursor-pointer hover:text-green-600 font-bold gap-2 rounded-lg p-2 outline-0">
         {languageNames[locale] || 'English'} 
         <BsArrowDownShort className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}/>
       </DropdownMenuTrigger>

@@ -48,8 +48,81 @@
         "card3Title": "Entrega gratuita a domicilio",
         "card3Desc": "Devuelve el producto dentro de los 3 días posteriores a la compra",
         "card4Title": "Entrega gratuita a domicilio",
-        "card4Desc": "Garantizamos la calidad del producto en la que puedes confiar fácilmente"
+        "card4Desc": "Garantizamos la calidad del producto en la que puedes confiar fácilmente",
+        "genuineProducts": "Productos 100% genuinos",
+        "slide1Title": "Comida Orgánica Deliciosa y Saludable",
+        "slide1Desc": "Disfruta de alimentos orgánicos frescos y naturales que no solo son saludables, sino también llenos de sabor. Perfecto para un estilo de vida equilibrado y días felices y nutridos.",
+        "slide2Title": "Los Favoritos de Nuestro Jardín",
+        "slide2Desc": "Descubre las frutas y verduras más frescas directamente de nuestro jardín. Seleccionadas a mano y cultivadas naturalmente para ofrecerte comidas nutritivas y deliciosas todos los días.",
+        "slide3Title": "Sabores Frescos, Cada Día",
+        "slide3Desc": "Experimenta la explosión de sabores naturales en cada bocado. Nuestros ingredientes orgánicos cuidadosamente seleccionados aseguran comidas saludables y deliciosas que nutren tu cuerpo y deleitan tus sentidos.",
+        "slide4Title": "De la Granja a la Mesa",
+        "slide4Desc": "Disfruta del viaje de nuestros productos frescos y orgánicos desde las granjas locales hasta tu plato. Saludables, deliciosos y obtenidos de manera sostenible para tus comidas diarias.",
+        "exploreProducts": "Explorar Productos",
+        "learnMore": "Aprender Más"
     },
+
+    "About": {
+        "welcome": "Bienvenidos a nuestra empresa",
+        "title": "Sobre Nosotros",
+        "home": "Inicio",
+        "aboutUs": "Sobre Nosotro",
+        "KnowMoreAboutShop": "Conoce más sobre la tienda",
+        "TrustedOrganicFoodStore": "Tienda de alimentos orgánicos confiable",
+        "AboutText": "Somos una comunidad de vendedores apasionados que ofrecen alimentos orgánicos de alta calidad. Nuestro mercado se basa en la confianza, la sostenibilidad y conectar a las personas con productos saludables.",
+        "FounderName": "Jerry Henson",
+        "FounderPosition": "Director de la tienda",
+        "MarketplaceText": "Nuestros vendedores se esfuerzan por ofrecer los mejores productos orgánicos, promover el bienestar y compartir la bondad. Somos un mercado democrático y autosostenible, basado en la confianza, la comunidad y productos de alta calidad.",
+        "WhyChooseUs": "Por Qué Elegirnos",
+        "AllKindBrand": "Todas las Marcas",
+        "AllKindBrandText": "Descubra nuestra amplia variedad de marcas orgánicas confiables, cada una cuidadosamente seleccionada para brindar calidad y frescura a su mesa todos los días.",
+        "CuratedProducts": "Productos Seleccionados",
+        "CuratedProductsText": "Selecciones cuidadosamente elegidas de alimentos e ingredientes saludables, pensadas para satisfacer sus necesidades de estilo de vida saludable con cuidado y dedicación.",
+        "PesticideFreeGoods": "Productos Libres de Pesticidas",
+        "PesticideFreeGoodsText": "Disfrute de frutas y verduras cultivadas naturalmente, libres de químicos dañinos, asegurando comidas seguras, nutritivas y sabrosas para su familia.",
+        "Features": "Características",
+        "TeamMember": "Miembro del equipo",
+        "Founder": "Fundador(a)",
+        "CEO": "Director ejecutivo",
+        "OrganicFarmer": "Agricultor orgánico",
+        "WeMakeYourInboxBetter": "Mejoramos tu bandeja de entrada",
+        "SignUpNewsletter": "Suscríbete a nuestro boletín para recibir consejos de cuidado, inspiración de estilo, acceso exclusivo a precios de productos antes del lanzamiento y más.",
+        "Email": "Correo electrónico*",
+        "Subscribe": "Suscribirse"
+    },
+
+    "services": {
+        "ReliableServices": "SERVICIOS CONFIABLES",
+        "WeAreQualifiedProfessional": "Somos calificados y profesionales",
+        "TopQualityService": "Nuestro equipo ofrece un servicio de alta calidad con experiencia en la que puedes confiar, asegurando que cada paso se maneje con cuidado y precisión.",
+        "CommittedToExcellence": "Comprometidos con la excelencia, garantizamos una experiencia profesional de principio a fin, con soporte confiable, rendimiento constante y dedicación que hace tu camino más fácil y gratificante.",
+        "OnlineSupport": "Soporte en línea 24/7",
+        "ExpertTeam": "Equipo experto",
+        "PureEquipment": "Equipos puros",
+        "UnlimitedProduct": "Producto ilimitado",
+        "OurServices": "Nuestros servicios",
+        "OrganicVegetables1": "Verduras Orgánicas",
+        "OrganicVegetablesDesc1": "Verduras frescas y naturalmente cultivadas, seleccionadas en su mejor calidad para dar gran sabor y nutrientes esenciales a tus comidas.",
+        "WelcomeToOurCompany": "Bienvenido a nuestra empresa",
+        "WhatWeDo": "Lo que hacemos",
+        "Home": "Inicio",
+        "Services": "Servicios",
+        "OrganicMeat1": "Carne Orgánica",
+        "OrganicMeatDesc1": "Carne de alta calidad proveniente de granjas saludables, criada sin químicos para garantizar sabor intenso y nutrición completa.",
+
+        "FirmFreshFruits1": "Frutas Frescas Firmes",
+        "FirmFreshFruitsDesc1": "Frutas crujientes, dulces y jugosas cosechadas cuidadosamente para ofrecer frescura natural y salud duradera.",
+
+        "OrganicMeat2": "Carne Orgánica",
+        "OrganicMeatDesc2": "Cortes orgánicos de alta calidad seleccionados por su pureza y sabor, brindando una experiencia de comida saludable y satisfactoria.",
+
+        "OrganicVegetables2": "Verduras Orgánicas",
+        "OrganicVegetablesDesc2": "Verduras coloridas y llenas de nutrientes, cultivadas de forma sostenible y cosechadas frescas para apoyar tu estilo de vida saludable.",
+
+        "FirmFreshFruits2": "Frutas Frescas Firmes",
+        "FirmFreshFruitsDesc2": "Frutas de temporada seleccionadas a mano con textura perfecta y dulzor natural, ideales para snacks, postres o comidas refrescantes."
+    },
+
     "addingproducts": {
         "productName": "Nombre del producto",
         "price": "Precio",
@@ -67,6 +140,7 @@
         "somethingWentWrong": "Algo salió mal.",
         "productForTranslate": "Producto para traducir"
     },
+
     "navBar": {
         "home": "Inicio",
         "about": "Acerca de",
@@ -92,6 +166,7 @@
         "error404": "Error 404",
         "menu": "Menú"
     },
+
     "adminoffers": {
         "addOffer": "Agregar nueva oferta",
         "dialogTitle": "Agregar una nueva oferta",
@@ -104,7 +179,9 @@
         "success": "¡Oferta creada con éxito!",
         "error": "Error al crear la oferta"
     },
+
     "blogsSlider": {
+        "latestBlogs": "Últimos Blogs",
         "blogs": {
             "blogCount": "5",
             "blog1": {
@@ -148,5 +225,199 @@
                 "readMore": "Leer más"
             }
         }
+    },
+
+    "contact": {
+        "WelcomeToOurCompany": "Bienvenido a nuestra empresa",
+        "ContactUs": "Contáctanos",
+        "Home": "Inicio",
+        "Contact": "Contacto",
+        "EmailAddress": "Dirección de correo electrónico",
+        "PhoneNumber": "Número de teléfono",
+        "OfficeAddress": "Dirección de la oficina"
+    },
+
+    "history": {
+        "OurHistory": "Nuestra Historia",
+        "StartedJourney": "Inicio del Viaje",
+        "StartedJourneyDesc": "En 1900, comenzamos nuestro viaje con la visión de ofrecer productos orgánicos de calidad. Nuestros fundadores se centraron en prácticas agrícolas sostenibles, asegurando frescura y nutrición en cada artículo que ofrecíamos a nuestros clientes.",
+        "GetRewards": "Obtener Recompensas",
+        "GetRewardsDesc": "En 1950, recibimos prestigiosos premios por nuestra excelencia en la agricultura orgánica. Estos honores reconocieron nuestra dedicación a métodos de cultivo naturales y productos de alta calidad consistentes en todas las granjas.",
+        "TopWinner": "Ganador Principal",
+        "TopWinnerDesc": "Para el 2000, fuimos reconocidos como el principal proveedor de alimentos orgánicos a nivel mundial. A través de la innovación, el control de calidad estricto y asociaciones globales, ampliamos nuestro alcance manteniendo nuestra promesa orgánica.",
+        "GetTitle": "Obtener Título",
+        "GetTitleDesc": "En 2010, obtuvimos el título de la tienda de alimentos orgánicos más confiable. La satisfacción del cliente, la transparencia y la calidad intransigente del producto nos convirtieron en un nombre familiar para los amantes de lo orgánico en todas partes.",
+        "Number1": "Número 1",
+        "Number1Desc": "En 2024, nos convertimos en la opción número uno para alimentos orgánicos en todo el mundo. Con mejora continua, distribución mundial y una confianza inigualable de los clientes, lideramos el mercado orgánico globalmente.",
+        "Features": "Características",
+        "WhyChooseUs": "Por Qué Elegirnos",
+        "ReasonablePrice": "Precio Razonable",
+        "ReasonablePriceDesc": "Ofrecemos productos de alta calidad a precios asequibles, garantizando un excelente valor sin comprometer la calidad.",
+        "ExpertMechanics": "Equipo Experto",
+        "ExpertMechanicsDesc": "Nuestro equipo capacitado ofrece servicios precisos y profesionales utilizando las últimas herramientas y técnicas.",
+        "FastFeatureDelivery": "Entrega Rápida",
+        "FastFeatureDeliveryDesc": "Garantizamos una entrega rápida de los servicios mientras mantenemos precisión y eficiencia en cada paso.",
+        "desc1": "Nuestros primeros esfuerzos se centraron en conectar a los agricultores locales con las comunidades, promover hábitos alimenticios saludables y sentar las bases de una marca orgánica confiable que continúa creciendo hoy.",
+        "desc2": "Estos premios nos alentaron a innovar aún más en técnicas de cultivo, invertir en control de calidad e inspirar a otros productores orgánicos a adoptar prácticas ambientalmente amigables.",
+        "desc3": "Ser reconocidos a nivel mundial motivó a nuestro equipo a mejorar la variedad de productos, optimizar las cadenas de suministro y mantener los más altos estándares para satisfacer las necesidades de clientes conscientes de la salud en todas partes.",
+        "desc4": "Lograr este título reforzó nuestro compromiso con la transparencia, el abastecimiento ético y un excelente servicio al cliente, consolidando nuestra reputación como fuente confiable de alimentos orgánicos.",
+        "desc5": "Nuestra posición de liderazgo hoy refleja años de dedicación, innovación y lealtad del cliente, asegurando que cada producto que entregamos cumpla con los más altos estándares de calidad y sostenibilidad.",
+        "WelcomeToOurCompany": "Bienvenidos a nuestra empresa",
+        "Home": "Inicio",
+        "History": "Historia"
+    },
+
+    "error404": {
+        "WelcomeToOurCompany": "Bienvenidos a nuestra empresa",
+        "404": "404",
+        "Home": "Inicio",
+        "PageNotFound": "¡Página no encontrada!",
+        "OopsMessage": "¡Vaya! La página que buscas no existe. Puede que haya sido movida o eliminada.",
+        "BackToHome": "Volver al inicio"
+    },
+
+    "news": {
+        "WelcomeToOurCompany": "Bienvenidos a nuestra empresa",
+        "NewsFeeds": "Noticias",
+        "Home": "Inicio",
+        "News": "Noticias",
+        "NewsContactHere": "Contacto de noticias aquí",
+        "NewsDetails": "Detalles de noticias",
+        "NewsDetailsContactHere": "Contacto de detalles de noticias aquí"
+    },
+
+    "cart": {
+        "Cart": "Carrito",
+        "Home": "Inicio",
+        "CartIsEmpty": "El carrito está vacío"
+    },
+
+    "whishList": {
+        "WhishList": "Lista de deseos",
+        "Home": "Inicio",
+        "WhishListIsEmpty": "La lista de deseos está vacía"
+    },
+
+    "shop": {
+        "WelcomeToCompany": "Bienvenido a nuestra empresa",
+        "Shop": "Tienda",
+        "Home": "Inicio",
+        "Categories": "Categorías",
+        "PriceFilter": "Filtro de precio",
+        "MinPrice": "Precio mínimo",
+        "MaxPrice": "Precio máximo",
+        "RatingFilter": "Filtro de valoración",
+        "AllRatings": "Todas las valoraciones",
+        "oneStarUp": "1 estrella y más",
+        "twoStarsUp": "2 estrellas y más",
+        "threeStarsUp": "3 estrellas y más",
+        "fourStarsUp": "4 estrellas y más",
+        "fiveStars": "5 estrellas"
+    },
+
+    "Services_Details": {
+        "Letter": "O",
+        "WelcomeToOurCompany": "Bienvenido a nuestra empresa",
+        "ServiceDetails": "Detalles del servicio",
+        "Home": "Inicio",
+        "CarefullySelectedProducts": "frecemos productos orgánicos cuidadosamente seleccionados de granjas de confianza. Cada artículo pasa por estrictos controles de calidad para garantizar frescura, pureza y un sabor excepcional para nuestros clientes.",
+        "DeliveryService": "Nuestro servicio de entrega está diseñado para llevar tus productos rápidamente y en perfectas condiciones. Dependemos de logística avanzada, control cuidadoso de la temperatura y embalaje seguro para garantizar que cada pedido llegue fresco, seguro y exactamente como se esperaba. Desde el momento de la compra hasta que los productos lleguen a tu puerta, seguimos cada paso para garantizar una experiencia de entrega fluida y confiable.",
+        "CustomerSupport": "Nuestro equipo siempre está listo para ayudarte con consultas de productos, asistencia con pedidos o recomendaciones. Nos enfocamos en ofrecer soporte amigable y profesional para mejorar tu experiencia de compra.",
+        "EcoFriendlyFarms": "Colaboramos con granjas que siguen prácticas ecológicas y libres de químicos. A través de la colaboración a largo plazo, monitoreo continuo y técnicas de cultivo sostenibles, garantizamos que cada producto provenga de un suelo rico en nutrientes y libre de químicos dañinos. Nuestro compromiso con la sostenibilidad ayuda a proteger el medio ambiente, apoyar a los agricultores locales y proporcionarte alimentos saludables y naturalmente cultivados en los que puedas confiar todos los días."
+    },
+
+    "signIn": {
+        "WelcomeToOurCompany": "Bienvenido a nuestra empresa",
+        "SignIn": "Iniciar sesión",
+        "Home": "Inicio",
+        "Login": "Iniciar sesión",
+        "Email": "Correo electrónico",
+        "Password": "Contraseña",
+        "DontHaveAccount": "¿No tienes una cuenta?",
+        "SignUpHere": "Regístrate aquí"
+    },
+    "team": {
+        "WelcomeToOurCompany": "Bienvenido a nuestra empresa",
+        "OurExperts": "Nuestros Expertos",
+        "Home": "Inicio",
+        "Team": "Equipo",
+        "TeamMember": "Miembro del equipo",
+        "Founder": "Fundador(a)",
+        "CEO": "Director ejecutivo",
+        "OrganicFarmer": "Agricultor orgánico",
+        "QualityController": "Controlador de calidad",
+        "SoilSpecialist": "Especialista en suelos",
+        "NutritionExpert": "Experto en nutrición",
+        "MarketingManager": "Gerente de marketing",
+        "SupplyChainManager": "Gerente de cadena de suministro",
+        "Skills": "Habilidades",
+        "SkillDesc": "Tenemos un equipo altamente calificado.",
+        "TeamDesc": "Nuestro equipo combina amplia experiencia en agricultura orgánica, prácticas sostenibles y atención al cliente, garantizando productos de la más alta calidad.",
+        "Gardening": "Jardinería",
+        "Landscaping": "Paisajismo",
+        "VegetableGrowing": "Cultivo de vegetales"
+    },
+
+    "teamDetails": {
+        "FounderBio1": "Ella ha dedicado su vida a construir una empresa centrada en lo orgánico, basada en la confianza, la calidad y la sostenibilidad. Su trabajo enfatiza la agricultura limpia, el abastecimiento ético y las relaciones a largo plazo con agricultores locales para garantizar que cada producto cumpla estrictos estándares orgánicos.",
+        "FounderBio2": "Su liderazgo transformó la empresa en un nombre confiable en alimentos saludables, enfocándose en la transparencia y la atención al cliente. A través del desarrollo continuo, creó sistemas que garantizan productos frescos, agricultura responsable y un servicio confiable para todas las comunidades.",
+        "AllKindBrand": "Marca All Kind",
+        "AllKindBrandDesc": "Ofrecemos una amplia colección de productos orgánicos provenientes de granjas confiables, asegurando ingredientes limpios y calidad constante en cada producto.",
+        "CuratedProducts": "Productos Seleccionados",
+        "CuratedProductsDesc": "Cada artículo es cuidadosamente elegido para cumplir criterios orgánicos estrictos, brindando a los clientes alimentos seguros, nutritivos y naturalmente cultivados.",
+        "PesticideFreeGoods": "Productos Libres de Pesticidas",
+        "PesticideFreeGoodsDesc": "Nuestros productos provienen de granjas que evitan químicos dañinos, garantizando alimentos limpios, seguros y cultivados naturalmente.",
+        "OurJourneyDesc": "Nuestro camino se basa en la honestidad, la agricultura natural y un fuerte compromiso con ofrecer alimentos limpios a las familias. Con los años, ampliamos nuestras granjas, mejoramos nuestros procesos y adoptamos la innovación mientras mantenemos nuestros valores orgánicos. Hoy trabajamos con agricultores confiables en todo el mundo para suministrar productos de alta calidad que apoyen la salud y la sostenibilidad. Cada paso —desde la siembra hasta el empaquetado— se maneja con cuidado para preservar frescura, nutrientes y sabor. Nuestra misión es hacer que la vida orgánica sea accesible, confiable y agradable para cada hogar.",
+        "ReadMore": "Leer más",
+        "Founder": "Fundador(a)",
+        "TeamDetails": "Detalles del equipo",
+        "Home": "Inicio",
+        "Positions": "Posiciones",
+        "SeniorTechnician": "Técnico Senior",
+        "Experience": "Experiencia",
+        "TenPlusYears": "Más de 10 años",
+        "Location": "Ubicación",
+        "Address": "13/A, NYC",
+        "PracticeArea": "Área de práctica",
+        "CarRepair": "Reparación de autos",
+        "Email": "Correo electrónico",
+        "Fax": "Fax",
+        "Phone": "Teléfono"
+    },
+
+    "register": {
+        "createAccount": "Crear Cuenta",
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "register": "Registrarse",
+        "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+        "signIn": "Iniciar Sesión",
+        "signUp": "Registrarse"
+    },
+
+    "faq": {
+        "welcome": "Bienvenidos a nuestra empresa",
+        "faqTitle": "Preguntas frecuentes ",
+        "home": "Inicio ",
+
+        "question1": "¿Cómo comprar un producto? ",
+        "answer1": "Puedes navegar por cualquier categoría, elegir el producto que te guste y añadirlo al carrito. Luego procede al pago y completa la información de entrega. Recibirás actualizaciones hasta que llegue tu pedido.",
+
+        "question2": "¿Cómo solicitar un reembolso? ",
+        "answer2": "Ve a la página de pedidos, selecciona el producto y envía una solicitud de reembolso con la razón. Una vez aprobado, el dinero volverá a tu método de pago original.",
+
+        "question3": "Soy nuevo, ¿cómo empiezo? ",
+        "answer3": "Crea una cuenta gratuita con tu correo. Después navega, explora productos y añade al carrito. Haz tu pedido de forma segura.",
+
+        "question4": "Devoluciones y reembolsos ",
+        "answer4": "Ofrecemos una política sencilla de devoluciones. Envíe una solicitud dentro del plazo y recibirá su reembolso tras la verificación.",
+
+        "question5": "¿Mis datos están seguros? ",
+        "answer5": "Sí, toda tu información está cifrada y nunca se comparte sin tu permiso.",
+
+        "question6": "¿Cómo pago con tarjeta de crédito? ",
+        "answer6": "Elige la opción de tarjeta y pon tus datos de forma segura. Tu pedido se procesará inmediatamente."
     }
 }

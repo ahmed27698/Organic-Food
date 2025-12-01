@@ -18,15 +18,16 @@ import LanguageSwitcher from "./components/LanguageSwitcher";
 import { prisma } from "../../lib/prisma";
 import { getTranslations } from "next-intl/server";
 import FeaturedProducts from "./components/FeaturedProducts";
-export default async function Home() {
+export default async function Home({ params }) {
     const offers = await prisma.offer.findMany({
         orderBy: {
             createdAt: "desc",
         },
     });
     const t = await getTranslations("Home");
+    const locale = params.locale;
     return (
-        <main>
+        <main dir={locale === "ar" ? "rtl":"ltr"}>
             <header className='flex relative justify-between bg-[#F7F5EB] lg:px-20 md:px-10 px-4 after:content-[""] py-5 after:bg-gray-200 after:h-0.5 after:w-screen after:absolute after:bottom-0 after:right-0 '>
                 <div className="md:flex gap-10 hidden md:items-center">
                     <p className="flex gap-3 items-center">
@@ -173,7 +174,7 @@ export default async function Home() {
                 <h2 className="font-bold text-4xl text-black text-center py-8">
                     {t("partners")}
                 </h2>
-                <Marquee speed={100} gradient={true}>
+                <Marquee speed={160} reverse gradient={false}>
                     <Image
                         width={150}
                         height={50}

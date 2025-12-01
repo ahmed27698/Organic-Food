@@ -62,7 +62,6 @@ export default function NavBarPages(props) {
                 <img src={navBar.pagesLogo} alt="logo image" />
             </Link>
 
-            {/* Desktop Menu */}
             <div className="lg:flex hidden">
                 {navBar.mainLinks.map((link, index) => (
                     <div

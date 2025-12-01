@@ -7,7 +7,7 @@ import ReduxProvider from "../../lib/redux/ReduxProvider";
 import { routing } from "../../i18n/routing";
 
 export default async function RootLayout({ children, params }) {
-  const { locale } = params;
+  const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();

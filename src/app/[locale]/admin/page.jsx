@@ -32,8 +32,14 @@ import {
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import DeletingProduct from "../components/DeletingProduct";
+import Chart from "../components/Chart";
 export default async function page({ params }) {
     const products = await prisma.product.findMany({
+        orderBy: { createdAt: "desc" },
+        where: { id: params.id },
+    });
+
+    const offers = await prisma.offer.findMany({
         orderBy: { createdAt: "desc" },
         where: { id: params.id },
     });
@@ -83,13 +89,8 @@ export default async function page({ params }) {
                                         </BreadcrumbItem>
                                     </BreadcrumbList>
                                 </Breadcrumb>
-                                <p>affa</p>
                             </div>
-                            <div className="flex justify-center items-center px-10">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
+                                <Chart />
                         </TabsContent>
                         <TabsContent value="all_products" className="w-full">
                             <h2 className="mx-10">All Products</h2>
@@ -189,10 +190,7 @@ export default async function page({ params }) {
                                                         <DialogTrigger className="btn p-2 px-10 rounded-lg flex justify-center items-center text-white bg-green-600">
                                                             Update
                                                         </DialogTrigger>
-                                                        <DialogContent
-                                                            className="p-6"
-                                                            
-                                                        >
+                                                        <DialogContent className="p-6">
                                                             <DialogTitle>
                                                                 Update Product
                                                                 To The Store
@@ -203,10 +201,14 @@ export default async function page({ params }) {
                                                                 You Want To
                                                                 Edit.
                                                             </DialogDescription>
-                                                            <AdminProductUpdata product={p}/>
+                                                            <AdminProductUpdata
+                                                                product={p}
+                                                            />
                                                         </DialogContent>
                                                     </Dialog>
-                                                    <DeletingProduct product={p}/>
+                                                    <DeletingProduct
+                                                        product={p}
+                                                    />
                                                 </div>
                                             </CardFooter>
                                         </Card>
@@ -216,27 +218,55 @@ export default async function page({ params }) {
                         </TabsContent>
                         <TabsContent
                             value="Offers"
-                            className="flex justify-between items-center w-full px-10"
+                            className="flex flex-col justify-between items-center w-full px-10"
                         >
-                            <div>
-                                <h2>Offers</h2>
-                                <Breadcrumb>
-                                    <BreadcrumbList>
-                                        <BreadcrumbItem>
-                                            <BreadcrumbLink href="../">
-                                                Home
-                                            </BreadcrumbLink>
-                                        </BreadcrumbItem>
-                                        <BreadcrumbSeparator />
-                                        <BreadcrumbItem>
-                                            <BreadcrumbPage>
-                                                Offers
-                                            </BreadcrumbPage>
-                                        </BreadcrumbItem>
-                                    </BreadcrumbList>
-                                </Breadcrumb>
+                            <div className="flex justify-between w-full ">
+                                <div>
+                                    <h2>Offers</h2>
+                                    <Breadcrumb>
+                                        <BreadcrumbList>
+                                            <BreadcrumbItem>
+                                                <BreadcrumbLink href="../">
+                                                    Home
+                                                </BreadcrumbLink>
+                                            </BreadcrumbItem>
+                                            <BreadcrumbSeparator />
+                                            <BreadcrumbItem>
+                                                <BreadcrumbPage>
+                                                    Offers
+                                                </BreadcrumbPage>
+                                            </BreadcrumbItem>
+                                        </BreadcrumbList>
+                                    </Breadcrumb>
+                                </div>
+                                <AddingOffers />
                             </div>
-                            <AddingOffers />
+                            <div className="flex gap-5 mt-15 flex-wrap justify-center items-center ">
+                                {offers.map((offer) => {
+                                    return (
+                                        <div
+                                            key={offer.id}
+                                            className="flex flex-col group gap-5 bg-white items-center hover:scale-110 duration-500 md:w-3/12 py-8 w-full shadow-2xl"
+                                        >
+                                            <p className="font-bold text-xl ">
+                                                {offer.title}
+                                            </p>
+                                            <div className="group-hover:text-green-600 bg-[#F7F5EB] w-full h-16 flex justify-around items-center font-bold text-xl">
+                                                <p>
+                                                    <del>
+                                                        {offer.originalPrice}$
+                                                    </del>
+                                                </p>
+                                                <p>{offer.discountedPrice}$</p>
+                                            </div>
+
+                                            <p className="px-10">
+                                                {offer.description}
+                                            </p>
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </TabsContent>
                     </div>
                 </section>

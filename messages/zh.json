@@ -50,6 +50,68 @@
         "card4Title": "免费送货上门",
         "card4Desc": "我们保证产品质量，让您轻松信赖"
     },
+
+    "About": {
+        "welcome": "欢迎来到我们的公司",
+        "title": "关于我们",
+        "home": "首页 ",
+        "aboutUs": "关于我们",
+        "KnowMoreAboutShop": "了解更多关于商店的信息",
+        "TrustedOrganicFoodStore": "可信赖的有机食品店",
+        "AboutText": "我们是一个充满热情的卖家社区，提供高质量的有机食品。我们的市场建立在信任、可持续性基础上，并致力于将人们与健康产品连接。",
+        "FounderName": "杰瑞·亨森",
+        "FounderPosition": "商店主管",
+        "MarketplaceText": "我们的卖家致力于提供最优质的有机产品，促进健康并传播善意。我们是一个建立在信任、社区和高质量产品基础上的民主、自给自足的市场。",
+        "WhyChooseUs": "为什么选择我们",
+        "AllKindBrand": "各种品牌",
+        "AllKindBrandText": "探索我们各种值得信赖的有机品牌，每一个都经过精心挑选，为您的餐桌每天带来优质和新鲜。",
+        "CuratedProducts": "精选产品",
+        "CuratedProductsText": "精心挑选的健康食品和原料，经过细致选择，以满足您的健康生活需求，充满关怀与用心。",
+        "PesticideFreeGoods": "无农药产品",
+        "PesticideFreeGoodsText": "享用天然种植的水果和蔬菜，无有害化学物质，为您的家庭提供安全、营养、美味的餐食。",
+        "Features": "功能特点",
+        "TeamMember": "团队成员",
+        "Founder": "创始人",
+        "CEO": "首席执行官",
+        "OrganicFarmer": "有机农场主",
+        "WeMakeYourInboxBetter": "让你的收件箱更好",
+        "SignUpNewsletter": "订阅我们的新闻通讯，获取护理技巧、风格灵感、预售产品价格的独家访问等。",
+        "Email": "电子邮箱*",
+        "Subscribe": "订阅"
+    },
+
+    "services": {
+        "ReliableServices": "可靠服务",
+        "WeAreQualifiedProfessional": "我们具备资质且专业",
+        "TopQualityService": "我们的团队提供高品质服务，在每个细节上都值得信赖，确保每一步都被细致、精准地处理。",
+        "CommittedToExcellence": "我们致力于卓越，为您提供从头到尾的专业体验，可靠支持、稳定表现，并以高度投入让您的旅程更轻松、更顺利、更有价值。",
+        "OnlineSupport": "24/7 在线支持",
+        "ExpertTeam": "专家团队",
+        "PureEquipment": "纯净设备",
+        "UnlimitedProduct": "无限产品",
+        "OurServices": "我们的服务",
+        "OrganicVegetables1": "有机蔬菜",
+        "OrganicVegetablesDesc1": "新鲜、天然种植的蔬菜，在最佳品质时采摘，为您的餐点带来极佳口味和必需营养。",
+        "WelcomeToOurCompany": "欢迎来到我们公司",
+        "WhatWeDo": "我们的工作",
+        "Home": "首页",
+        "Services": "服务",
+        "OrganicMeat1": "有机肉类",
+        "OrganicMeatDesc1": "来自健康农场的高品质肉类，无化学添加，确保浓郁风味与全面营养。",
+
+        "FirmFreshFruits1": "新鲜坚实水果",
+        "FirmFreshFruitsDesc1": "脆甜多汁的水果，精心采摘，为您带来自然清新和持久健康。",
+
+        "OrganicMeat2": "有机肉类",
+        "OrganicMeatDesc2": "精选高等级有机肉品，纯净美味，为您呈现健康、干净且满足的用餐体验。",
+
+        "OrganicVegetables2": "有机蔬菜",
+        "OrganicVegetablesDesc2": "色彩丰富、营养充足的蔬菜，以可持续方式种植并新鲜采收，支持您每日健康生活方式。",
+
+        "FirmFreshFruits2": "新鲜坚实水果",
+        "FirmFreshFruitsDesc2": "精挑细选的时令水果，口感完美、甜味自然，是零食、甜点或清爽餐点的理想选择。"
+    },
+
     "addingproducts": {
         "productName": "产品名称",
         "price": "价格",
@@ -65,8 +127,20 @@
         "productSaved": "产品保存成功！",
         "productSaveFailed": "保存产品失败",
         "somethingWentWrong": "出了点问题。",
-        "productForTranslate": "产品翻译"
+        "productForTranslate": "产品翻译",
+        "genuineProducts": "100%正品",
+        "slide1Title": "美味健康的有机食品",
+        "slide1Desc": "享受新鲜天然的有机食品，不仅健康，而且美味。完美适合均衡的生活方式和快乐充实的每一天。",
+        "slide2Title": "我们花园里最受欢迎的食物",
+        "slide2Desc": "探索直接来自我们花园的最新鲜水果和蔬菜。手工采摘，自然生长，为您每天带来健康、美味、营养丰富的餐食。",
+        "slide3Title": "每日新鲜美味",
+        "slide3Desc": "在每一口中体验自然风味的爆发。我们精心挑选的有机食材确保健康、美味的餐食，滋养您的身体并愉悦您的感官。",
+        "slide4Title": "从农场到餐桌",
+        "slide4Desc": "享受我们新鲜有机农产品从本地农场直达餐桌的过程。健康、美味、可持续，为您的日常餐食提供保障。",
+        "exploreProducts": "探索产品",
+        "learnMore": "了解更多"
     },
+
     "navBar": {
         "home": "首页",
         "about": "关于我们",
@@ -92,6 +166,7 @@
         "error404": "404 错误",
         "menu": "菜单"
     },
+
     "adminoffers": {
         "addOffer": "添加新优惠",
         "dialogTitle": "添加新优惠",
@@ -104,7 +179,9 @@
         "success": "优惠创建成功！",
         "error": "创建优惠时出错"
     },
+
     "blogsSlider": {
+        "zh": "最新博客",
         "blogs": {
             "blogCount": "5",
             "blog1": {
@@ -148,5 +225,199 @@
                 "readMore": "阅读更多"
             }
         }
+    },
+
+    "contact": {
+        "WelcomeToOurCompany": "欢迎来到我们公司",
+        "ContactUs": "联系我们",
+        "Home": "首页",
+        "Contact": "联系",
+        "EmailAddress": "电子邮箱地址",
+        "PhoneNumber": "电话号码",
+        "OfficeAddress": "办公室地址"
+    },
+
+    "history": {
+        "OurHistory": "我们的历史",
+        "StartedJourney": "开始旅程",
+        "StartedJourneyDesc": "1900年，我们怀着提供高质量有机产品的愿景开始了我们的旅程。我们的创始人专注于可持续农业实践，确保每件提供给客户的产品都新鲜且富含营养。",
+        "GetRewards": "获得奖励",
+        "GetRewardsDesc": "1950年，我们因在有机农业方面的卓越表现获得了著名奖项。这些荣誉认可了我们对自然耕作方法的坚持以及所有农场持续提供高质量产品的承诺。",
+        "TopWinner": "顶级获奖者",
+        "TopWinnerDesc": "到2000年，我们被公认为全球顶级有机食品供应商。通过创新、严格的质量控制和全球合作伙伴关系，我们扩大了影响力，同时保持了我们的有机承诺。",
+        "GetTitle": "获得称号",
+        "GetTitleDesc": "2010年，我们获得了最值得信赖的有机食品商店称号。客户满意度、透明度以及对产品质量的不妥协使我们成为全球有机食品爱好者的知名品牌。",
+        "Number1": "第一名",
+        "Number1Desc": "2024年，我们成为全球有机食品的首选。通过持续改进、全球分销以及无与伦比的客户信任，我们引领全球有机市场。",
+        "Features": "特色",
+        "WhyChooseUs": "为什么选择我们",
+        "ReasonablePrice": "合理价格",
+        "ReasonablePriceDesc": "我们提供高质量产品，价格实惠，确保在不影响质量的前提下提供优越价值。",
+        "ExpertMechanics": "专业团队",
+        "ExpertMechanicsDesc": "我们的专业团队使用最新工具和技术提供精准且专业的服务。",
+        "FastFeatureDelivery": "快速交付",
+        "FastFeatureDeliveryDesc": "我们保证服务快速交付，同时在每一步保持准确性和效率。",
+        "desc1": "我们早期的努力集中在将本地农民与社区联系起来，推广健康饮食习惯，并为一个值得信赖的有机品牌奠定基础，该品牌至今仍在不断发展。",
+        "desc2": "这些奖项鼓励我们在农业技术上进一步创新，投资于质量控制，并激励其他有机生产者采用环保的做法。",
+        "desc3": "全球认可激励我们的团队提升产品多样性，改进供应链，并保持最高标准，以满足各地注重健康的客户需求。",
+        "desc4": "获得这一称号强化了我们对透明度、道德采购和优质客户服务的承诺，巩固了我们作为可靠有机食品来源的声誉。",
+        "desc5": "我们今天的领导地位反映了多年的奉献、创新和客户忠诚，确保我们提供的每一件产品都达到最高的质量和可持续性标准。",
+        "WelcomeToOurCompany": "欢迎来到我们的公司",
+        "Home": "首页",
+        "History": "历史"
+    },
+
+    "error404": {
+        "WelcomeToOurCompany": "欢迎来到我们的公司",
+        "404": "404",
+        "Home": "首页",
+        "PageNotFound": "页面未找到！",
+        "OopsMessage": "抱歉！您查找的页面不存在，可能已被移动或删除。",
+        "BackToHome": "返回首页"
+    },
+
+    "news": {
+        "WelcomeToOurCompany": "欢迎来到我们的公司",
+        "NewsFeeds": "新闻动态",
+        "Home": "首页",
+        "News": "新闻",
+        "NewsContactHere": "新闻联系这里",
+        "NewsDetails": "新闻详情",
+        "NewsDetailsContactHere": "新闻详情联系这里"
+    },
+
+    "cart": {
+        "Cart": "购物车",
+        "Home": "主页",
+        "CartIsEmpty": "购物车为空"
+    },
+
+    "whishList": {
+        "WhishList": "愿望清单",
+        "Home": "主页",
+        "WhishListIsEmpty": "愿望清单为空"
+    },
+
+    "shop": {
+        "WelcomeToCompany": "欢迎来到我们公司",
+        "Shop": "商店",
+        "Home": "主页",
+        "Categories": "分类",
+        "PriceFilter": "价格筛选",
+        "MinPrice": "最低价",
+        "MaxPrice": "最高价",
+        "RatingFilter": "评分筛选",
+        "AllRatings": "所有评分",
+        "oneStarUp": "1 星及以上",
+        "twoStarsUp": "2 星及以上",
+        "threeStarsUp": "3 星及以上",
+        "fourStarsUp": "4 星及以上",
+        "fiveStars": "5 星"
+    },
+
+    "Services_Details": {
+        "Letter": "我",
+        "WelcomeToOurCompany": "欢迎来到我们公司",
+        "ServiceDetails": "服务详情",
+        "Home": "首页",
+        "CarefullySelectedProducts": "们提供经过精心挑选的有机产品，来自值得信赖的农场。每件商品都经过严格的质量检查，以确保新鲜、纯净和卓越的口感。",
+        "DeliveryService": "我们的配送服务旨在快速且完好地送达您的产品。我们依靠先进的物流、严格的温控和安全的包装，确保每个订单新鲜、安全，完全符合预期。从结账到产品送达，我们跟踪每一步，保证顺畅可靠的配送体验。",
+        "CustomerSupport": "我们的团队随时准备协助您处理产品咨询、订单帮助或推荐。我们专注于提供友好且专业的支持，以改善您的购物体验。",
+        "EcoFriendlyFarms": "我们与遵循环保和无化学物质实践的农场合作。通过长期合作、持续监控和可持续的种植技术，我们确保每种产品来自富含营养且无有害化学物质的土壤。我们对可持续发展的承诺有助于保护环境，支持当地农民，并为您提供每天都可以依赖的健康天然食品。"
+    },
+
+    "signIn": {
+        "WelcomeToOurCompany": "欢迎来到我们公司",
+        "SignIn": "登录",
+        "Home": "首页",
+        "Login": "登录",
+        "Email": "电子邮箱",
+        "Password": "密码",
+        "DontHaveAccount": "没有账号？",
+        "SignUpHere": "在这里注册"
+    },
+    "team": {
+        "WelcomeToOurCompany": "欢迎来到我们公司",
+        "OurExperts": "我们的专家",
+        "Home": "首页",
+        "Team": "团队",
+        "TeamMember": "团队成员",
+        "Founder": "创始人",
+        "CEO": "首席执行官",
+        "OrganicFarmer": "有机农民",
+        "QualityController": "质量控制员",
+        "SoilSpecialist": "土壤专家",
+        "NutritionExpert": "营养专家",
+        "MarketingManager": "市场经理",
+        "SupplyChainManager": "供应链经理",
+        "Skills": "技能",
+        "SkillDesc": "我们拥有最专业的团队。",
+        "TeamDesc": "我们的团队结合了在有机农业、可持续实践和客户服务方面的丰富经验，确保产品质量最高。",
+        "Gardening": "园艺",
+        "Landscaping": "景观设计",
+        "VegetableGrowing": "蔬菜种植"
+    },
+
+    "teamDetails": {
+        "FounderBio1": "她致力于建立一家以有机产品为核心的公司，基于信任、质量和可持续性。她的工作强调清洁农业、道德采购，以及与当地农民的长期合作，以确保每一件产品都符合严格的有机标准。",
+        "FounderBio2": "在她的领导下，公司成为健康食品领域值得信赖的名字，专注透明度和客户关怀。通过持续发展，她创建了系统，确保新鲜农产品、负责任的农业方式以及可靠的服务。",
+        "AllKindBrand": "All Kind 品牌",
+        "AllKindBrandDesc": "我们提供广泛的有机产品，来自可靠农场，确保干净的原料和一致的高品质。",
+        "CuratedProducts": "精选产品",
+        "CuratedProductsDesc": "每件产品都经过精心挑选，以满足严格的有机标准，为客户提供安全、营养、自然种植的食物。",
+        "PesticideFreeGoods": "无农药产品",
+        "PesticideFreeGoodsDesc": "我们的产品来自不使用有害化学物质的农场，确保食品干净、安全并自然种植。",
+        "OurJourneyDesc": "我们的旅程建立在诚实、自然农业以及为家庭提供干净食品的坚定承诺上。多年来，我们扩大农场、改进流程并拥抱创新，同时保持有机价值。如今，我们与全球可信赖的种植者合作，供应高品质农产品，支持健康与可持续发展。每一步——从种植到包装——都经过精心处理，以保持新鲜、营养和风味。我们的使命是让有机生活变得人人可及、可靠且愉悦。",
+        "ReadMore": "阅读更多",
+        "Founder": "创始人",
+        "TeamDetails": "团队详情",
+        "Home": "主页",
+        "Positions": "职位",
+        "SeniorTechnician": "高级技师",
+        "Experience": "经验",
+        "TenPlusYears": "10年以上",
+        "Location": "位置",
+        "Address": "13/A, 纽约",
+        "PracticeArea": "实践领域",
+        "CarRepair": "汽车维修",
+        "Email": "电子邮箱",
+        "Fax": "传真",
+        "Phone": "电话"
+    },
+
+    "register": {
+        "createAccount": "创建账户",
+        "firstName": "名字",
+        "lastName": "姓氏",
+        "email": "邮箱",
+        "password": "密码",
+        "register": "注册",
+        "alreadyHaveAccount": "已经有账户？",
+        "signIn": "登录",
+        "signUp": "注册"
+    },
+
+    "faq": {
+        "welcome": "欢迎来到我们的公司",
+        "faqTitle": "常见问题",
+        "home": "首页",
+
+        "question1": "如何购买产品？",
+        "answer1": "浏览分类，选择商品加入购物车。确认订单后填写配送信息，并收到物流更新。",
+
+        "question2": "如何申请退款？",
+        "answer2": "进入订单页面选择商品并提交退款申请。审核通过后退款将退回原支付方式。",
+
+        "question3": "我是新用户，应如何开始？",
+        "answer3": "创建一个免费账户，浏览产品并添加到购物车，然后安全下单。",
+
+        "question4": "退货与退款",
+        "answer4": "对于损坏或不符的商品，我们提供简单的退货流程。",
+
+        "question5": "我的信息安全吗？",
+        "answer5": "是的，您的所有信息都经过加密并安全存储。",
+
+        "question6": "如何使用信用卡付款？",
+        "answer6": "在结账时选择信用卡并安全输入信息，订单将立即处理。"
     }
 }

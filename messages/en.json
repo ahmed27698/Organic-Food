@@ -48,7 +48,80 @@
         "card3Title": "Free home delivery",
         "card3Desc": "Return product within 3 days for any product you buy",
         "card4Title": "Free home delivery",
-        "card4Desc": "We ensure the product quality that you can trust easily"
+        "card4Desc": "We ensure the product quality that you can trust easily",
+        "genuineProducts": "100% genuine Products",
+        "slide1Title": "Tasty & Healthy Organic Food",
+        "slide1Desc": "Enjoy fresh and natural organic food that’s not only healthy but also full of flavor. Perfect for a balanced lifestyle and happy, nourished days.",
+        "slide2Title": "Our Garden's Most Favorite Food",
+        "slide2Desc": "Discover the freshest fruits and vegetables straight from our garden. Hand-picked and naturally grown to bring you wholesome, delicious, and nutrient-rich meals every day.",
+        "slide3Title": "Fresh Flavors, Every Day",
+        "slide3Desc": "Experience the burst of natural flavors in every bite. Our carefully selected organic ingredients ensure healthy, tasty meals that nourish your body and delight your senses.",
+        "slide4Title": "From Farm to Table",
+        "slide4Desc": "Enjoy the journey of our fresh, organic produce from local farms straight to your plate. Healthy, delicious, and sustainably sourced for your daily meals.",
+        "exploreProducts": "Explore Products",
+        "learnMore": "Learn More"
+    },
+
+    "About": {
+        "welcome": "Welcome to our company",
+        "title": "About Us",
+        "home": "Home",
+        "aboutUs": "About Us",
+        "KnowMoreAboutShop": "Know More About Shop",
+        "TrustedOrganicFoodStore": "Trusted Organic Food Store",
+        "AboutText": "We are a community of passionate sellers who provide high-quality organic food. Our marketplace is built on trust, sustainability, and connecting people with wholesome products.",
+        "FounderName": "Jerry Henson",
+        "FounderPosition": "Shop Director",
+        "MarketplaceText": "Our sellers strive to provide the best organic products, promote wellness, and share goodness. We are a democratic, self-sustaining marketplace built on trust, community, and high-quality products.",
+        "WhyChooseUs": "Why Choose Us",
+        "AllKindBrand": "All Kind Brand",
+        "AllKindBrandText": "Discover our wide variety of trusted organic brands, each carefully selected to bring quality and freshness to your table every day.",
+        "CuratedProducts": "Curated Products",
+        "CuratedProductsText": "Handpicked selections of wholesome foods and ingredients, thoughtfully chosen to meet your healthy lifestyle needs with care and dedication.",
+        "PesticideFreeGoods": "Pesticide Free Goods",
+        "PesticideFreeGoodsText": "Enjoy naturally grown fruits and vegetables, free from harmful chemicals, ensuring safe, nutritious, and flavorful meals for your family.",
+        "Features": "Features",
+        "TeamMember": "Team Member",
+        "Founder": "Founder",
+        "CEO": "CEO",
+        "OrganicFarmer": "Organic Farmer",
+        "WeMakeYourInboxBetter": "We make your inbox better",
+        "SignUpNewsletter": "Sign up to our newsletter to receive grooming tips, style inspiration, exclusive access to pre-launch product pricing and more.",
+        "Email": "Email*",
+        "Subscribe": "Subscribe"
+    },
+
+    "services": {
+        "ReliableServices": "RELIABLE SERVICES",
+        "WeAreQualifiedProfessional": "We are Qualified & Professional",
+        "TopQualityService": "Our team delivers top-quality service with expertise you can trust in every detail, ensuring that every step is handled with care and precision.",
+        "CommittedToExcellence": "Committed to excellence, we ensure a professional experience from start to finish, offering reliable support, consistent performance, and a level of dedication that makes your journey smoother, easier, and far more rewarding.",
+        "OnlineSupport": "24/7 Online Support",
+        "ExpertTeam": "Expert Team",
+        "PureEquipment": "Pure Equipment",
+        "UnlimitedProduct": "Unlimited Product",
+        "OurServices": "Our Services",
+        "WelcomeToOurCompany": "Welcome to our company",
+        "WhatWeDo": "What We Do",
+        "Home": "Home",
+        "Services": "Services",
+        "OrganicVegetables1": "Organic Vegetables",
+        "OrganicVegetablesDesc1": "Fresh and naturally grown vegetables picked at peak quality to give your meals great taste and essential nutrients.",
+
+        "OrganicMeat1": "Organic Meat",
+        "OrganicMeatDesc1": "Premium-quality meat sourced from healthy farms, raised without chemicals to ensure rich flavor and full nutrition.",
+
+        "FirmFreshFruits1": "Firm Fresh Fruits",
+        "FirmFreshFruitsDesc1": "Crisp, sweet, and juicy fruits harvested carefully to bring you natural freshness and long-lasting health.",
+
+        "OrganicMeat2": "Organic Meat",
+        "OrganicMeatDesc2": "High-grade organic cuts selected for purity and taste, delivering a wholesome, clean, and satisfying meal experience.",
+
+        "OrganicVegetables2": "Organic Vegetables",
+        "OrganicVegetablesDesc2": "Colorful, nutrient-packed veggies grown sustainably and harvested fresh to support your healthy lifestyle every day.",
+
+        "FirmFreshFruits2": "Firm Fresh Fruits",
+        "FirmFreshFruitsDesc2": "Handpicked seasonal fruits with perfect texture and natural sweetness, ideal for snacks, desserts, or refreshing meals."
     },
 
     "addingproducts": {
@@ -68,6 +141,7 @@
         "somethingWentWrong": "Something went wrong.",
         "productForTranslate": "Product for translate"
     },
+
     "navBar": {
         "home": "Home",
         "about": "About",
@@ -93,6 +167,7 @@
         "error404": "404 Error",
         "menu": "Menu"
     },
+
     "adminoffers": {
         "addOffer": "Add New Offer",
         "dialogTitle": "Add a New Offer",
@@ -105,10 +180,13 @@
         "success": "Offer created successfully!",
         "error": "Error creating offer"
     },
+
     "blogsSlider": {
+        "latestBlogs": "Latest Blogs",
+
         "blogs": {
             "blogCount": "5",
-            "blog1":{
+            "blog1": {
                 "id": "1",
                 "image": "https://broccolisite.netlify.app/assets/blog_1-D7I6C3-p.webp",
                 "subText": "Consultant",
@@ -116,7 +194,7 @@
                 "date": "June 22, 2025",
                 "readMore": "Read More"
             },
-            "blog2":{
+            "blog2": {
                 "id": "2",
                 "image": "https://broccolisite.netlify.app/assets/blog_3-XUdCXpEu.webp",
                 "subText": "Lifestyle",
@@ -124,7 +202,7 @@
                 "date": "June 23, 2024",
                 "readMore": "Read More"
             },
-            "blog3":{
+            "blog3": {
                 "id": "3",
                 "image": "https://broccolisite.netlify.app/assets/his2-DS67SOog.webp",
                 "subText": "Creative",
@@ -132,7 +210,7 @@
                 "date": "June 22, 2024",
                 "readMore": "Read More"
             },
-            "blog4":{
+            "blog4": {
                 "id": "4",
                 "image": "https://broccolisite.netlify.app/assets/blog_4-sUAQItUN.webp",
                 "subText": "Technology",
@@ -140,7 +218,7 @@
                 "date": "June 24, 2024",
                 "readMore": "Read More"
             },
-            "blog5":{
+            "blog5": {
                 "id": "5",
                 "image": "https://broccolisite.netlify.app/assets/blog_5-DgfoVE5a.webp",
                 "subText": "Health",
@@ -149,5 +227,200 @@
                 "readMore": "Read More"
             }
         }
+    },
+
+    "contact": {
+        "WelcomeToOurCompany": "Welcome to our company",
+        "ContactUs": "Contact Us",
+        "Home": "Home",
+        "Contact": "Contact",
+        "EmailAddress": "Email Address",
+        "PhoneNumber": "Phone Number",
+        "OfficeAddress": "Office Address"
+    },
+
+    "history": {
+        "OurHistory": "Our History",
+        "StartedJourney": "Started Journey",
+        "StartedJourneyDesc": "In 1900, we started our journey with a vision to provide quality organic products. Our founders focused on sustainable farming practices, ensuring freshness and nutrition in every item we offered to our customers.",
+        "GetRewards": "Get Rewards",
+        "GetRewardsDesc": "In 1950, we received prestigious awards for our excellence in organic farming. These honors recognized our dedication to natural cultivation methods and consistent high-quality produce across all farms.",
+        "TopWinner": "Top Winner",
+        "TopWinnerDesc": "By 2000, we were recognized as the top organic food provider globally. Through innovation, strict quality control, and global partnerships, we expanded our reach while maintaining our organic promise.",
+        "GetTitle": "Get Title",
+        "GetTitleDesc": "In 2010, we earned the title of the most trusted organic food store. Customer satisfaction, transparency, and uncompromising product quality made us a household name for organic lovers everywhere.",
+        "Number1": "Number 1",
+        "Number1Desc": "In 2024, we became the number one choice for organic food worldwide. With continuous improvement, worldwide distribution, and unmatched customer trust, we lead the organic market globally.",
+        "Features": "Features",
+        "WhyChooseUs": "Why Choose Us",
+        "ReasonablePrice": "Reasonable Price",
+        "ReasonablePriceDesc": "We offer top-quality products at affordable prices, ensuring excellent value without compromising on quality.",
+        "ExpertMechanics": "Expert Mechanics",
+        "ExpertMechanicsDesc": "Our skilled team provides precise and professional services using the latest tools and techniques.",
+        "FastFeatureDelivery": "Fast Feature Delivery",
+        "FastFeatureDeliveryDesc": "We guarantee fast delivery of services while maintaining accuracy and efficiency at every step.",
+        "desc1": "Our early efforts focused on connecting local farmers with communities, promoting healthy eating habits, and laying the foundation for a trusted organic brand that continues to grow today.",
+        "desc2": "These awards encouraged us to innovate further in farming techniques, invest in quality control, and inspire other organic producers to adopt environmentally friendly practices.",
+        "desc3": "Being recognized globally motivated our team to enhance product variety, improve supply chains, and maintain the highest standards to meet the needs of health-conscious customers everywhere.",
+        "desc4": "Achieving this title reinforced our commitment to transparency, ethical sourcing, and excellent customer service, solidifying our reputation as a reliable source of organic foods.",
+        "desc5": "Our leadership position today reflects years of dedication, innovation, and customer loyalty, ensuring that every product we deliver meets the highest standards of quality and sustainability.",
+        "WelcomeToOurCompany": "Welcome to our company",
+        "Home": "Home",
+        "History": "History"
+    },
+
+    "error404": {
+        "WelcomeToOurCompany": "Welcome to our company",
+        "404": "404",
+        "Home": "Home",
+        "PageNotFound": "Page Not Found!",
+        "OopsMessage": "Oops! The page you are looking for does not exist. It might have been moved or deleted.",
+        "BackToHome": "Back To Home"
+    },
+
+    "news": {
+        "WelcomeToOurCompany": "Welcome to our company",
+        "NewsFeeds": "News Feeds",
+        "Home": "Home",
+        "News": "News",
+        "NewsContactHere": "News Contact Here",
+        "NewsDetails": "News Details",
+        "NewsDetailsContactHere": "News Details Contact Here"
+    },
+
+    "cart": {
+        "Cart": "Cart",
+        "Home": "Home",
+        "CartIsEmpty": "Cart is Empty"
+    },
+
+    "whishList": {
+        "WhishList": "WhishList",
+        "Home": "Home",
+        "WhishListIsEmpty": "Whishlist is Empty"
+    },
+
+    "shop": {
+        "WelcomeToCompany": "Welcome to our company",
+        "Shop": "Shop",
+        "Home": "Home",
+        "Categories": "Categories",
+        "PriceFilter": "Price Filter",
+        "MinPrice": "Min Price",
+        "MaxPrice": "Max Price",
+        "RatingFilter": "Rating Filter",
+        "AllRatings": "All Ratings",
+        "oneStarUp": "1 Star & up",
+        "twoStarsUp": "2 Stars & up",
+        "threeStarsUp": "3 Stars & up",
+        "fourStarsUp": "4 Stars & up",
+        "fiveStars": "5 Stars"
+    },
+
+    "Services_Details": {
+        "Letter": "P",
+        "WelcomeToOurCompany": "Welcome to our company",
+        "ServiceDetails": "Service Details",
+        "Home": "Home",
+        "CarefullySelectedProducts": "roviding carefully selected organic products sourced from trusted farms. Each item goes through strict quality checks to ensure freshness, purity, and exceptional taste for our customers.",
+        "DeliveryService": "Our delivery service is designed to bring your products quickly and in perfect condition. We rely on advanced logistics, careful temperature control, and secure packaging to ensure every order arrives fresh, safe, and exactly as expected. From the moment you checkout until your products reach your door, we track every step to guarantee a smooth and reliable delivery experience.",
+        "CustomerSupport": "Our team is always ready to assist you with product inquiries, order help, or recommendations. We focus on offering friendly, professional support to improve your shopping experience.",
+        "EcoFriendlyFarms": "We partner with farms that follow eco-friendly and chemical-free practices. Through long-term collaboration, continuous monitoring, and sustainable growing techniques, we ensure that every product comes from soil rich in nutrients and free from harmful chemicals. Our commitment to sustainability helps protect the environment, support local farmers, and provide you with healthy, naturally grown food you can rely on every day."
+    },
+
+    "signIn": {
+        "WelcomeToOurCompany": "Welcome to our company",
+        "SignIn": "Sign In",
+        "Home": "Home",
+        "Login": "Login",
+        "Email": "Email",
+        "Password": "Password",
+        "DontHaveAccount": "Don't Have An Account?",
+        "SignUpHere": "Sign Up Here"
+    },
+
+    "team": {
+        "WelcomeToOurCompany": "Welcome to our company",
+        "OurExperts": "Our Experts",
+        "Home": "Home",
+        "Team": "Team",
+        "TeamMember": "Team Member",
+        "Founder": "Founder",
+        "CEO": "CEO",
+        "OrganicFarmer": "Organic Farmer",
+        "QualityController": "Quality Controller",
+        "SoilSpecialist": "Soil Specialist",
+        "NutritionExpert": "Nutrition Expert",
+        "MarketingManager": "Marketing Manager",
+        "SupplyChainManager": "Supply Chain Manager",
+        "Skills": "Skills",
+        "SkillDesc": "We Have A Skillest Team Ever.",
+        "TeamDesc": "Our team combines extensive expertise in organic farming, sustainable practices, and customer care, ensuring the highest quality products.",
+        "Gardening": "Gardening",
+        "Landscaping": "Landscaping",
+        "VegetableGrowing": "Vegetable Growing"
+    },
+
+    "teamDetails": {
+        "FounderBio1": "She has dedicated her life to building an organic-focused company grounded in trust, quality, and sustainability. Her work emphasizes clean agriculture, ethical sourcing, and long-term relationships with local farmers to ensure every product meets strict organic standards.",
+        "FounderBio2": "Her leadership transformed the company into a reliable name in healthy food, focusing on transparency and customer care. Through continuous development, she created systems that guarantee fresh produce, responsible farming, and dependable service for communities everywhere.",
+        "AllKindBrand": "All Kind Brand",
+        "AllKindBrandDesc": "We offer a wide collection of organic goods sourced from trusted farms, ensuring clean ingredients and consistent quality across every product.",
+        "CuratedProducts": "Curated Products",
+        "CuratedProductsDesc": "Every item is carefully selected to meet strict organic criteria, giving customers access to safe, nutritious, and naturally grown food.",
+        "PesticideFreeGoods": "Pesticide Free Goods",
+        "PesticideFreeGoodsDesc": "Our products come from farms that avoid harmful chemicals, guaranteeing clean, safe, and naturally cultivated foods for your daily needs.",
+        "OurJourneyDesc": "Our journey is built on honesty, natural farming, and a deep commitment to providing clean food for families. Over the years, we expanded our farms, improved our processes, and embraced innovation while keeping our organic values intact. Today, we work with trusted growers worldwide to supply high-quality produce that supports health and sustainability. Every step — from planting to packaging — is handled with care to preserve freshness, nutrients, and flavor. Our mission is to make organic living accessible, reliable, and enjoyable for every household.",
+        "ReadMore": "Read More",
+        "Founder": "Founder",
+        "TeamDetails": "Team Details",
+        "Home": "Home",
+        "Positions": "Positions",
+        "SeniorTechnician": "Senior Technician",
+        "Experience": "Experience",
+        "TenPlusYears": "10+ Years",
+        "Location": "Location",
+        "Address": "13/A, NYC",
+        "PracticeArea": "Practice Area",
+        "CarRepair": "Car Repair",
+        "Email": "Email",
+        "Fax": "Fax",
+        "Phone": "Phone"
+    },
+
+    "register": {
+        "createAccount": "Create Account",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "password": "Password",
+        "register": "Register",
+        "alreadyHaveAccount": "Already have an account?",
+        "signIn": "Sign In",
+        "signUp": "Sign Up"
+    },
+
+    "faq": {
+        "welcome": "Welcome to our company",
+        "faqTitle": "Frequently Asked Questions",
+        "home": "Home",
+
+        "question1": "How to buy a product?",
+        "answer1": "You can browse any category, choose the product you like, and add it to your cart. After reviewing your items, proceed to checkout and fill in your delivery details. Once confirmed, you will receive updates until your order arrives.",
+
+        "question2": "How can I request a refund from your website?",
+        "answer2": "To request a refund, go to your orders page and select the product. Submit a refund request with the reason, and our team will review it. Once approved, the money will be returned to your original payment method.",
+
+        "question3": "I am a new user, how should I start?",
+        "answer3": "Start by creating a free account using your email. After signing in, browse categories, explore products, and check reviews. Add items to your cart and place your order securely. Our support team is always available to assist you.",
+
+        "question4": "Returns and refunds",
+        "answer4": "We offer an easy return policy for damaged or incorrect products. Submit a return request within the allowed period, and once the product is inspected, your refund will be issued.",
+
+        "question5": "Are my personal details secure?",
+        "answer5": "Yes, your personal data is protected with encrypted systems and secure servers. We never share your information with third parties without your permission.",
+
+        "question6": "How do I pay with my credit card?",
+        "answer6": "During checkout, select the credit card option and enter your card details securely. The payment gateway uses advanced encryption, and once confirmed, your order will be processed immediately."
     }
 }

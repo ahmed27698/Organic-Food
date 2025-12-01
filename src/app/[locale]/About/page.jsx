@@ -8,9 +8,10 @@ import NavBarPages from "../components/NavbarPages";
 import { Blogs } from "../clientPage";
 import Link from "next/link";
 
-export default async function page() {
+import { getTranslations } from "next-intl/server";
+export default async function page({ params }) {
     let expertsData = [];
-
+    const locale = params.locale;
     try {
         const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
         const res = await fetch(`${baseUrl}/api/experts?limit=4`, {
@@ -25,8 +26,11 @@ export default async function page() {
         console.error("Error fetching experts:", err);
     }
 
+    const t = await getTranslations("About");
+    const t2 = await getTranslations("Home");
+
     return (
-        <section>
+        <section dir={locale === "ar" ? "rtl" : "ltr"}>
             <NavBarPages navLink="/" />
             <div className="relative">
                 <img
@@ -37,18 +41,20 @@ export default async function page() {
                 <div className="absolute w-full bottom-0 lg:p-20 md:p-10 p-5 flex flex-col md:flex-row md:justify-between items-start  md:items-center">
                     <div>
                         <p className="text-green-600 font-bold">
-                            // Welcome to our company
+                            // {t("welcome")}
                         </p>
                         <p className="text-white font-bold lg:text-6xl md:text-4xl text-2xl">
-                            About Us
+                            {t("title")}
                         </p>
                     </div>
                     <div className="flex gap-4">
                         <Link href="/" className="text-white font-bold">
-                            Home
+                            {t("home")}
                         </Link>
                         <span className="text-white">|</span>
-                        <p className="text-green-600 font-bold">About Us</p>
+                        <p className="text-green-600 font-bold">
+                            {t("aboutUs")}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -61,29 +67,25 @@ export default async function page() {
                 </div>
                 <div className="md:w-6/12 w-full flex flex-col gap-4 py-10">
                     <p className="font-bold text-green-600">
-                        Know More About Shop
+                        {t("KnowMoreAboutShop")}
                     </p>
                     <p className="lg:text-6xl md:text-4xl text-2xl font-bold ">
-                        Trusted Organic Food Store
+                        {t("TrustedOrganicFoodStore")}
                     </p>
+
                     <p className='after:content-[""] lg:after:h-12 md:after:h-15 after:h-0 after:w-1 after:bg-green-600 after:absolute after:left-0 after:top-0  relative px-5 '>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore
+                        {t("AboutText")}
                     </p>
-                    <p>
-                        sellers who aspire to be good, do good, and spread
-                        goodness. We democratic, self-sustaining, two-sided
-                        marketplace which thrives on trust and is built on
-                        community and quality content.
-                    </p>
-                    <p className="font-bold">Jerry Henson</p>
-                    <p>/ Shop Director</p>
+                    <p>{t("MarketplaceText")}</p>
+                    <p className="font-bold">{t("FounderName")}</p>
+                    <p>/ {t("FounderPosition")}</p>
                 </div>
             </div>
             <div className="py-26 lg:px-20 md:px-10 px-4 flex flex-col gap-10 justify-center items-center bg-[#F7F5EB]">
-                <p className="text-green-600">// features //</p>
+                <p className="text-green-600">// {t("Features")} //</p>
                 <p className="lg:text-5xl md:text-3xl text-2xl font-bold">
-                    Why Choose Us<span className="text-green-600">.</span>
+                    {t("WhyChooseUs")}
+                    <span className="text-green-600">.</span>
                 </p>
                 <div className="flex justify-center md:flex-row flex-col mt-10 gap-8">
                     <div className="md:w-3/12 w-full shadow-xl p-4">
@@ -92,13 +94,9 @@ export default async function page() {
                                 src="data:image/webp;base64,UklGRj4FAABXRUJQVlA4WAoAAAAQAAAAOwAAPgAAQUxQSPYCAAABgJZtW9bsjkAEItBgNJgNRoPZABq8NoAGextog9lAG2iD64f4sa1AREyADlLt+3zXJ++576nqeG27ZHeRzQsHLwOyvcBkjp+bh2GssYRTYaE+DsN8SZIk181s/05EtnPnJCmdm+F/IymsAPlQBlhb1QusJwYYdmQKQHegAyhGuwMMH5ASgN/xAEkHL0iAqTwkKQD9Tg+0kvSsAeVEAJpNJkvSAJiKAQZJyuRNA4QTBiiSMpAlNUBT8UAjKQNZUgeYExpgMVIAyJKAVEmAkTJAkMwCo862QJIUAPIpKQC0khLQnjIzLEZSCxAc0FYC4ANAkWQWWM0pBaCXpALwBnzFAW+AIkk9kHThDHSSVKjOqs9UiyQlYDVXOIAoSaWSdkKlSNITwOnSADDFe3xV3I6rvOI9TgCtLi4cn0zFvCv7RZenY5RKx/FOH7T/lTnYFfCSPLDaMFf+nT7svbeSAjBJ6oFWkvXe63v/gaAADPp+C0x6A/YHVIAWGPSLjrr/CY2VUb/ZVrofcRX3I5qBWb86AMPPJKD7mRZIP3J79kAfb99n4sL+ku13Rc7+me+xb3bnHd7uQ4/c9/kuyS0Aa2m09d0KsLhPPBeq08MtAJ3RvkkrsLjL/MTJ1em4HYHFnoi7meq67oxOZ80I9Cc4XpzkSuVtT8nMQHPZYFX1I9t+Nz5sRR6YLlpbHUybw9luVIDm8de/otsrfmt12M8nWNzGcnDytaRLwzAfYnGSNB6A9hNHbbsCb8lmjoevkMwIxEy1WKkZANxlpY/ugOzK7mAlyfSb92ULsPR/8Xm7x/iaqM+Nts0CMLqrGi6dWyNJ5o9tZ3SVHy8YGlXdBLB66TLJhG48MHaNUT2y/Tf6SNX6rdFB9wZYW1U/dD6yHZ0OTH3f968Ynzf3oWZim7TP2fcr3q7yPdvZ67rq++9uztjnRDUZHR2285nt1Md4qz7ia6I+OF1svG/TMO9dOnh92vg0rNcUry91bRmPzSUYfbf1PqWUgne6HFZQOCAiAgAAMA0AnQEqPAA/AD6ROJhIJaMioTAUDPiwEglsAMURQVL+Wn2bzNrP/ePvjwaR0exPI7/QPaB4kH+S6t3mH/U/9XPfA6QD+wedV7DXoAeVd+4nwMftb+6HtHf/UFKG2iK7/HKzM4+isuG0Qy4IdE4asJcAAP7xAH//nxs/5hkxnMG1I+Djq37/af6/S5KfriMxmM53xoSqlkYi+jIakcdcOtVGUint1FwmNG77wYRbiAn73ehPoetIilC53MDbhP/+7w/eLfP9OT8pV+jr+ECJRIO8N6rjg7mNr2Fl2nsX7/8irzIOQxHCHHCes/KtpdTakqhb7ffJj4owU+tKVygrH+gXy2CAkLUDeHgwQ8GgMOSP/kcSftYTv5sXw1mQ8s/LdX4BqeITTk9gJv/jSFQrhobjBGjp6o74NVz/Zf//Kz//l/3//KDVpDM3Siuqv/qjHhUTquEP3BORV/kvanjqFDVgLQjMdfobfnAvyATdRYL/DzWQPnEImh1PXFDuuvaj79/i7XokU7tSWxa/n6/jEbfqS48///PlEflekyKYT8RJ3/j1KPN9Fpl/pvu7pNRw6e0vAxpP8g7Kky2kresmV4E7g5XbwpPqPjdbpB9HCEiOCn5EyBZwU/IZf7pQaWugJxkcjT4o3gNnbZ8FdcDfeMiarL1BpaMjXhes2Uq4DCzFp7EpCUF3/kcoBWynjlfolOG5fM3oAi/5KwDIbdcQQAAA"
                                 alt="image"
                             />
-                            <p className="font-bold">All Kind Brand</p>
+                            <p className="font-bold">{t("AllKindBrand")}</p>
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit ame it, consectetur
-                            adipisicing elit, sed do eiusmod te mp or incididunt
-                            ut labore.
-                        </p>
+                        <p>{t("AllKindBrandText")}</p>
                     </div>
                     <div className="md:w-3/12 w-full shadow-xl p-4">
                         <div className="flex gap-4 items-center">
@@ -106,13 +104,9 @@ export default async function page() {
                                 src="data:image/webp;base64,UklGRvwEAABXRUJQVlA4WAoAAAAQAAAAOwAAPAAAQUxQSOsCAAABkFXbdhBJV8KTgIQ4mDgYHHQcNA4KB4MDcFA4IA7AQeEgcXA+AoFiDETEBKjeft4rfJZfp8t+XJZ/Tl+0F5WLq7OFw9Fuc4n6V42tnC6S+/v6aS4FDuM0xL1grJgAth3g9aYcrc4B5GAqfQQYTwzIXvLUrlZjCZhN5wEgHHkgSNJQw1IzAZOqA5DsoAOawhdb24QMuLMG2K1OPdAf9IDONpPkgf6sB1pdtB0+VxSJpnKHeLbCrssd4K5UJpjOgOGaA8JdLdCfNEB/TUB/k0tAc+IB/yCXgFlfyjDdEyn/nbQ3RYj3TAeMRwNgN8yQfsdl+VyyIW4A/iDBphsDtb6qDMBc9EB3x1jFeEURPpIsQbYT+/Pnz9HI4bYdsNqFHpA0Ab0Of1aANDbSCBBbSWojwPvCClkyYFdpK6cpdACdTkMGQtUvMEkBCIV9uBpU6YG0VH4AvDRDtmIBmFrf7Ue9qnuuD5ISzJIUgN2pnIpZ9ZYvDZIE9MUMOB2OwGYXNAOxcnCS5IG2ACYddkB2utoDulx4SQ3QHXiAVo8LhSWg16m9380XGiBIEjAUKzDrfIbkihn2awKGYodk0ghsVkcyyYDphghr0QGjApCdKi0Dq2kC2hsGoJFkGVgBWlW7DKy/wK4bHTBJkuc01Mlljv0d2oBGkkI+ItTJ5YNJtwZgKTScEOpsLSbdHIFRkgdwE5Cq3Adg0N0uA6PsA/TSBFhFSEAOuj8ALCMQJWnYOp2/ALLTNwPH2YpaewNspu+Go1YX3Qow6esuA7Mu+gQQ9H0PZLvwC5C9HrgCrartDbA1emAHRFW7FWA2PdAS5KYqJIBej5yAXpU2AmSvRzbAbhX+AxBNz1yAoFP7RznooR6IOnUrQG711AXwR/aijI2e6oGow58EkDs9dwF84RbKudFzPRAl2UiZWz15AbzslSgn05MbINorUUanZ0/Akih3r4db4jQHPb7nOPem538O9mD6HzOwBf2n7TZ7/bcAVlA4IOoBAAAQCwCdASo8AD0APn00lEekoyIhN/at+JAPiWwAw6NogQ/DckBwDA7edcY+AB0gH6WbgD9hf2j7GHoAfy7+9dYB6AHlW/t38CH7mfsj7Qf/zAuc4FMLkUYyvU+dZeIMZX+QAP7bUbyOVGxdb+sn7emO1C6+/PT7MHTaD73rygZJ1LFP+i/zSPFTqZq3/1n6VuR28UhS5Vn6t3Qk8d92ZGrncrYqPclVNzIjeOMrYlbCCbzm2p6gvVFzCLZGrkcePPKeHgmfV3CpAsQv/ifbE5szEqWXSwkKaIu/OUsw+7qwpmOPDBEeLbo7req194CnC/ukvM0jq0NHUOQcgEyZih94fJ7rvNRkc8RFVz6nZubWO613lLY0DWGuh/1KIpoW8giesS6mqNwF+1oUSrE6aPow+a0O/7Vg0s3Q/0nKkQbmrlwHmSf8SVtj3CAQASod68bA8s1pvKJG096avoZ2vqJewe+tby0Rzj50HcWjlvF3P7+IP5SZGdyV/A4svQZotLI85FaA9rwaA+tzzUFsWy/7J/Y9JXuUPAq3oiJzKKwcGdj7H/vpuF/rAAAfE33qgAwtXHQGa3r+dUzWLR78J+9U3y7jdTRY8Lv9Lw///IMm+ZgKHaiyipnlLG6rkTE6zdH/9s6yVAAAAAAA"
                                 alt="image"
                             />
-                            <p className="font-bold">Curated Products</p>
+                            <p className="font-bold">{t("CuratedProducts")}</p>
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit ame it, consectetur
-                            adipisicing elit, sed do eiusmod te mp or incididunt
-                            ut labore.
-                        </p>
+                        <p>{t("CuratedProductsText")}</p>
                     </div>
                     <div className="md:w-3/12 w-full shadow-xl p-4">
                         <div className="flex gap-4 items-center">
@@ -120,67 +114,80 @@ export default async function page() {
                                 src="data:image/webp;base64,UklGRlwEAABXRUJQVlA4WAoAAAAQAAAAOwAANAAAQUxQSEUCAAABkJZtWxBZbwQiEIEG0mBtsDQ4NpAGuw2cBmuDoYE20Aba4PmBoMMpEBEToGa/jSRFQLn3anhi81U/HK6dX4Cx5BbgsM2YGWBxF/8Azl4N9yfAArwBklXTNlF5Dmp+KK1Ozf/bSkyuMbdR/9NUIF/j0MfXDrCYdjzAbHUdTmBpxhzAoEqzArGVCERVmx0wjRyw62YPDHWRZfp+xAHDHZ2Q7gDb9wMB8LcS8AC8za34SLwlH14Ai7kzPDLfk+RW4O+OfyTBek9mBfwD/RPpATlgfmB756Fiu9d1VtILyGzXXYlyrABeFV/TQb6MExB+NvJt8h+IhX7j+a3PVp/bkq0wb67PG+cFTAsk3fTAkJkFYA6S5Ib9Yg9Wkgs71494SWYBdq9yhHNQ2Z8XR8WYT4U3sBrVutmp1q4ZFZSdNABJHzXrU5I54DSfkctcKebpIgJBnx4AX7q8OmDXx/0zSR4Y2hi7ruvsjQjYz1mKsXRkCXY1+ADwqwVSI2dKKYWqKGBu4YSkaleKLaRbHuh1QmpkKXVd1/0DvFI7lCh6zUAL8RGrAfD/iWSBVwMvwBfy14USYD5muZXglBSA34/9PZIkaQf6DwXyWHUUHHC4G/aG43Kp8UDMNACHr/phrAoAKzCUzALYC70AJlvwC7D4gv0DCPYExiu7AL8qRvK/8av7+tm4Xsau68Y3eZACwDZ23fcEsJqS+p36k/rVS1KgejWqNfGsWL3CWrFHXbtUOqNuu5hSSvNglbs4p5Tm6FRrY0opvYLRNQBWUDgg8AEAALANAJ0BKjwANQA+kT6XSCWjoiEuFtuIsBIJbAC+8wTJl7lyZ3U0HN7jx3/s/uO3jP9R+vN5gP1a/Yr2dPVL6AH9J/xHqZ/6r2GvQA/Wv0pf23+BP90f2z9qHE+092uXzFOUkvyoDts2AQUTCq6Bcggr/VDWYgAA/v98Ov/xQqe41eDaY8FGXWNksLDMlQtU/zSrZvnr16OekLKOfwPzyp6Z4CTmGiB0o/bjordmDMP5FtOe0cWnwtmJusDQ+29lK53T+PjGzUJCsS6QPPFjammXrr1Vv0piARzCSuVuFLc03x5s2757GEt2PXvhqAngckF7gpEHwlgfV7y/VGfUCgohYnhN2wYAJC7vJfL3ZjAePjEDXDpaTGhO8HsZDX+WZEbwQu06KZsg/8EjOr8X/ooQm/hgIk7z/ovrJ630hZEdQgzhuYdhNnGPei+5+yDqRn8q2gT0XTA0AMnKwEeq5gTD+Rm742Kng1f5IzmmcNzz3aRDBRXJ2P0wYelXfnPX/aZcfHvSFQk4j29sMJ4kIRoBPDNestEezi+6rNdEDNTNJ6uLsNWHwQZosjpkwGL033edNftiwFmIWQiAmnhsX9j7py1GP3YXsJwRpp7rdmxWcrrglL3eIUHirnwwaQzgMyMoyDzFevSgsJqphQAAAAA="
                                 alt="image"
                             />
-                            <p className="font-bold">Pesticide Free Goods</p>
+                            <p className="font-bold">
+                                {t("PesticideFreeGoods")}
+                            </p>
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit ame it, consectetur
-                            adipisicing elit, sed do eiusmod te mp or incididunt
-                            ut labore.
-                        </p>
+                        <p>{t("PesticideFreeGoodsText")}</p>
                     </div>
                 </div>
             </div>
             <section className="lg:px-20 md:px-10 px-4 my-16">
                 <h2 className="lg:text-5xl md:text-4xl text-2xl font-bold my-10 text-center">
-                    Team Member
+                    {t("TeamMember")}
                 </h2>
                 <div className="flex flex-wrap gap-20 justify-center">
-                    {expertsData.map((expert) => (
-                        <div
-                            className="shadow flex flex-col items-center lg:w-2/12 md:w-3/12 w-full"
-                            key={expert.name}
-                        >
-                            <img src={expert.image} alt="image" />
-                            <p className="text-center pt-2 text-green-600">
-                                {expert.position}
-                            </p>
-                            <p className="text-center p-2 ">{expert.name}</p>
-                            <div className="flex gap-2 p-4 ">
-                                <FaFacebookF className="hover:text-green-600" />
-                                <FaTiktok className="hover:text-green-600" />
-                                <BsInstagram className="hover:text-green-600" />
-                                <BsTwitterX className="hover:text-green-600" />
-                            </div>
+                    <div className="shadow flex flex-col items-center lg:w-2/12 md:w-3/12 w-full">
+                        <img src="/jop2.svg" alt="image" />
+                        <p className="text-center pt-2 text-green-600">
+                            {t("Founder")}
+                        </p>
+                        <p className="text-center p-2 ">Liora Vance</p>
+                        <div className="flex gap-2 p-4 ">
+                            <FaFacebookF className="hover:text-green-600" />
+                            <FaTiktok className="hover:text-green-600" />
+                            <BsInstagram className="hover:text-green-600" />
+                            <BsTwitterX className="hover:text-green-600" />
                         </div>
-                    ))}
+                    </div>
+                    <div className="shadow flex flex-col items-center lg:w-2/12 md:w-3/12 w-full">
+                        <img src="/jop1.svg" alt="image" />
+                        <p className="text-center pt-2 text-green-600">
+                            {t("CEO")}
+                        </p>
+                        <p className="text-center p-2 ">Kaden Thorne</p>
+                        <div className="flex gap-2 p-4 ">
+                            <FaFacebookF className="hover:text-green-600" />
+                            <FaTiktok className="hover:text-green-600" />
+                            <BsInstagram className="hover:text-green-600" />
+                            <BsTwitterX className="hover:text-green-600" />
+                        </div>
+                    </div>
+                    <div className="shadow flex flex-col items-center lg:w-2/12 md:w-3/12 w-full">
+                        <img src="/jop3.svg" alt="image" />
+                        <p className="text-center pt-2 text-green-600">
+                            {t("OrganicFarmer")}
+                        </p>
+                        <p className="text-center p-2 ">Selina Marlow</p>
+                        <div className="flex gap-2 p-4 ">
+                            <FaFacebookF className="hover:text-green-600" />
+                            <FaTiktok className="hover:text-green-600" />
+                            <BsInstagram className="hover:text-green-600" />
+                            <BsTwitterX className="hover:text-green-600" />
+                        </div>
+                    </div>
                 </div>
             </section>
             <div className="" id="aboutSection">
                 <div className="flex flex-col justify-center items-center py-20 gap-3 px-3">
                     <p className="text-white text-4xl font-bold">
-                        We make your inbox better
+                        {t("WeMakeYourInboxBetter")}
                     </p>
-                    <p className="text-white">
-                        Sign up to our newsletter to receive grooming tips,
-                        style inspiration,
-                    </p>
-                    <p className="text-white">
-                        exclusive access to pre-launch product pricing and more.
-                    </p>
+                    <p className="text-white">{t("SignUpNewsletter")}</p>
                     <div className="flex lg:w-6/12 md:w-8/12 w-full">
                         <input
                             type="text"
-                            placeholder="Email*"
+                            placeholder={`${t("Email")}*`}
                             className="border-2 text-white w-8/12 border-gray-50 outline-0 p-4 focus:border-green-600"
                         />
                         <button className="p-4 text-white w-4/12 bg-green-600">
-                            Subscripe
+                            {t("Subscribe")}
                         </button>
                     </div>
                 </div>
             </div>
             <Blogs />
-            <footer className="lg:mt-30 relative">
+            <footer className="lg:mt-30 md:mt-20 mt-10 relative">
                 <div className="flex flex-wrap lg:px-10 md:px-7 px-4 lg:absolute lg:-top-20">
                     <div className="flex items-center bg-white gap-5 w-full sm:w-6/12 lg:w-3/12 p-7 shadow-[0_0_1px_gray]">
                         <img
@@ -189,11 +196,8 @@ export default async function page() {
                             alt="image"
                         />
                         <div>
-                            <p className="font-bold">Curated Products</p>
-                            <p>
-                                Provide free home delivery for all product over
-                                $100
-                            </p>
+                            <p className="font-bold">{t2("card1Title")}</p>
+                            <p>{t2("card1Desc")}</p>
                         </div>
                     </div>
                     <div className="flex items-center bg-white gap-5 w-full sm:w-6/12 lg:w-3/12 p-7 shadow-[0_0_1px_gray]">
@@ -203,11 +207,8 @@ export default async function page() {
                             alt="image"
                         />
                         <div>
-                            <p className="font-bold">Handmade</p>
-                            <p>
-                                We ensure the product quality that is our main
-                                goal
-                            </p>
+                            <p className="font-bold">{t2("card2Title")}</p>
+                            <p>{t2("card2Desc")}</p>
                         </div>
                     </div>
                     <div className="flex items-center bg-white gap-5 w-full sm:w-6/12 lg:w-3/12 p-7 shadow-[0_0_1px_gray]">
@@ -217,11 +218,8 @@ export default async function page() {
                             alt="image"
                         />
                         <div>
-                            <p className="font-bold">Natural Food</p>
-                            <p>
-                                Return product within 3 days for any product you
-                                buy
-                            </p>
+                            <p className="font-bold">{t2("card3Title")}</p>
+                            <p>{t2("card3Desc")}</p>
                         </div>
                     </div>
                     <div className="flex items-center bg-white gap-5 w-full sm:w-6/12 lg:w-3/12 p-7 shadow-[0_0_1px_gray]">
@@ -231,11 +229,8 @@ export default async function page() {
                             alt="image"
                         />
                         <div>
-                            <p className="font-bold">Free home delivery</p>
-                            <p>
-                                We ensure the product quality that you can trust
-                                easily
-                            </p>
+                            <p className="font-bold">{t2("card4Title")}</p>
+                            <p>{t2("card4Desc")}</p>
                         </div>
                     </div>
                 </div>
@@ -246,11 +241,7 @@ export default async function page() {
                             src="data:image/webp;base64,UklGRiwEAABXRUJQVlA4WAoAAAAQAAAAmQAAKQAAQUxQSO0CAAABkNva2p1YX+7EGaklcsv5fTlzeOfhfCw3YBpA1w2goQFr6AA6mBc5FGAJOsAdHIn/+7//MMDcVxIRENxIUiRF9jDF6pruC/L/NNnNVVMDQMoSH3afAzNgPQ6xBSYMHYwsZ2V0BZQAMAswB3CIKQKpL58GLoGblMncJ8lZ0F08BbHaQiXXe09Y0aC++NNNj1lkUkGzEZH4EcCLTZm6NIr11T22B/ZwqSTbwMY0LZVZdA0Et1vFTgbwCDwJXdHTGVA6xtOlE2lGBlHZ9cB6VrAiAdkQabARbYHFAL1phwUAnECkWX/xans0g5/G40tvNNSIEwnJUgTe0vqX4wo0qX9aifWaaAkrU0VhmqwjSiQoy3Fj9aE38JIsWEZF7/jiA0Ww02icYG+bTCmRsCzFsHuIRSRuh23uMwmvgvYm3bpO9esiGel6MRKZqoEqlajUJowIIcsA4PD00+1Ulc8iOwH0X8RhOqifVFuKjURKKjKqRkmIMLIk7sRjIpIPHi/i2LKrvjRIzcaoW7n6k8gXq6KP1C8nRBhZDm/nl0g22Kxslp3LWmnVPiJiN2FDpzZHqPSYESHCyDIM8LPJ/LJRVNRjha6MBFPbcUT01bYIL0vwAhgnj0WxdwwSwJaoCeqAYxOmMeFlOfbGTiatcdByaO2OoLEZn7jiZQkWwMraTWTvyNzdJ/Exp8swpcnHnK6AZ+uuZzVutxWGjKUJoxV6s3mv7cekO6YgRBhZhgTABEbyGMDNApWQRD1x2u4SZ0Q/WqiOnBBhZMN4U4i5wUJWQLy/kSPMvFCPihgHKPixZyyiRceECCNL0QLIt8ZlafGSJBIgmE4CfMB43REi1HhNEQ/ALjO60yR3t51GH4W42DmOt3kySp7v5US6SEJc8rwwdlcrv1RSnQD6rhmLEIik/Fx6mhIilCyJOqWKfmAun0vUHU280P99fDKJXwAsY/XFRD6btHvgcCP5C5by+aR6AZ4fJJkk8hkln7THvX9UEQBWUDggGAEAALAJAJ0BKpoAKgA+kUiZSiWkoiGmeAwAsBIJYwB4ZkQIANstdju8qgRbkc0FH/EKSxwe06B4nD9qPnxOl0b2m/v/oL5eJzVhvvpRsmCUwjsLXMkSpHrAAP7zf//+GH8A/ICZI7kOH7h/AKZXBlLwuvFYWf37FI10gPXv+fwf04tN0oQVT/vjZ//yPibis6WQLBu0Zq+w//9Oqq7hzK6/LTkGxB/9/Z8wt8UKEhBfe2UFFxOnForPVlGMn1J9VA+HnKHO+mzPgjd8gTlkIfbpyMVzsN4DlTH0cHfsfJF31/gNfC/+5xkFtc5mK54DKeUNo++6y4I3Zeqv/GO0VmT1qdhR8eOvAwBEwSap//8dEdHPidMySzhAAAA="
                             alt=""
                         />
-                        <p>
-                            Lorem Ipsum is simply dummy text of the and
-                            typesetting industry. Lorem Ipsum is dummy text of
-                            the printing.
-                        </p>
+                        <p>{t2("footerText")}</p>
                         <div className="flex gap-4 items-center">
                             <IoLocationOutline />
                             Brooklyn, New York, United States
@@ -271,85 +262,88 @@ export default async function page() {
                         </div>
                     </div>
                     <div className="flex flex-col gap-5 md:w-2/12">
-                        <p className="font-bold">Company</p>
-                        <a href="#" className="hover:text-green-600">
-                            About
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Blog
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            AllProducts
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Location Map
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            FAQ
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Contact us
-                        </a>
+                        <p className="font-bold">{t2("company")}</p>
+                        <Link href="/About" className="hover:text-green-600">
+                            {t2("about")}
+                        </Link>
+                        <Link href="/News" className="hover:text-green-600">
+                            {t2("blog")}
+                        </Link>
+                        <Link href="/Shop" className="hover:text-green-600">
+                            {t2("allProducts")}
+                        </Link>
+                        <Link
+                            href="/Google_Map"
+                            className="hover:text-green-600"
+                        >
+                            {t2("locationMap")}
+                        </Link>
+                        <Link href="/FAQ" className="hover:text-green-600">
+                            {t2("faq")}
+                        </Link>
+                        <Link href="/Contact" className="hover:text-green-600">
+                            {t2("contactUs")}
+                        </Link>
                     </div>
                     <div className="flex flex-col gap-5 md:w-2/12">
-                        <p className="font-bold">Services</p>
-                        <a href="#" className="hover:text-green-600">
-                            Order tracking
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Wish List
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Login
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            My Account
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Terms & Conditions
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Promotional Offers
-                        </a>
+                        <p className="font-bold">{t2("services")}</p>
+                        <Link
+                            href="/Order_Tracking"
+                            className="hover:text-green-600"
+                        >
+                            {t2("orderTracking")}
+                        </Link>
+                        <Link href="/" className="hover:text-green-600">
+                            {t2("wishlist")}
+                        </Link>
+                        <Link href="/" className="hover:text-green-600">
+                            {t2("login")}
+                        </Link>
+                        <Link href="/" className="hover:text-green-600">
+                            {t2("myAccount")}
+                        </Link>
+                        <Link href="/About" className="hover:text-green-600">
+                            {t2("termsConditions")}
+                        </Link>
+                        <Link href="/Shop" className="hover:text-green-600">
+                            {t2("promotionalOffers")}
+                        </Link>
                     </div>
                     <div className="flex flex-col gap-5 md:w-2/12">
-                        <p className="font-bold">Customer Care</p>
-                        <a href="#" className="hover:text-green-600">
-                            Wishlist
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Login
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            My Account
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Order tracking
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            FAQ
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Contact us
-                        </a>
+                        <p className="font-bold">{t2("customerCare")}</p>
+                        <Link href="/" className="hover:text-green-600">
+                            {t2("wishlist")}
+                        </Link>
+                        <Link href="/" className="hover:text-green-600">
+                            {t2("login")}
+                        </Link>
+                        <Link href="/" className="hover:text-green-600">
+                            {t2("myAccount")}
+                        </Link>
+                        <Link href="/" className="hover:text-green-600">
+                            {t2("orderTracking")}
+                        </Link>
+                        <Link href="/FAQ" className="hover:text-green-600">
+                            {t2("faq")}
+                        </Link>
+                        <Link href="/Contact" className="hover:text-green-600">
+                            {t2("contactUs")}
+                        </Link>
                     </div>
                     <div className="flex flex-col gap-5 md:w-2/12">
-                        <p className="font-bold">Newsletter</p>
-                        <p>
-                            Subscribe to our weekly Newsletter and receive
-                            updates via email.
-                        </p>
+                        <p className="font-bold">{t2("newsletter")}</p>
+                        <p>{t2("subscribe")}</p>
                         <div className="flex">
                             <input
                                 type="text"
-                                placeholder="Email*"
+                                placeholder={`${t2("email")}*`}
                                 className="border-2 border-gray-50 outline-0 p-4 focus:border-green-600"
                             />
                             <button className="p-4 text-white bg-green-600">
                                 <FaLocationArrow />
                             </button>
                         </div>
-                        <p className="font-bold">We Accept</p>
+                        <p className="font-bold">{t2("weAccept")}</p>
                         <img
                             src="data:image/webp;base64,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"
                             alt="visa image"
@@ -357,18 +351,16 @@ export default async function page() {
                     </div>
                 </div>
                 <div className="flex md:flex-row flex-col justify-around bg-black p-8">
-                    <p className="text-white">
-                        All Rights Reserved @ Company 2025
-                    </p>
+                    <p className="text-white">{t2("rights")}</p>
                     <div className="flex gap-4 md:flex-row flex-col">
                         <a href="#" className="hover:text-green-500 text-white">
-                            Terms & Conditions
+                            {t2("termsConditions")}
                         </a>
                         <a href="#" className="hover:text-green-500 text-white">
-                            Claim
+                            {t2("claim")}
                         </a>
                         <a href="#" className="hover:text-green-500 text-white">
-                            Privacy & Policy
+                            {t2("privacyPolicy")}
                         </a>
                     </div>
                 </div>

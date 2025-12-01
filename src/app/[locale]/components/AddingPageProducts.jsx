@@ -164,6 +164,7 @@ export default function AddingPageProducts() {
                                     </DialogTrigger>
                                     <DialogContent>
                                         <DialogHeader>
+                                            <img src={product.image} alt={`${product.title} image`} />
                                             <DialogTitle>
                                                 {product.title}
                                             </DialogTitle>

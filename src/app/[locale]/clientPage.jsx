@@ -29,9 +29,10 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
+
 export function ProductSlider() {
     const [products, setProducts] = useState([]);
-
+    const t = useTranslations("Home");
     useEffect(() => {
         async function fetchSwiperData() {
             try {
@@ -73,51 +74,124 @@ export function ProductSlider() {
             pagination={{ clickable: true }}
             rewind={true}
         >
-            {products.map((product) =>
-                product ? (
-                    <SwiperSlide
-                        key={product.id}
-                        className="!flex justify-center items-center flex-col md:flex-row"
-                    >
-                        <div className="md:w-5/12 w-full flex flex-col gap-5">
-                            <p>{product.supText}</p>
-                            <p className="font-bold text-4xl">
-                                {product.mainText}
-                            </p>
-                            {product.supParagraph && (
-                                <p>{product.supParagraph}</p>
-                            )}
-                            <div className="flex gap-3">
-                                <button className="bg-green-600 text-white p-3 rounded">
-                                    {product.buttonOne}
-                                </button>
-                                {product.buttonTwo && (
-                                    <button className="bg-white text-black p-3 rounded">
-                                        {product.buttonTwo}
-                                    </button>
-                                )}
-                            </div>
-                        </div>
-                        <img
-                            src={product.image}
-                            alt="product"
-                            className="md:w-5/12 w-full"
-                        />
-                    </SwiperSlide>
-                ) : null
-            )}
+            <SwiperSlide className="!flex justify-center items-center flex-col md:flex-row">
+                <div className="md:w-5/12 w-full flex flex-col gap-5">
+                    <p>{t("genuineProducts")}</p>
+                    <p className="font-bold text-4xl">{t("slide1Title")}</p>
+
+                    <p>{t("slide1Desc")}</p>
+                    <div className="flex gap-3">
+                        <Link
+                            href="/Shop"
+                            className="bg-green-600 text-white p-3 rounded"
+                        >
+                            {t("exploreProducts")}
+                        </Link>
+                        <Link
+                            href="/About"
+                            className="bg-white text-black p-3 rounded"
+                        >
+                            {t("learnMore")}
+                        </Link>
+                    </div>
+                </div>
+                <img
+                    src="/slideone.png"
+                    alt="product"
+                    className="md:w-5/12 w-full"
+                />
+            </SwiperSlide>
+            <SwiperSlide className="!flex justify-center items-center flex-col md:flex-row">
+                <div className="md:w-5/12 w-full flex flex-col gap-5">
+                    <p>{t("genuineProducts")}</p>
+                    <p className="font-bold text-4xl">{t("slide2Title")}</p>
+                    <p>{t("slide2Desc")}</p>
+                    <div className="flex gap-3">
+                        <Link
+                            href="/Shop"
+                            className="bg-green-600 text-white p-3 rounded"
+                        >
+                            {t("exploreProducts")}
+                        </Link>
+                        <Link
+                            href="/About"
+                            className="bg-white text-black p-3 rounded"
+                        >
+                            {t("learnMore")}
+                        </Link>
+                    </div>
+                </div>
+                <img
+                    src="https://broccolisite.netlify.app/assets/hero1-BxzRm0Ci.webp"
+                    alt="product"
+                    className="md:w-5/12 w-full"
+                />
+            </SwiperSlide>
+            <SwiperSlide className="!flex justify-center items-center flex-col md:flex-row">
+                <div className="md:w-5/12 w-full flex flex-col gap-5">
+                    <p>{t("genuineProducts")}</p>
+                    <p className="font-bold text-4xl">{t("slide3Title")}</p>
+                    <p>{t("slide3Desc")}</p>
+                    <div className="flex gap-3">
+                        <Link
+                            href="/Shop"
+                            className="bg-green-600 text-white p-3 rounded"
+                        >
+                            {t("exploreProducts")}
+                        </Link>
+                        <Link
+                            href="/About"
+                            className="bg-white text-black p-3 rounded"
+                        >
+                            {t("learnMore")}
+                        </Link>
+                    </div>
+                </div>
+                <img
+                    src="/slide3.png"
+                    alt="product"
+                    className="md:w-5/12 w-full"
+                />
+            </SwiperSlide>
+            <SwiperSlide className="!flex justify-center items-center flex-col md:flex-row">
+                <div className="md:w-5/12 w-full flex flex-col gap-5">
+                    <p>{t("genuineProducts")}</p>
+                    <p className="font-bold text-4xl">{t("slide4Title")}</p>
+                    <p>{t("slide4Desc")}</p>
+                    <div className="flex gap-3">
+                        <Link
+                            href="/Shop"
+                            className="bg-green-600 text-white p-3 rounded"
+                        >
+                            {t("exploreProducts")}
+                        </Link>
+                        <Link
+                            href="/About"
+                            className="bg-white text-black p-3 rounded"
+                        >
+                            {t("learnMore")}
+                        </Link>
+                    </div>
+                </div>
+                <img
+                    src="/slide4.png"
+                    alt="product"
+                    className="md:w-5/12 w-full"
+                />
+            </SwiperSlide>
         </Swiper>
     );
 }
 
 export function Cart() {
     const cartItems = useSelector((state) => state.cart.cartItems);
+    const t = useTranslations("cart");
     const dispatch = useDispatch();
     return (
         <div className=" mt-10 ">
             {cartItems.length === 0 ? (
                 <div className="ml-10 font-bold text-3xl text-green-600">
-                    <p>Cart is Empty</p>
+                    <p>{t("CartIsEmpty")}</p>
                 </div>
             ) : (
                 cartItems.map((item) => (
@@ -180,11 +254,12 @@ export function Cart() {
 export function WhishList() {
     const wishListItems = useSelector((state) => state.wishList.wishListItems);
     const dispatch = useDispatch();
+    const t = useTranslations("whishList");
     return (
         <div className=" mt-10 ">
             {wishListItems.length === 0 ? (
                 <div className="ml-10 font-bold text-3xl text-green-600">
-                    <p>Whishlist is Empty</p>
+                    <p>{t("WhishListIsEmpty")}</p>
                 </div>
             ) : (
                 wishListItems.map((item) => (
@@ -561,27 +636,27 @@ export function FeaturedProducts() {
 }
 
 export function Blogs() {
-    const t = useTranslations('blogsSlider.blogs');
-    
-    const blogCount = t('blogCount');
+    const t = useTranslations("blogsSlider.blogs");
+    const t2 = useTranslations("blogsSlider");
+    const blogCount = t("blogCount");
     const blogs = [];
 
     for (let i = 1; i <= blogCount; i++) {
-        const blogKey = 'blog' + i;
+        const blogKey = "blog" + i;
         blogs.push({
-            id: t(blogKey + '.id'),
-            image: t(blogKey + '.image'),
-            subText: t(blogKey + '.subText'),
-            mainText: t(blogKey + '.mainText'),
-            date: t(blogKey + '.date'),
-            readMore: t(blogKey + '.readMore')
+            id: t(blogKey + ".id"),
+            image: t(blogKey + ".image"),
+            subText: t(blogKey + ".subText"),
+            mainText: t(blogKey + ".mainText"),
+            date: t(blogKey + ".date"),
+            readMore: t(blogKey + ".readMore"),
         });
     }
 
     return (
         <div className="lg:px-20 md:px-10 px-4">
             <h2 className="font-bold text-4xl text-black text-center py-8">
-                Latest Blog
+                {t2("latestBlogs")}
             </h2>
             <Swiper
                 className="flex gap-10"
@@ -631,9 +706,10 @@ export function Blogs() {
 export function SignInPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [isLoading, setIsLoading] = useState(false); 
+    const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
 
+    const t = useTranslations("signIn");
     const handleLogin = async (e) => {
         e.preventDefault();
         setIsLoading(true);
@@ -689,11 +765,11 @@ export function SignInPage() {
                 className="bg-white p-6 rounded-xl shadow-md space-y-4 w-full max-w-sm"
             >
                 <h2 className="text-2xl font-bold text-green-600 text-center">
-                    Sign In
+                    {t("SignIn")}
                 </h2>
                 <input
                     type="email"
-                    placeholder="Email"
+                    placeholder={t("Email")}
                     className="w-full px-4 py-2 border rounded-lg"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -702,7 +778,7 @@ export function SignInPage() {
                 />
                 <input
                     type="password"
-                    placeholder="Password"
+                    placeholder={t("Password")}
                     className="w-full px-4 py-2 border rounded-lg"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -738,12 +814,12 @@ export function SignInPage() {
                             ></path>
                         </svg>
                     ) : null}
-                    Login
+                    {t("Login")}
                 </button>
                 <p>
-                    Don't Have An Account ?{" "}
+                    {t("DontHaveAccount")}{" "}
                     <Link className="text-green-600 " href="/Register">
-                        Sign Up Here
+                        {t("SignUpHere")}
                     </Link>
                 </p>
             </form>
@@ -757,6 +833,7 @@ export function RegisterPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const t = useTranslations("register");
     const handleRegister = async (e) => {
         e.preventDefault();
 
@@ -789,16 +866,24 @@ export function RegisterPage() {
     };
 
     return (
+        // // "createAccount": "Create Account",
+        //     "firstName": "First Name",
+        //     "lastName": "Last Name",
+        //     "email": "Email",
+        //     "password": "Password",
+        //     "register": "Register",
+        //     "alreadyHaveAccount": "Already have an account?",
+        //     "signIn": "Sign In"
         <div className="min-h-screen bg-green-50 flex items-center py-20 justify-center">
             <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
                 <h2 className="text-3xl font-bold text-green-600 text-center mb-6">
-                    Create Account
+                    {t("createAccount")}
                 </h2>
                 <form onSubmit={handleRegister} className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                         <div>
                             <label className="block text-green-600 font-semibold mb-1">
-                                First Name
+                                {t("firstName")}
                             </label>
                             <input
                                 type="text"
@@ -811,7 +896,7 @@ export function RegisterPage() {
                         </div>
                         <div>
                             <label className="block text-green-600 font-semibold mb-1">
-                                Last Name
+                                {t("lastName")}
                             </label>
                             <input
                                 type="text"
@@ -826,7 +911,7 @@ export function RegisterPage() {
 
                     <div>
                         <label className="block text-green-600 font-semibold mb-1">
-                            Email
+                            {t("email")}
                         </label>
                         <input
                             type="email"
@@ -840,7 +925,7 @@ export function RegisterPage() {
 
                     <div>
                         <label className="block text-green-600 font-semibold mb-1">
-                            Password
+                            {t("password")}
                         </label>
                         <input
                             type="password"
@@ -856,17 +941,17 @@ export function RegisterPage() {
                         type="submit"
                         className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300"
                     >
-                        Register
+                        {t("register")}
                     </button>
                 </form>
 
                 <p className="text-center text-sm text-gray-500 mt-4">
-                    Already have an account?{" "}
+                    {t("alreadyHaveAccount")}{" "}
                     <Link
                         href="/login"
                         className="text-green-600 font-semibold hover:underline"
                     >
-                        Sign In
+                        {t("signIn")}
                     </Link>
                 </p>
             </div>
@@ -903,11 +988,11 @@ export function ProgressExperts() {
             window.removeEventListener("load", handleScroll);
         };
     }, []);
-
+    const t = useTranslations("team");
     return (
         <div ref={containerRef} className="space-y-6 mt-[50px]">
             <div>
-                <p className="mb-1">Gardening</p>
+                <p className="mb-1">{t("Gardening")}</p>
                 <div className="w-full bg-gray-300 h-4 rounded">
                     <div
                         className="h-4 bg-blue-500 rounded transition-all duration-700 ease-in-out"
@@ -916,7 +1001,7 @@ export function ProgressExperts() {
                 </div>
             </div>
             <div>
-                <p className="mb-1">Landscaping</p>
+                <p className="mb-1">{t("Landscaping")}</p>
                 <div className="w-full bg-gray-300 h-4 rounded">
                     <div
                         className="h-4 bg-green-500 rounded transition-all duration-700 ease-in-out"
@@ -925,7 +1010,7 @@ export function ProgressExperts() {
                 </div>
             </div>
             <div>
-                <p className="mb-1">Vegetable Growing</p>
+                <p className="mb-1">{t("VegetableGrowing")}</p>
                 <div className="w-full bg-gray-300 h-4 rounded">
                     <div
                         className="h-4 bg-yellow-500 rounded transition-all duration-700 ease-in-out"
@@ -939,47 +1024,126 @@ export function ProgressExperts() {
 
 export function FAQ() {
     const [activeIndex, setActiveIndex] = useState(null);
-    const [FAQData, setFAQData] = useState([]);
-
-    useEffect(() => {
-        async function fetchFAQData() {
-            const res = await fetch("/api/FAQ");
-            const data = await res.json();
-            setFAQData(data);
-        }
-        fetchFAQData();
-    }, []);
-
+    const t = useTranslations("faq");
     const toggleQuestion = (index) => {
         setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
     };
 
     return (
         <div className="lg:px-20 md:px-10 px-4 my-10">
-            {FAQData.map((item, index) => (
-                <div key={item.question} className="mb-4 shadow">
-                    <div
-                        onClick={() => toggleQuestion(index)}
-                        className="w-full flex justify-between items-center px-4 py-2 font-medium bg-gray-100 hover:bg-gray-200 cursor-pointer"
-                    >
-                        <span>{item.question}</span>
-                        <span className="text-xl">
-                            {activeIndex === index ? "−" : "+"}
-                        </span>
-                    </div>
-
-                    {activeIndex === index && (
-                        <div className="px-4 py-2 bg-white text-gray-700">
-                            {item.answer}
-                        </div>
-                    )}
+            
+            <div className="mb-4 shadow">
+                <div
+                    onClick={() => toggleQuestion(0)}
+                    className="w-full flex justify-between items-center px-4 py-2 font-medium bg-gray-100 hover:bg-gray-200 cursor-pointer"
+                >
+                    <span>{t("question1")}</span>
+                    <span className="text-xl">
+                        {activeIndex === 0 ? "−" : "+"}
+                    </span>
                 </div>
-            ))}
+                {activeIndex === 0 && (
+                    <div className="px-4 py-2 bg-white text-gray-700">
+                        {t("answer1")}
+                    </div>
+                )}
+            </div>
+
+            
+            <div className="mb-4 shadow">
+                <div
+                    onClick={() => toggleQuestion(1)}
+                    className="w-full flex justify-between items-center px-4 py-2 font-medium bg-gray-100 hover:bg-gray-200 cursor-pointer"
+                >
+                    <span>{t("question2")}</span>
+                    <span className="text-xl">
+                        {activeIndex === 1 ? "−" : "+"}
+                    </span>
+                </div>
+                {activeIndex === 1 && (
+                    <div className="px-4 py-2 bg-white text-gray-700">
+                        {t("answer2")}
+                    </div>
+                )}
+            </div>
+
+            
+            <div className="mb-4 shadow">
+                <div
+                    onClick={() => toggleQuestion(2)}
+                    className="w-full flex justify-between items-center px-4 py-2 font-medium bg-gray-100 hover:bg-gray-200 cursor-pointer"
+                >
+                    <span>{t("question3")}</span>
+                    <span className="text-xl">
+                        {activeIndex === 2 ? "−" : "+"}
+                    </span>
+                </div>
+                {activeIndex === 2 && (
+                    <div className="px-4 py-2 bg-white text-gray-700">
+                        {t("answer3")}
+                    </div>
+                )}
+            </div>
+
+            
+            <div className="mb-4 shadow">
+                <div
+                    onClick={() => toggleQuestion(3)}
+                    className="w-full flex justify-between items-center px-4 py-2 font-medium bg-gray-100 hover:bg-gray-200 cursor-pointer"
+                >
+                    <span>{t("question4")}</span>
+                    <span className="text-xl">
+                        {activeIndex === 3 ? "−" : "+"}
+                    </span>
+                </div>
+                {activeIndex === 3 && (
+                    <div className="px-4 py-2 bg-white text-gray-700">
+                        {t("answer4")}
+                    </div>
+                )}
+            </div>
+
+            
+            <div className="mb-4 shadow">
+                <div
+                    onClick={() => toggleQuestion(4)}
+                    className="w-full flex justify-between items-center px-4 py-2 font-medium bg-gray-100 hover:bg-gray-200 cursor-pointer"
+                >
+                    <span>{t("question5")}</span>
+                    <span className="text-xl">
+                        {activeIndex === 4 ? "−" : "+"}
+                    </span>
+                </div>
+                {activeIndex === 4 && (
+                    <div className="px-4 py-2 bg-white text-gray-700">
+                        {t("answer5")}
+                    </div>
+                )}
+            </div>
+
+            
+            <div className="mb-4 shadow">
+                <div
+                    onClick={() => toggleQuestion(5)}
+                    className="w-full flex justify-between items-center px-4 py-2 font-medium bg-gray-100 hover:bg-gray-200 cursor-pointer"
+                >
+                    <span>{t("question6")}</span>
+                    <span className="text-xl">
+                        {activeIndex === 5 ? "−" : "+"}
+                    </span>
+                </div>
+                {activeIndex === 5 && (
+                    <div className="px-4 py-2 bg-white text-gray-700">
+                        {t("answer6")}
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
 
 export function Tabs() {
+    const t = useTranslations("history");
     const [tab, setTab] = useState("2000");
     const years = ["1900", "1950", "2000", "2010", "2024"];
     return (
@@ -1007,20 +1171,16 @@ export function Tabs() {
                             />
                         </div>
                         <div className="flex flex-col ">
-                            <p>// Our History</p>
-                            <p>Started Journey</p>
+                            <p>// {t("OurHistory")}</p>
+                            <p>{t("StartedJourney")}</p>
                             <p className='after:content-[""] after:h-12 after:w-1 after:bg-green-600 after:absolute after:left-0 after:top-0  relative px-5 my-10'>
-                                In 1900, we started our journey with a vision to
-                                provide quality organic products.
+                                {t("GetRewardsDesc")}
                             </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipis
-                                icing elit, sed do eius mod tempor incididunt ut
-                                labore et dolore magna aliqua.
-                            </p>
+                            <p>{t("desc1")}</p>
                         </div>
                     </div>
                 )}
+
                 {tab === "1950" && (
                     <div className="flex md:flex-row flex-col gap-15">
                         <div className="relative flex grow">
@@ -1030,17 +1190,12 @@ export function Tabs() {
                             />
                         </div>
                         <div className="flex flex-col ">
-                            <p>// Get rewards</p>
-                            <p>Get Rewards</p>
+                            <p>{t("GetRewards")}</p>
+                            <p>{t("StartedJourney")}</p>
                             <p className='after:content-[""] after:h-12 after:w-1 after:bg-green-600 after:absolute after:left-0 after:top-0  relative px-5 my-10'>
-                                In 1950, we received prestigious awards for our
-                                excellence in organic farming.
+                                {t("GetRewardsDesc")}
                             </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipis
-                                icing elit, sed do eius mod tempor incididunt ut
-                                labore et dolore magna aliqua.
-                            </p>
+                            <p>{t("desc2")}</p>
                         </div>
                     </div>
                 )}
@@ -1053,17 +1208,12 @@ export function Tabs() {
                             />
                         </div>
                         <div className="flex flex-col ">
-                            <p>// Get rewards</p>
-                            <p>Top Winner</p>
+                            <p>// {t("GetRewards")}</p>
+                            <p>{t("TopWinner")}</p>
                             <p className='after:content-[""] after:h-12 after:w-1 after:bg-green-600 after:absolute after:left-0 after:top-0  relative px-5 my-10'>
-                                By 2000, we were recognized as the top organic
-                                food provider globally.
+                                {t("TopWinnerDesc")}
                             </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipis
-                                icing elit, sed do eius mod tempor incididunt ut
-                                labore et dolore magna aliqua.
-                            </p>
+                            <p>{t("desc3")}</p>
                         </div>
                     </div>
                 )}
@@ -1076,17 +1226,12 @@ export function Tabs() {
                             />
                         </div>
                         <div className="flex flex-col ">
-                            <p>// Get rewards</p>
-                            <p>Get Title</p>
+                            <p>// {t("GetRewards")}</p>
+                            <p>{t("GetTitle")}</p>
                             <p className='after:content-[""] after:h-12 after:w-1 after:bg-green-600 after:absolute after:left-0 after:top-0  relative px-5 my-10'>
-                                In 2010, we earned the title of the most trusted
-                                organic food store.
+                                {t("GetTitleDesc")}
                             </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipis
-                                icing elit, sed do eius mod tempor incididunt ut
-                                labore et dolore magna aliqua.
-                            </p>
+                            <p>{t("desc4")}</p>
                         </div>
                     </div>
                 )}
@@ -1099,17 +1244,12 @@ export function Tabs() {
                             />
                         </div>
                         <div className="flex flex-col">
-                            <p>// Get rewards</p>
-                            <p>Number 1</p>
+                            <p>// {t("GetRewards")}</p>
+                            <p>{t("Number1")}</p>
                             <p className='after:content-[""] after:h-12 after:w-1 after:bg-green-600 after:absolute after:left-0 after:top-0  relative px-5 my-10'>
-                                In 2024, we became the number one choice for
-                                organic food worldwide.
+                                {t("Number1Desc")}
                             </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipis
-                                icing elit, sed do eius mod tempor incididunt ut
-                                labore et dolore magna aliqua.
-                            </p>
+                            <p>{t("desc5")}</p>
                         </div>
                     </div>
                 )}

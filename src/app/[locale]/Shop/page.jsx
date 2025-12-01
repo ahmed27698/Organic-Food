@@ -5,17 +5,18 @@ import { FaLocationArrow, FaFacebookF, FaTiktok } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 
 import Link from "next/link";
-import Image from "next/image";
-
 
 import NavBarPages from "../components/NavbarPages";
 
 import ProductsClient from "./ClientProduct";
 
+import { getTranslations } from "next-intl/server";
+export default async function page({ params: { locale } }) {
+    const t2 = await getTranslations("Home");
+    const t = await getTranslations("shop");
 
-export default async function page() {
     return (
-        <section>
+        <section dir={locale === "ar" ? "rtl" : "ltr"}>
             <NavBarPages navLink="/" />
             <div className="relative">
                 <img
@@ -26,31 +27,22 @@ export default async function page() {
                 <div className="absolute w-full bottom-0 lg:p-20 md:p-10 p-5 flex flex-col md:flex-row md:justify-between items-start  md:items-center">
                     <div>
                         <p className="text-green-600 font-bold">
-                            // Welcome to our company
+                            // {t("WelcomeToCompany")}
                         </p>
                         <p className="text-white font-bold lg:text-6xl md:text-4xl text-2xl">
-                            Shop
+                            {t("Shop")}
                         </p>
                     </div>
                     <div className="flex gap-4">
                         <Link href="/" className="text-white font-bold">
-                            Home
+                            {t("Home")}
                         </Link>
                         <span className="text-white">|</span>
-                        <p className="text-green-600 font-bold">Shop</p>
+                        <p className="text-green-600 font-bold">{t("Shop")}</p>
                     </div>
                 </div>
             </div>
             <div className="flex lg:px-20 md:px-10 px-4 gap-5 my-14">
-                <aside className="w-3/12 grow-1 shrink-1">
-                    <Image
-                        src="https://broccolisite.netlify.app/assets/sectionTwo_1-CZr5JFCI.webp"
-                        alt="advertise"
-                        height={300}
-                        width={300}
-                        
-                    />
-                </aside>
                 <ProductsClient />
             </div>
             <footer className="lg:mt-30 relative">
@@ -62,11 +54,8 @@ export default async function page() {
                             alt="image"
                         />
                         <div>
-                            <p className="font-bold">Curated Products</p>
-                            <p>
-                                Provide free home delivery for all product over
-                                $100
-                            </p>
+                            <p className="font-bold">{t2("card1Title")}</p>
+                            <p>{t2("card1Desc")}</p>
                         </div>
                     </div>
                     <div className="flex items-center bg-white gap-5 w-full sm:w-6/12 lg:w-3/12 p-7 shadow-[0_0_1px_gray]">
@@ -76,11 +65,8 @@ export default async function page() {
                             alt="image"
                         />
                         <div>
-                            <p className="font-bold">Handmade</p>
-                            <p>
-                                We ensure the product quality that is our main
-                                goal
-                            </p>
+                            <p className="font-bold">{t2("card2Title")}</p>
+                            <p>{t2("card2Desc")}</p>
                         </div>
                     </div>
                     <div className="flex items-center bg-white gap-5 w-full sm:w-6/12 lg:w-3/12 p-7 shadow-[0_0_1px_gray]">
@@ -90,11 +76,8 @@ export default async function page() {
                             alt="image"
                         />
                         <div>
-                            <p className="font-bold">Natural Food</p>
-                            <p>
-                                Return product within 3 days for any product you
-                                buy
-                            </p>
+                            <p className="font-bold">{t2("card3Title")}</p>
+                            <p>{t2("card3Desc")}</p>
                         </div>
                     </div>
                     <div className="flex items-center bg-white gap-5 w-full sm:w-6/12 lg:w-3/12 p-7 shadow-[0_0_1px_gray]">
@@ -104,11 +87,8 @@ export default async function page() {
                             alt="image"
                         />
                         <div>
-                            <p className="font-bold">Free home delivery</p>
-                            <p>
-                                We ensure the product quality that you can trust
-                                easily
-                            </p>
+                            <p className="font-bold">{t2("card4Title")}</p>
+                            <p>{t2("card4Desc")}</p>
                         </div>
                     </div>
                 </div>
@@ -119,11 +99,7 @@ export default async function page() {
                             src="data:image/webp;base64,UklGRiwEAABXRUJQVlA4WAoAAAAQAAAAmQAAKQAAQUxQSO0CAAABkNva2p1YX+7EGaklcsv5fTlzeOfhfCw3YBpA1w2goQFr6AA6mBc5FGAJOsAdHIn/+7//MMDcVxIRENxIUiRF9jDF6pruC/L/NNnNVVMDQMoSH3afAzNgPQ6xBSYMHYwsZ2V0BZQAMAswB3CIKQKpL58GLoGblMncJ8lZ0F08BbHaQiXXe09Y0aC++NNNj1lkUkGzEZH4EcCLTZm6NIr11T22B/ZwqSTbwMY0LZVZdA0Et1vFTgbwCDwJXdHTGVA6xtOlE2lGBlHZ9cB6VrAiAdkQabARbYHFAL1phwUAnECkWX/xans0g5/G40tvNNSIEwnJUgTe0vqX4wo0qX9aifWaaAkrU0VhmqwjSiQoy3Fj9aE38JIsWEZF7/jiA0Ww02icYG+bTCmRsCzFsHuIRSRuh23uMwmvgvYm3bpO9esiGel6MRKZqoEqlajUJowIIcsA4PD00+1Ulc8iOwH0X8RhOqifVFuKjURKKjKqRkmIMLIk7sRjIpIPHi/i2LKrvjRIzcaoW7n6k8gXq6KP1C8nRBhZDm/nl0g22Kxslp3LWmnVPiJiN2FDpzZHqPSYESHCyDIM8LPJ/LJRVNRjha6MBFPbcUT01bYIL0vwAhgnj0WxdwwSwJaoCeqAYxOmMeFlOfbGTiatcdByaO2OoLEZn7jiZQkWwMraTWTvyNzdJ/Exp8swpcnHnK6AZ+uuZzVutxWGjKUJoxV6s3mv7cekO6YgRBhZhgTABEbyGMDNApWQRD1x2u4SZ0Q/WqiOnBBhZMN4U4i5wUJWQLy/kSPMvFCPihgHKPixZyyiRceECCNL0QLIt8ZlafGSJBIgmE4CfMB43REi1HhNEQ/ALjO60yR3t51GH4W42DmOt3kySp7v5US6SEJc8rwwdlcrv1RSnQD6rhmLEIik/Fx6mhIilCyJOqWKfmAun0vUHU280P99fDKJXwAsY/XFRD6btHvgcCP5C5by+aR6AZ4fJJkk8hkln7THvX9UEQBWUDggGAEAALAJAJ0BKpoAKgA+kUiZSiWkoiGmeAwAsBIJYwB4ZkQIANstdju8qgRbkc0FH/EKSxwe06B4nD9qPnxOl0b2m/v/oL5eJzVhvvpRsmCUwjsLXMkSpHrAAP7zf//+GH8A/ICZI7kOH7h/AKZXBlLwuvFYWf37FI10gPXv+fwf04tN0oQVT/vjZ//yPibis6WQLBu0Zq+w//9Oqq7hzK6/LTkGxB/9/Z8wt8UKEhBfe2UFFxOnForPVlGMn1J9VA+HnKHO+mzPgjd8gTlkIfbpyMVzsN4DlTH0cHfsfJF31/gNfC/+5xkFtc5mK54DKeUNo++6y4I3Zeqv/GO0VmT1qdhR8eOvAwBEwSap//8dEdHPidMySzhAAAA="
                             alt=""
                         />
-                        <p>
-                            Lorem Ipsum is simply dummy text of the and
-                            typesetting industry. Lorem Ipsum is dummy text of
-                            the printing.
-                        </p>
+                        <p>{t2("footerText")}</p>
                         <div className="flex gap-4 items-center">
                             <IoLocationOutline />
                             Brooklyn, New York, United States
@@ -144,85 +120,88 @@ export default async function page() {
                         </div>
                     </div>
                     <div className="flex flex-col gap-5 md:w-2/12">
-                        <p className="font-bold">Company</p>
-                        <a href="#" className="hover:text-green-600">
-                            About
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Blog
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            AllProducts
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Location Map
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            FAQ
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Contact us
-                        </a>
+                        <p className="font-bold">{t2("company")}</p>
+                        <Link href="/About" className="hover:text-green-600">
+                            {t2("about")}
+                        </Link>
+                        <Link href="/News" className="hover:text-green-600">
+                            {t2("blog")}
+                        </Link>
+                        <Link href="/Shop" className="hover:text-green-600">
+                            {t2("allProducts")}
+                        </Link>
+                        <Link
+                            href="/Google_Map"
+                            className="hover:text-green-600"
+                        >
+                            {t2("locationMap")}
+                        </Link>
+                        <Link href="/FAQ" className="hover:text-green-600">
+                            {t2("faq")}
+                        </Link>
+                        <Link href="/Contact" className="hover:text-green-600">
+                            {t2("contactUs")}
+                        </Link>
                     </div>
                     <div className="flex flex-col gap-5 md:w-2/12">
-                        <p className="font-bold">Services</p>
-                        <a href="#" className="hover:text-green-600">
-                            Order tracking
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Wish List
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Login
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            My Account
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Terms & Conditions
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Promotional Offers
-                        </a>
+                        <p className="font-bold">{t2("services")}</p>
+                        <Link
+                            href="/Order_Tracking"
+                            className="hover:text-green-600"
+                        >
+                            {t2("orderTracking")}
+                        </Link>
+                        <Link href="/" className="hover:text-green-600">
+                            {t2("wishlist")}
+                        </Link>
+                        <Link href="/" className="hover:text-green-600">
+                            {t2("login")}
+                        </Link>
+                        <Link href="/" className="hover:text-green-600">
+                            {t2("myAccount")}
+                        </Link>
+                        <Link href="/About" className="hover:text-green-600">
+                            {t2("termsConditions")}
+                        </Link>
+                        <Link href="/Shop" className="hover:text-green-600">
+                            {t2("promotionalOffers")}
+                        </Link>
                     </div>
                     <div className="flex flex-col gap-5 md:w-2/12">
-                        <p className="font-bold">Customer Care</p>
-                        <a href="#" className="hover:text-green-600">
-                            Wishlist
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Login
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            My Account
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Order tracking
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            FAQ
-                        </a>
-                        <a href="#" className="hover:text-green-600">
-                            Contact us
-                        </a>
+                        <p className="font-bold">{t2("customerCare")}</p>
+                        <Link href="/" className="hover:text-green-600">
+                            {t2("wishlist")}
+                        </Link>
+                        <Link href="/" className="hover:text-green-600">
+                            {t2("login")}
+                        </Link>
+                        <Link href="/" className="hover:text-green-600">
+                            {t2("myAccount")}
+                        </Link>
+                        <Link href="/" className="hover:text-green-600">
+                            {t2("orderTracking")}
+                        </Link>
+                        <Link href="/FAQ" className="hover:text-green-600">
+                            {t2("faq")}
+                        </Link>
+                        <Link href="/Contact" className="hover:text-green-600">
+                            {t2("contactUs")}
+                        </Link>
                     </div>
                     <div className="flex flex-col gap-5 md:w-2/12">
-                        <p className="font-bold">Newsletter</p>
-                        <p>
-                            Subscribe to our weekly Newsletter and receive
-                            updates via email.
-                        </p>
+                        <p className="font-bold">{t2("newsletter")}</p>
+                        <p>{t2("subscribe")}</p>
                         <div className="flex">
                             <input
                                 type="text"
-                                placeholder="Email*"
+                                placeholder={`${t2("email")}*`}
                                 className="border-2 border-gray-50 outline-0 p-4 focus:border-green-600"
                             />
                             <button className="p-4 text-white bg-green-600">
                                 <FaLocationArrow />
                             </button>
                         </div>
-                        <p className="font-bold">We Accept</p>
+                        <p className="font-bold">{t2("weAccept")}</p>
                         <img
                             src="data:image/webp;base64,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"
                             alt="visa image"
@@ -230,18 +209,16 @@ export default async function page() {
                     </div>
                 </div>
                 <div className="flex md:flex-row flex-col justify-around bg-black p-8">
-                    <p className="text-white">
-                        All Rights Reserved @ Company 2025
-                    </p>
+                    <p className="text-white">{t2("rights")}</p>
                     <div className="flex gap-4 md:flex-row flex-col">
                         <a href="#" className="hover:text-green-500 text-white">
-                            Terms & Conditions
+                            {t2("termsConditions")}
                         </a>
                         <a href="#" className="hover:text-green-500 text-white">
-                            Claim
+                            {t2("claim")}
                         </a>
                         <a href="#" className="hover:text-green-500 text-white">
-                            Privacy & Policy
+                            {t2("privacyPolicy")}
                         </a>
                     </div>
                 </div>
