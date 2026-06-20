@@ -4,9 +4,17 @@ const withNextIntl = createNextIntlPlugin();
  
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images:{
-    domains:['broccolisite.netlify.app','res.cloudinary.com']
-}
+    images: {
+        dangerouslyAllowSVG: true,
+        contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+        remotePatterns: [
+            { protocol: 'https', hostname: 'placehold.co' },
+            { protocol: 'https', hostname: 'images.unsplash.com' },
+            { protocol: 'https', hostname: 'plus.unsplash.com' },
+            { protocol: 'https', hostname: 'broccolisite.netlify.app' },
+            { protocol: 'https', hostname: 'lh3.googleusercontent.com' },
+        ],
+    }
 };
  
 module.exports = withNextIntl(nextConfig);

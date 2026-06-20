@@ -8,12 +8,15 @@ import { prisma } from "../../../../lib/prisma";
 
 import Link from "next/link";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 export default async function page({ params }) {
-      console.log("params:", params);
-    const product = await prisma.product.findUnique({
-        where: { id: params.id },
-    });
+    const { id } = await params;
+    let product = null;
+    try {
+        product = await prisma.product.findUnique({ where: { id } });
+    } catch (_) {}
+    if (!product) return notFound();
     const totalStars = 5;
     return (
         <div className="">

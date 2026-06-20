@@ -34,8 +34,6 @@ export default function SearchButton() {
     const filtered = products.filter((p) =>
         p.title.toLowerCase().includes(query.toLowerCase())
     );
-    console.log(filtered);
-
     return (
         <div>
             <Popover>

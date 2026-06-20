@@ -19,13 +19,12 @@ import { prisma } from "../../lib/prisma";
 import { getTranslations } from "next-intl/server";
 import FeaturedProducts from "./components/FeaturedProducts";
 export default async function Home({ params }) {
-    const offers = await prisma.offer.findMany({
-        orderBy: {
-            createdAt: "desc",
-        },
-    });
+    const { locale } = await params;
+    let offers = [];
+    try {
+        offers = await prisma.offer.findMany({ orderBy: { createdAt: "desc" } });
+    } catch (_) {}
     const t = await getTranslations("Home");
-    const locale = params.locale;
     return (
         <main dir={locale === "ar" ? "rtl":"ltr"}>
             <header className='flex relative justify-between bg-[#F7F5EB] lg:px-20 md:px-10 px-4 after:content-[""] py-5 after:bg-gray-200 after:h-0.5 after:w-screen after:absolute after:bottom-0 after:right-0 '>

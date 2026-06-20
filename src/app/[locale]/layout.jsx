@@ -1,9 +1,9 @@
-// src/app/[locale]/layout.jsx
 import "../globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import ReduxProvider from "../../lib/redux/ReduxProvider";
+import AuthProvider from "../../lib/AuthProvider";
 import { routing } from "../../i18n/routing";
 
 export default async function RootLayout({ children, params }) {
@@ -19,10 +19,12 @@ export default async function RootLayout({ children, params }) {
     <html lang={locale}>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ReduxProvider>
-            {children}
-            <Toaster />
-          </ReduxProvider>
+          <AuthProvider>
+            <ReduxProvider>
+              {children}
+              <Toaster />
+            </ReduxProvider>
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -3,10 +3,13 @@ import Image from "next/image";
 import { prisma } from "../../../lib/prisma";
 import { FaStar } from "react-icons/fa";
 export default async function FeaturedProducts() {
-    const products = await prisma.product.findMany({
-        where: { isFeatured: true },
-        orderBy: { rate: "desc" },
-    });
+    let products = [];
+    try {
+        products = await prisma.product.findMany({
+            where: { isFeatured: true },
+            orderBy: { rate: "desc" },
+        });
+    } catch (_) {}
     const limitedFeaturedProducts = products.slice(0, 8);
     const totalStars = 5;
     return (

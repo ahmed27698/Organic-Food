@@ -3,13 +3,9 @@ import bcrypt from "bcrypt";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
-  console.log("API HIT");
-
   try {
     const body = await request.json();
     const { firstName, lastName, email, password } = body;
-
-    console.log("Request body:", body);
 
     const existingUser = await prisma.user.findUnique({
       where: {

@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import { FiExternalLink } from "react-icons/fi";
 
 export default function AdminProductForm() {
   const t = useTranslations("addingproducts");
@@ -13,75 +15,83 @@ export default function AdminProductForm() {
   const [description, setDescription] = useState("");
   const [stock, setStock] = useState("");
   const [isFeatured, setIsFeatured] = useState(false);
-  const [image, setImage] = useState(null);
-  const [uploading, setUploading] = useState(false);
-
-  const handleFileChange = (e) => {
-    setImage(e.target.files[0]);
-  };
+  const [imageUrl, setImageUrl] = useState("");
+  const [saving, setSaving] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!title || !price || !category || !stock || !image) {
-      toast("Please fill all required fields");
+    if (!title || !price || !category || !stock || !imageUrl) {
+      toast("Please fill all required fields including the image URL");
       return;
     }
 
-    setUploading(true);
-
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("price", price);
-    formData.append("rate", rate || 0);
-    formData.append("category", category);
-    formData.append("description", description);
-    formData.append("stock", stock);
-    formData.append("isFeatured", isFeatured);
-    formData.append("image", image);
+    setSaving(true);
 
     try {
       const res = await fetch("/api/products", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, price, rate, category, description, stock, isFeatured, imageUrl }),
       });
 
-      if (res.ok) {
+      const data = await res.json();
+
+      if (res.ok && data.success) {
         toast(t("productSaved"));
-        setTitle("");
-        setPrice("");
-        setRate("");
-        setCategory("");
-        setDescription("");
-        setStock("");
-        setIsFeatured(false);
-        setImage(null);
+        setTitle(""); setPrice(""); setRate(""); setCategory("");
+        setDescription(""); setStock(""); setIsFeatured(false); setImageUrl("");
       } else {
-        const errData = await res.json();
-        toast(`${t("productSaveFailed")} ${errData.error || "Unknown error"}`);
+        toast(`${t("productSaveFailed")}: ${data.error || "Unknown error"}`);
       }
     } catch (err) {
       toast(t("somethingWentWrong"));
       console.error(err);
     }
 
-    setUploading(false);
+    setSaving(false);
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="p-4 space-y-1 flex gap-5 flex-wrap"
-      encType="multipart/form-data"
-    >
-      <div className="w-4/12">
-        <label htmlFor="title" className="block mb-1 font-semibold">
-          {t("productName")}
+    <form onSubmit={handleSubmit} className="p-4 space-y-1 flex gap-4 flex-wrap overflow-y-auto max-h-[480px]">
+
+      <div className="w-full">
+        <label className="block mb-1 font-semibold text-xs text-muted-foreground uppercase tracking-wide">
+          Image URL
+          <a
+            href="https://unsplash.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 text-blue-500 hover:text-blue-700 inline-flex items-center gap-1 normal-case font-normal"
+          >
+            Browse Unsplash <FiExternalLink className="text-xs" />
+          </a>
         </label>
         <input
+          type="url"
+          placeholder="https://images.unsplash.com/photo-..."
+          className="w-full border rounded p-2 text-sm"
+          value={imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
+          required
+        />
+        {imageUrl && (
+          <div className="mt-2 relative w-24 h-24 rounded overflow-hidden border">
+            <Image
+              src={imageUrl}
+              alt="preview"
+              fill
+              className="object-cover"
+              onError={() => {}}
+            />
+          </div>
+        )}
+      </div>
+
+      <div className="w-5/12">
+        <label className="block mb-1 font-semibold">{t("productName")}</label>
+        <input
           type="text"
-          id="title"
-          name="title"
           className="w-full border rounded p-2"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -89,64 +99,43 @@ export default function AdminProductForm() {
         />
       </div>
 
-      <div className="lg:w-3/12">
-        <label htmlFor="price" className="block mb-1 font-semibold">
-          {t("price")}
-        </label>
+      <div className="w-3/12">
+        <label className="block mb-1 font-semibold">{t("price")}</label>
         <input
           type="number"
-          id="price"
-          name="price"
           className="w-full border rounded p-2"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
-          required
-          min="0"
-          step="0.01"
+          required min="0" step="0.01"
         />
       </div>
 
-      <div className="lg:w-3/12">
-        <label htmlFor="rate" className="block mb-1 font-semibold">
-          {t("rate")}
-        </label>
+      <div className="w-3/12">
+        <label className="block mb-1 font-semibold">{t("rate")}</label>
         <input
           type="number"
-          id="rate"
-          name="rate"
           className="w-full border rounded p-2"
           value={rate}
           onChange={(e) => setRate(e.target.value)}
-          min="0"
-          max="5"
-          step="0.1"
+          min="0" max="5" step="0.1"
         />
       </div>
 
-      <div className="lg:w-3/12">
-        <label htmlFor="stock" className="block mb-1 font-semibold">
-          {t("stock")}
-        </label>
+      <div className="w-3/12">
+        <label className="block mb-1 font-semibold">{t("stock")}</label>
         <input
           type="number"
-          id="stock"
-          name="stock"
           className="w-full border rounded p-2"
           value={stock}
           onChange={(e) => setStock(e.target.value)}
-          required
-          min="0"
+          required min="0"
         />
       </div>
 
-      <div className="lg:w-5/12">
-        <label htmlFor="category" className="block mb-1 font-semibold">
-          {t("category")}
-        </label>
+      <div className="w-5/12">
+        <label className="block mb-1 font-semibold">{t("category")}</label>
         <input
           type="text"
-          id="category"
-          name="category"
           className="w-full border rounded p-2"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
@@ -154,52 +143,32 @@ export default function AdminProductForm() {
         />
       </div>
 
-      <div className="lg:w-full">
-        <label htmlFor="description" className="block mb-1 font-semibold">
-          {t("description")}
-        </label>
+      <div className="w-full">
+        <label className="block mb-1 font-semibold">{t("description")}</label>
         <textarea
-          id="description"
-          name="description"
           className="w-full border rounded p-2"
+          rows={3}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
 
-      <div className="lg:w-7/12">
-        <label htmlFor="image" className="block mb-1 font-semibold">
-          {t("chooseImage")}
-        </label>
-        <input
-          type="file"
-          id="image"
-          name="image"
-          accept="image/*"
-          onChange={handleFileChange}
-          required
-        />
-      </div>
-
-      <div className="flex items-center space-x-2 lg:w-4/12">
+      <div className="flex items-center gap-2 w-full">
         <input
           type="checkbox"
           id="isFeatured"
-          name="isFeatured"
           checked={isFeatured}
           onChange={(e) => setIsFeatured(e.target.checked)}
         />
-        <label htmlFor="isFeatured" className="font-semibold">
-          {t("featured")}
-        </label>
+        <label htmlFor="isFeatured" className="font-semibold">{t("featured")}</label>
       </div>
 
       <button
         type="submit"
-        disabled={uploading}
-        className="bg-green-600 text-white m-auto px-4 py-2 rounded hover:bg-green-700 disabled:opacity-50"
+        disabled={saving}
+        className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 disabled:opacity-50"
       >
-        {uploading ? t("pleaseWait") : t("save")}
+        {saving ? t("pleaseWait") : t("save")}
       </button>
     </form>
   );

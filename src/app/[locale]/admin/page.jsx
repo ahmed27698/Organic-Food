@@ -2,6 +2,8 @@ import AdminButton from "../components/AdminButton";
 import AddingProductButton from "../components/AddingProductButton";
 import AdminProductUpdata from "../components/AdminProductUpdata";
 import { prisma } from "../../../lib/prisma";
+import { auth } from "../../auth";
+import { redirect } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -33,16 +35,21 @@ import {
 import { Progress } from "@/components/ui/progress";
 import DeletingProduct from "../components/DeletingProduct";
 import Chart from "../components/Chart";
-export default async function page({ params }) {
-    const products = await prisma.product.findMany({
-        orderBy: { createdAt: "desc" },
-        where: { id: params.id },
-    });
+export default async function page() {
+    const session = await auth();
 
-    const offers = await prisma.offer.findMany({
-        orderBy: { createdAt: "desc" },
-        where: { id: params.id },
-    });
+    if (!session || session.user?.role !== "admin") {
+        redirect("/");
+    }
+
+    let products = [];
+    let offers = [];
+    try {
+        [products, offers] = await Promise.all([
+            prisma.product.findMany({ orderBy: { createdAt: "desc" } }),
+            prisma.offer.findMany({ orderBy: { createdAt: "desc" } }),
+        ]);
+    } catch (_) {}
     return (
         <main className="bg-gray-200 ">
             <Tabs defaultValue="all_products" className="w-full">

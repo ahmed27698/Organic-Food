@@ -16,8 +16,8 @@ import { Blogs, Tabs } from "../clientPage";
 import Link from "next/link";
 
 import { useTranslations } from "next-intl";
-export default function page({ params }) {
-    const locale = params.locale;
+export default async function page({ params }) {
+    const { locale } = await params;
     const t2 = useTranslations("Home");
     const t = useTranslations("history");
     return (

@@ -1,3 +1,5 @@
+"use client";
+import { useParams } from "next/navigation";
 import { FiPhoneCall } from "react-icons/fi";
 import { CiMail } from "react-icons/ci";
 import { BsTwitterX, BsInstagram } from "react-icons/bs";
@@ -9,11 +11,11 @@ import Link from "next/link";
 
 import { useTranslations } from "next-intl";
 
-export default function page({ params }) {
+export default function page() {
     const t = useTranslations("teamDetails");
     const t2 = useTranslations("Home");
     const t3 = useTranslations("team");
-    const locale = params.locale;
+    const { locale } = useParams();
     return (
         <section dir={locale === "ar" ? "rtl" : "ltr"}>
             <NavBarPages navLink="/" />

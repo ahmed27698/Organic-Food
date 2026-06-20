@@ -11,7 +11,8 @@ import NavBarPages from "../components/NavbarPages";
 import ProductsClient from "./ClientProduct";
 
 import { getTranslations } from "next-intl/server";
-export default async function page({ params: { locale } }) {
+export default async function page({ params }) {
+    const { locale } = await params;
     const t2 = await getTranslations("Home");
     const t = await getTranslations("shop");
 

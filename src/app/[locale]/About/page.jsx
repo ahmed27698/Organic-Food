@@ -10,8 +10,8 @@ import Link from "next/link";
 
 import { getTranslations } from "next-intl/server";
 export default async function page({ params }) {
+    const { locale } = await params;
     let expertsData = [];
-    const locale = params.locale;
     try {
         const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
         const res = await fetch(`${baseUrl}/api/experts?limit=4`, {
