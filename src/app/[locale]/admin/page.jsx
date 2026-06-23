@@ -22,6 +22,7 @@ import {
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import AddingOffers from "../components/addingOffers";
+import DeletingOffer from "../components/DeletingOffer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
     Card,
@@ -248,28 +249,50 @@ export default async function page() {
                                 </div>
                                 <AddingOffers />
                             </div>
-                            <div className="flex gap-5 mt-15 flex-wrap justify-center items-center ">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8 w-full">
                                 {offers.map((offer) => {
+                                    const discount = Math.round(
+                                        ((offer.originalPrice - offer.discountedPrice) / offer.originalPrice) * 100
+                                    );
+                                    const savings = (offer.originalPrice - offer.discountedPrice).toFixed(2);
                                     return (
                                         <div
                                             key={offer.id}
-                                            className="flex flex-col group gap-5 bg-white items-center hover:scale-110 duration-500 md:w-3/12 py-8 w-full shadow-2xl"
+                                            className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow flex flex-col"
                                         >
-                                            <p className="font-bold text-xl ">
-                                                {offer.title}
-                                            </p>
-                                            <div className="group-hover:text-green-600 bg-[#F7F5EB] w-full h-16 flex justify-around items-center font-bold text-xl">
-                                                <p>
-                                                    <del>
-                                                        {offer.originalPrice}$
-                                                    </del>
+                                            <div className="bg-gradient-to-r from-green-500 to-emerald-600 p-4 flex justify-between items-start gap-2">
+                                                <p className="text-white font-bold text-base leading-snug line-clamp-2">
+                                                    {offer.title}
                                                 </p>
-                                                <p>{offer.discountedPrice}$</p>
+                                                <span className="bg-white text-green-600 text-xs font-bold px-2 py-1 rounded-full shrink-0">
+                                                    -{discount}%
+                                                </span>
                                             </div>
-
-                                            <p className="px-10">
-                                                {offer.description}
-                                            </p>
+                                            <div className="p-4 flex flex-col gap-3 flex-1">
+                                                <p className="text-gray-500 text-sm leading-relaxed line-clamp-3">
+                                                    {offer.description}
+                                                </p>
+                                                <div className="grid grid-cols-3 gap-2 py-3 border-t border-gray-100">
+                                                    <div>
+                                                        <p className="text-xs text-gray-400 mb-0.5">Original</p>
+                                                        <del className="text-gray-500 font-semibold text-sm">${offer.originalPrice}</del>
+                                                    </div>
+                                                    <div>
+                                                        <p className="text-xs text-gray-400 mb-0.5">Price</p>
+                                                        <p className="text-green-600 font-bold">${offer.discountedPrice}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="text-xs text-gray-400 mb-0.5">You Save</p>
+                                                        <p className="text-emerald-600 font-semibold text-sm">${savings}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="flex justify-between items-center pt-1 border-t border-gray-100">
+                                                    <p className="text-xs text-gray-400">
+                                                        {new Date(offer.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+                                                    </p>
+                                                    <DeletingOffer offer={offer} />
+                                                </div>
+                                            </div>
                                         </div>
                                     );
                                 })}

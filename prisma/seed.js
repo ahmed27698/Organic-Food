@@ -93,6 +93,45 @@ const products = [
   { title: "Organic Baobab Powder",      price: 21.99, rate: 4.7, category: "Superfoods", image: imgColor("Baobab", "c2410c"), description: "African organic baobab fruit powder — exceptionally rich in vitamin C (6× more than oranges) and soluble fibre.", stock: 30,  isFeatured: false },
 ];
 
+const offers = [
+  {
+    title: "Fresh Organic Apple Box",
+    description: "A hand-picked selection of crisp, sweet organic apples direct from certified farms. Perfect for healthy snacking all week long.",
+    originalPrice: 18.99,
+    discountedPrice: 11.99,
+  },
+  {
+    title: "Weekly Green Smoothie Bundle",
+    description: "Everything you need for 7 days of nutrient-packed green smoothies — spinach, kale, cucumber, and more, all organically grown.",
+    originalPrice: 32.00,
+    discountedPrice: 21.99,
+  },
+  {
+    title: "Seasonal Veggie Box",
+    description: "A curated mix of seasonal organic vegetables delivered fresh. Supports local organic farmers and fills your kitchen with colour.",
+    originalPrice: 28.00,
+    discountedPrice: 19.50,
+  },
+  {
+    title: "Organic Herb Garden Kit",
+    description: "Grow your own basil, mint, rosemary, and parsley at home with our ready-to-plant certified organic starter kits.",
+    originalPrice: 22.00,
+    discountedPrice: 14.99,
+  },
+  {
+    title: "Cold-Pressed Juice Pack",
+    description: "Six bottles of cold-pressed, small-batch organic juice — no additives, no preservatives, just pure fruit and vegetable goodness.",
+    originalPrice: 38.00,
+    discountedPrice: 26.99,
+  },
+  {
+    title: "Whole Grain & Nuts Basket",
+    description: "A premium assortment of organic quinoa, rolled oats, almonds, walnuts, and chia seeds for a week of wholesome meals.",
+    originalPrice: 24.00,
+    discountedPrice: 16.50,
+  },
+];
+
 async function main() {
   console.log(`Seeding ${products.length} products across 8 categories…`);
 
@@ -103,6 +142,11 @@ async function main() {
       create: product,
     });
   }
+
+  console.log("Seeding 6 offers…");
+
+  await prisma.offer.deleteMany();
+  await prisma.offer.createMany({ data: offers });
 
   console.log("✅ Seed complete!");
 }

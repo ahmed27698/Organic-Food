@@ -141,32 +141,67 @@ export default async function Home({ params }) {
                     alt="image"
                 />
             </section>
-            <section className="lg:px-10 md:px-7 px-4 my-10 text-center">
-                <p className="text-green-600">{t("bestSelling")}</p>
-                <p className="font-extrabold text-2xl">
-                    {t("offers")}<span className="text-green-600">.</span>
-                </p>
-                <div className="flex justify-center flex-col md:flex-row mt-10 gap-8">
-                    {offers.map((offer) => (
-                        <div
-                            key={offer.id}
-                            className="flex flex-col group gap-5 items-center hover:scale-110 duration-500 md:w-3/12 py-8 w-full shadow-2xl"
-                        >
-                            <p className="font-bold text-xl ">{offer.title}</p>
-                            <div className="group-hover:text-green-600 bg-[#F7F5EB] w-full h-16 flex justify-around items-center font-bold text-xl">
-                                <p>
-                                    <del>{offer.originalPrice}$</del>
-                                </p>
-                                <p>{offer.discountedPrice}$</p>
+            <section className="lg:px-16 md:px-10 px-4 my-16 py-16 bg-gradient-to-b from-white to-[#F7F5EB]">
+                <div className="text-center mb-12">
+                    <p className="text-green-600 font-semibold text-sm uppercase tracking-widest mb-2">
+                        {t("bestSelling")}
+                    </p>
+                    <h2 className="font-extrabold text-4xl text-gray-900">
+                        {t("offers")}<span className="text-green-600">.</span>
+                    </h2>
+                    <p className="text-gray-500 mt-3 max-w-xl mx-auto text-sm">
+                        Limited-time organic deals — fresh, natural, and priced to save.
+                    </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {offers.map((offer, idx) => {
+                        const discount = Math.round(
+                            ((offer.originalPrice - offer.discountedPrice) / offer.originalPrice) * 100
+                        );
+                        const stripes = [
+                            "from-green-400 to-green-600",
+                            "from-emerald-400 to-teal-600",
+                            "from-lime-400 to-green-500",
+                            "from-teal-400 to-cyan-600",
+                            "from-green-500 to-emerald-700",
+                            "from-cyan-400 to-teal-500",
+                        ];
+                        const icons = ["🍎", "🥦", "🥕", "🌿", "🍋", "🌾"];
+                        const stripe = stripes[idx % stripes.length];
+                        return (
+                            <div
+                                key={offer.id}
+                                className="relative bg-white rounded-2xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
+                            >
+                                <div className={`h-1.5 bg-gradient-to-r ${stripe}`} />
+                                <span className="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow">
+                                    -{discount}%
+                                </span>
+                                <div className="p-6 flex flex-col gap-4 flex-1">
+                                    <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${stripe} flex items-center justify-center text-2xl shadow-md`}>
+                                        {icons[idx % icons.length]}
+                                    </div>
+                                    <h3 className="font-bold text-xl text-gray-800 leading-snug">
+                                        {offer.title}
+                                    </h3>
+                                    <p className="text-gray-500 text-sm leading-relaxed flex-1">
+                                        {offer.description}
+                                    </p>
+                                    <div className="flex items-end gap-3 pt-2 border-t border-gray-100">
+                                        <span className="text-green-600 font-bold text-2xl">
+                                            ${offer.discountedPrice}
+                                        </span>
+                                        <del className="text-gray-400 text-base mb-0.5">
+                                            ${offer.originalPrice}
+                                        </del>
+                                    </div>
+                                    <button className={`w-full py-3 bg-gradient-to-r ${stripe} text-white font-semibold rounded-xl hover:opacity-90 transition-opacity duration-200 shadow-sm group-hover:shadow-md`}>
+                                        {t("purchase")}
+                                    </button>
+                                </div>
                             </div>
-
-                            <p className="px-10">{offer.description}</p>
-
-                            <button className="px-10 py-3 bg-green-600 text-white">
-                                {t("purchase")}
-                            </button>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </section>
             <section>
